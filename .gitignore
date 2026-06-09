@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+assets/cc.lt.300.bin
+assets/cc.lt.300.bin.gz

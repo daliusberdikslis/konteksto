@@ -1,0 +1,6 @@
+.git
+.gitattributes
+__pycache__
+*.pyc
+.DS_Store
+assets/lithuanian_contexto_guide.pdf
