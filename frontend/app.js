@@ -5,10 +5,13 @@
 const CONFIG = {
   API_BASE: "https://daliusber-konteksto.hf.space",
   GUESS_ENDPOINT: "/api/v1/guess",
+  HEALTH_ENDPOINT: "/health",
   WIN_THRESHOLD: 0.9999,
   REQUEST_TIMEOUT_MS: 120_000,
   MAX_ATTEMPTS: 6,
   RETRY_DELAY_MS: 8_000,
+  STORAGE_VERSION: 1,
+  DEFAULT_TARGET: "krepšinis",
 };
 
 // --- State ---
@@ -16,6 +19,8 @@ const state = {
   guesses: [],
   isLoading: false,
   hasWon: false,
+  targetLemma: CONFIG.DEFAULT_TARGET,
+  totalWords: null,
 };
 
 // --- DOM References ---
@@ -25,18 +30,94 @@ const dom = {
   submit: document.getElementById("guess-submit"),
   error: document.getElementById("input-error"),
   guessList: document.getElementById("guess-list"),
-  emptyState: document.getElementById("empty-state"),
   guessCount: document.getElementById("guess-count"),
   bestScore: document.getElementById("best-score"),
+  bestPosition: document.getElementById("best-position"),
   winBanner: document.getElementById("win-banner"),
   winCount: document.getElementById("win-count"),
+  resetBtn: document.getElementById("reset-game"),
 };
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function storageKey() {
+  return `konteksto:v${CONFIG.STORAGE_VERSION}:${state.targetLemma}`;
+}
+
+// --- Progress persistence ---
+function saveProgress() {
+  try {
+    const payload = {
+      version: CONFIG.STORAGE_VERSION,
+      target: state.targetLemma,
+      totalWords: state.totalWords,
+      guesses: state.guesses,
+      hasWon: state.hasWon,
+      savedAt: new Date().toISOString(),
+    };
+    localStorage.setItem(storageKey(), JSON.stringify(payload));
+  } catch (err) {
+    console.warn("Could not save progress:", err);
+  }
+}
+
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(storageKey());
+    if (!raw) return false;
+
+    const data = JSON.parse(raw);
+    if (
+      data.version !== CONFIG.STORAGE_VERSION ||
+      data.target !== state.targetLemma ||
+      !Array.isArray(data.guesses)
+    ) {
+      localStorage.removeItem(storageKey());
+      return false;
+    }
+
+    state.guesses = data.guesses.filter(
+      (g) =>
+        g &&
+        typeof g.input === "string" &&
+        typeof g.lemma === "string" &&
+        typeof g.similarity === "number" &&
+        typeof g.position === "number"
+    );
+    state.hasWon = Boolean(data.hasWon);
+    if (typeof data.totalWords === "number" && data.totalWords > 0) {
+      state.totalWords = data.totalWords;
+    }
+    return true;
+  } catch (err) {
+    console.warn("Could not load progress:", err);
+    localStorage.removeItem(storageKey());
+    return false;
+  }
+}
+
+function clearProgress() {
+  try {
+    localStorage.removeItem(storageKey());
+  } catch (err) {
+    console.warn("Could not clear progress:", err);
+  }
+}
+
 // --- API ---
+async function fetchHealth() {
+  const url = `${CONFIG.API_BASE}${CONFIG.HEALTH_ENDPOINT}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) return null;
+    return response.json();
+  } catch {
+    return null;
+  }
+}
+
 async function fetchGuess(word) {
   const url = `${CONFIG.API_BASE}${CONFIG.GUESS_ENDPOINT}?word=${encodeURIComponent(word)}`;
   let lastError = null;
@@ -84,8 +165,6 @@ async function fetchGuess(word) {
 
 // --- Scoring Helpers ---
 function similarityToPercent(similarity) {
-  // Map raw cosine similarity (-1 to 1) to a 0-100 display percentage
-  // Using a clamped linear mapping from 0..1 range
   const clamped = Math.max(0, Math.min(1, similarity));
   return Math.round(clamped * 100);
 }
@@ -96,6 +175,13 @@ function getScoreClass(similarity) {
   if (similarity >= 0.3) return "score-warm";
   if (similarity >= 0.15) return "score-cool";
   return "score-cold";
+}
+
+function formatPositionLabel(position) {
+  if (state.totalWords) {
+    return `#${position} <span class="position-of">iš ${state.totalWords.toLocaleString("lt-LT")}</span>`;
+  }
+  return `#${position}`;
 }
 
 // --- Rendering ---
@@ -110,7 +196,9 @@ function createGuessRow(guess) {
   row.dataset.lemma = guess.lemma;
 
   row.innerHTML = `
-    <span class="guess-rank">#${guess.rank}</span>
+    <div class="guess-position" aria-label="Pozicija žodyne">
+      <span class="guess-position-num">${formatPositionLabel(guess.position)}</span>
+    </div>
     <div class="guess-word-col">
       <span class="guess-word">${escapeHTML(guess.input)}</span>
       ${guess.lemma !== guess.input.toLowerCase() ? `<span class="guess-lemma">→ ${escapeHTML(guess.lemma)}</span>` : ""}
@@ -123,7 +211,6 @@ function createGuessRow(guess) {
     </div>
   `;
 
-  // Animate bar fill after paint
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       const fill = row.querySelector(".bar-fill");
@@ -135,13 +222,8 @@ function createGuessRow(guess) {
 }
 
 function renderGuessList() {
-  // Sort by similarity descending
   const sorted = [...state.guesses].sort((a, b) => b.similarity - a.similarity);
 
-  // Assign ranks
-  sorted.forEach((g, i) => { g.rank = i + 1; });
-
-  // Clear and rebuild
   dom.guessList.innerHTML = "";
 
   if (sorted.length === 0) {
@@ -172,8 +254,12 @@ function updateStats() {
   if (state.guesses.length > 0) {
     const best = Math.max(...state.guesses.map((g) => g.similarity));
     dom.bestScore.textContent = `${similarityToPercent(best)}%`;
+
+    const bestPos = Math.min(...state.guesses.map((g) => g.position));
+    dom.bestPosition.textContent = `#${bestPos}`;
   } else {
     dom.bestScore.textContent = "—";
+    dom.bestPosition.textContent = "—";
   }
 }
 
@@ -183,6 +269,30 @@ function showWin() {
   dom.winBanner.hidden = false;
   dom.input.disabled = true;
   dom.submit.disabled = true;
+}
+
+function hideWin() {
+  state.hasWon = false;
+  dom.winBanner.hidden = true;
+  dom.input.disabled = false;
+  dom.submit.disabled = false;
+}
+
+function resetGame() {
+  const confirmed = confirm(
+    "Ištrinti visus spėjimus ir pradėti iš naujo?"
+  );
+  if (!confirmed) return;
+
+  clearProgress();
+  state.guesses = [];
+  state.hasWon = false;
+  hideWin();
+  renderGuessList();
+  updateStats();
+  clearError();
+  dom.input.value = "";
+  dom.input.focus();
 }
 
 // --- Error Display ---
@@ -201,7 +311,7 @@ function clearError() {
 // --- Loading State ---
 function setLoading(loading) {
   state.isLoading = loading;
-  dom.submit.disabled = loading;
+  dom.submit.disabled = loading || state.hasWon;
   dom.submit.classList.toggle("loading", loading);
   if (loading) {
     dom.input.setAttribute("aria-busy", "true");
@@ -220,7 +330,6 @@ function highlightDuplicate(lemma) {
   rows.forEach((row) => {
     if (row.dataset.lemma === lemma) {
       row.classList.remove("shake");
-      // Force reflow to restart animation
       void row.offsetWidth;
       row.classList.add("shake");
     }
@@ -242,7 +351,6 @@ async function handleSubmit(event) {
   try {
     const data = await fetchGuess(word);
 
-    // Check for duplicate lemma
     if (isDuplicate(data.lemma)) {
       highlightDuplicate(data.lemma);
       showError(`„${data.lemma}" jau buvo spėtas!`);
@@ -250,23 +358,22 @@ async function handleSubmit(event) {
       return;
     }
 
-    // Add guess
     state.guesses.push({
       input: data.input || word,
       lemma: data.lemma,
       similarity: data.similarity,
-      rank: 0,
+      position: data.rank,
     });
 
     renderGuessList();
     updateStats();
+    saveProgress();
 
-    // Check for win
     if (data.similarity >= CONFIG.WIN_THRESHOLD) {
       showWin();
+      saveProgress();
     }
 
-    // Clear input
     dom.input.value = "";
     dom.input.focus();
   } catch (err) {
@@ -285,8 +392,28 @@ function escapeHTML(str) {
 }
 
 // --- Init ---
-function init() {
+async function init() {
+  const health = await fetchHealth();
+  if (health) {
+    if (health.target_lemma) {
+      state.targetLemma = health.target_lemma;
+    }
+    if (typeof health.total_words === "number") {
+      state.totalWords = health.total_words;
+    }
+  }
+
+  const restored = loadProgress();
+  if (restored) {
+    renderGuessList();
+    updateStats();
+    if (state.hasWon) {
+      showWin();
+    }
+  }
+
   dom.form.addEventListener("submit", handleSubmit);
+  dom.resetBtn.addEventListener("click", resetGame);
   dom.input.focus();
 }
 

@@ -169,12 +169,43 @@ a:hover {
   padding: var(--space-xl) 0 var(--space-lg);
 }
 
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xs);
+}
+
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  margin-bottom: var(--space-xs);
+}
+
+.reset-btn {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-xs) var(--space-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.reset-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+}
+
+.reset-btn:active {
+  transform: scale(0.97);
 }
 
 .logo-icon {
@@ -457,7 +488,7 @@ a:hover {
 /* --- Guess Row --- */
 .guess-row {
   display: grid;
-  grid-template-columns: 42px 1fr auto;
+  grid-template-columns: 72px 1fr auto;
   align-items: center;
   gap: var(--space-md);
   padding: var(--space-sm) var(--space-md);
@@ -484,12 +515,24 @@ a:hover {
   background: var(--success-soft);
 }
 
-.guess-rank {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--text-muted);
+.guess-position {
   text-align: center;
+  line-height: 1.2;
+}
+
+.guess-position-num {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-primary);
   font-variant-numeric: tabular-nums;
+}
+
+.position-of {
+  display: block;
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 2px;
 }
 
 .guess-word-col {
@@ -592,10 +635,18 @@ a:hover {
     min-width: 90px;
   }
 
+  .header-top {
+    flex-wrap: wrap;
+  }
+
   .guess-row {
-    grid-template-columns: 32px 1fr auto;
+    grid-template-columns: 58px 1fr auto;
     gap: var(--space-sm);
     padding: var(--space-sm);
+  }
+
+  .guess-position-num {
+    font-size: 0.75rem;
   }
 }
 
