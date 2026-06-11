@@ -9,21 +9,20 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Runtime deps for lex (JRE), process manager, and hmorphd2 (bundled Ubuntu 18.04 libs below)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     supervisor \
     default-jre-headless \
+    libglib2.0-0 \
+    libpcre3 \
     && rm -rf /var/lib/apt/lists/*
 
-# hmorphd2 is built for Ubuntu 18.04 / Qt 5.9 — copy only its binary and matching libs.
-# Do NOT install Debian Qt packages or copy the full morph rootfs (glibc/ICU conflicts).
+# hmorphd2 binary, config, dictionaries, and Ubuntu 18.04 Qt/ICU libs (not in Debian).
 COPY --from=morph-stage /usr/bin/hmorphd2 /usr/local/bin/hmorphd2
 COPY --from=morph-stage /etc/hmorph2.ini /etc/hmorph2.ini
 COPY --from=morph-stage /usr/local/share/hs_dictionaries /usr/local/share/hs_dictionaries
 COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5 /usr/local/lib/morph/
 COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libQt5Network.so.5.9.5 /usr/local/lib/morph/
 COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libdouble-conversion.so.1 /usr/local/lib/morph/
-COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4 /usr/local/lib/morph/
 COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libicudata.so.60 /usr/local/lib/morph/
 COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libicui18n.so.60 /usr/local/lib/morph/
 COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libicuuc.so.60 /usr/local/lib/morph/
@@ -33,7 +32,6 @@ RUN set -eux; \
     cd /usr/local/lib/morph; \
     ln -sf libQt5Core.so.5.9.5 libQt5Core.so.5; \
     ln -sf libQt5Network.so.5.9.5 libQt5Network.so.5; \
-    ln -sf libglib-2.0.so.0.5600.4 libglib-2.0.so.0; \
     echo "/usr/local/lib/morph" > /etc/ld.so.conf.d/morph.conf; \
     ldconfig; \
     ldd /usr/local/bin/hmorphd2; \
