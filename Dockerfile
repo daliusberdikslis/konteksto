@@ -9,21 +9,30 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install system dependencies: JRE for lex, supervisord, curl, Qt5 for hmorphd2
+# Runtime deps for lex (JRE), process manager, and hmorphd2 (bundled Ubuntu 18.04 libs below)
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    curl \
     supervisor \
     default-jre-headless \
-    libqt5network5 \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy the entire morph filesystem into /opt/morph and keep the binary in place
-COPY --from=morph-stage / /opt/morph-root/
+# hmorphd2 is built for Ubuntu 18.04 / Qt 5.9 — copy only its binary and matching libs.
+# Do NOT install Debian Qt packages or copy the full morph rootfs (glibc/ICU conflicts).
+COPY --from=morph-stage /usr/bin/hmorphd2 /usr/local/bin/hmorphd2
+COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5 /usr/local/lib/morph/
+COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libQt5Network.so.5.9.5 /usr/local/lib/morph/
+COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libdouble-conversion.so.1 /usr/local/lib/morph/
+COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libicudata.so.60 /usr/local/lib/morph/
+COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libicui18n.so.60 /usr/local/lib/morph/
+COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libicuuc.so.60 /usr/local/lib/morph/
 
-# Symlink the morph binary and set up library path via wrapper script
-RUN printf '#!/bin/sh\nLD_LIBRARY_PATH=/opt/morph-root/usr/lib/x86_64-linux-gnu:/opt/morph-root/lib/x86_64-linux-gnu:/opt/morph-root/usr/lib:/opt/morph-root/lib exec /opt/morph-root/usr/bin/hmorphd2 "$@"\n' > /usr/local/bin/run-morph \
-    && chmod +x /usr/local/bin/run-morph
+RUN set -eux; \
+    cd /usr/local/lib/morph; \
+    ln -sf libQt5Core.so.5.9.5 libQt5Core.so.5; \
+    ln -sf libQt5Network.so.5.9.5 libQt5Network.so.5; \
+    echo "/usr/local/lib/morph" > /etc/ld.so.conf.d/morph.conf; \
+    ldconfig; \
+    ldd /usr/local/bin/hmorphd2; \
+    test -z "$(ldd /usr/local/bin/hmorphd2 | grep 'not found' || true)"
 
 # Copy VDU lex (Spring Boot app)
 COPY --from=lex-stage /app /opt/lex
@@ -33,18 +42,12 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
-# Application code
+# Application code and precomputed game data
 COPY app ./app
+COPY games ./games
 
 # Supervisord config
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-# Download Lithuanian fastText vectors at build time
-RUN mkdir -p assets \
-    && curl -fsSL -o assets/cc.lt.300.bin.gz \
-        https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.lt.300.bin.gz \
-    && gzip -dc assets/cc.lt.300.bin.gz > assets/cc.lt.300.bin \
-    && rm assets/cc.lt.300.bin.gz
 
 EXPOSE 7860
 
