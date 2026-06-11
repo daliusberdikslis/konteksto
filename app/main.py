@@ -4,7 +4,7 @@ import shutil
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-import stanza
+import httpx
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from gensim.models import FastText
@@ -14,8 +14,11 @@ MODEL_BIN = ASSETS_DIR / "cc.lt.300.bin"
 MODEL_GZ = ASSETS_DIR / "cc.lt.300.bin.gz"
 TARGET_WORD_LEMMA = os.getenv("TARGET_WORD_LEMMA", "krepšinis")
 
-nlp = None
+LEX_URL = os.getenv("LEX_URL", "http://localhost:8080/")
+MORPH_URL = os.getenv("MORPH_URL", "http://localhost:8090/morphology")
+
 model = None
+http_client = None
 
 
 def ensure_model_decompressed() -> Path:
@@ -33,15 +36,9 @@ def ensure_model_decompressed() -> Path:
 
 
 def load_models() -> None:
-    global nlp, model
+    global model, http_client
 
-    print("[STATUS] Booting Stanza Lithuanian pipeline...")
-    stanza.download("lt", processors="tokenize,pos,lemma", verbose=False)
-    nlp = stanza.Pipeline(
-        "lt",
-        processors="tokenize,pos,lemma",
-        verbose=False,
-    )
+    http_client = httpx.Client(timeout=30.0)
 
     model_path = ensure_model_decompressed()
     print(f"[STATUS] Loading fastText vectors from {model_path}...")
@@ -49,10 +46,41 @@ def load_models() -> None:
     print(f"[STATUS] Engine ready. Target word lemma: {TARGET_WORD_LEMMA}")
 
 
+def wait_for_vdu_services() -> None:
+    """Block until VDU lex and morph services are reachable."""
+    import time
+
+    for name, url in [("lex", LEX_URL), ("morph", MORPH_URL)]:
+        for attempt in range(30):
+            try:
+                if name == "lex":
+                    resp = http_client.post(url, content="testas")
+                else:
+                    payload = {
+                        "scope": "all",
+                        "body": "testas",
+                        "annotations": {
+                            "lex": {"seg": [[0, 6]], "s": [[0, 6]], "p": [[0, 6]]}
+                        },
+                    }
+                    resp = http_client.post(url, json=payload)
+                if resp.status_code < 500:
+                    print(f"[STATUS] VDU {name} service ready")
+                    break
+            except httpx.ConnectError:
+                pass
+            time.sleep(1)
+        else:
+            print(f"[WARNING] VDU {name} service not reachable at {url}")
+
+
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     load_models()
+    wait_for_vdu_services()
     yield
+    if http_client:
+        http_client.close()
 
 
 app = FastAPI(
@@ -70,13 +98,46 @@ app.add_middleware(
 
 
 def lemmatize(word: str) -> str:
-    doc = nlp(word)
-    if not doc.sentences or not doc.sentences[0].words:
+    """Lemmatize a single Lithuanian word using VDU lex + morph services."""
+    rune_len = len(word)
+
+    # Step 1: Get segmentation from lex service
+    try:
+        lex_resp = http_client.post(LEX_URL, content=word)
+        lex_resp.raise_for_status()
+        lex_data = lex_resp.json()
+    except (httpx.HTTPError, Exception):
+        # Fallback: create manual segmentation for a single word
+        lex_data = {"seg": [[0, rune_len]], "s": [[0, rune_len]], "p": [[0, rune_len]]}
+
+    # Step 2: Call morph service with text + segmentation
+    morph_payload = {
+        "scope": "all",
+        "body": word,
+        "annotations": {"lex": lex_data},
+    }
+
+    try:
+        morph_resp = http_client.post(MORPH_URL, json=morph_payload)
+        morph_resp.raise_for_status()
+        morph_data = morph_resp.json()
+    except (httpx.HTTPError, Exception) as e:
+        raise HTTPException(
+            status_code=503,
+            detail=f"Morphological analysis service unavailable: {e}",
+        )
+
+    # Step 3: Extract lemma from morph response
+    # Response format: {"msd": [[["lemma", "mi_tag"], ...], ...], "stem": [...]}
+    msd = morph_data.get("msd", [])
+    if not msd or not msd[0] or not msd[0][0] or len(msd[0][0]) < 1:
         raise HTTPException(
             status_code=422,
             detail="Unable to parse input text morphology.",
         )
-    return doc.sentences[0].words[0].lemma
+
+    lemma = msd[0][0][0]
+    return lemma
 
 
 @app.get("/")
