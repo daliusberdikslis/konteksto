@@ -12,8 +12,6 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends \
     supervisor \
     default-jre-headless \
-    libglib2.0-0 \
-    libpcre3 \
     && rm -rf /var/lib/apt/lists/*
 
 # hmorphd2 binary, config, dictionaries, and Ubuntu 18.04 Qt/ICU libs (not in Debian).
@@ -23,6 +21,8 @@ COPY --from=morph-stage /usr/local/share/hs_dictionaries /usr/local/share/hs_dic
 COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5 /usr/local/lib/morph/
 COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libQt5Network.so.5.9.5 /usr/local/lib/morph/
 COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libdouble-conversion.so.1 /usr/local/lib/morph/
+COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4 /usr/local/lib/morph/
+COPY --from=morph-stage /lib/x86_64-linux-gnu/libpcre.so.3.13.3 /usr/local/lib/morph/
 COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libicudata.so.60 /usr/local/lib/morph/
 COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libicui18n.so.60 /usr/local/lib/morph/
 COPY --from=morph-stage /usr/lib/x86_64-linux-gnu/libicuuc.so.60 /usr/local/lib/morph/
@@ -32,6 +32,8 @@ RUN set -eux; \
     cd /usr/local/lib/morph; \
     ln -sf libQt5Core.so.5.9.5 libQt5Core.so.5; \
     ln -sf libQt5Network.so.5.9.5 libQt5Network.so.5; \
+    ln -sf libglib-2.0.so.0.5600.4 libglib-2.0.so.0; \
+    ln -sf libpcre.so.3.13.3 libpcre.so.3; \
     echo "/usr/local/lib/morph" > /etc/ld.so.conf.d/morph.conf; \
     ldconfig; \
     ldd /usr/local/bin/hmorphd2; \
