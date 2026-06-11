@@ -13,6 +13,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends \
     supervisor \
     default-jre-headless \
+    libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 # hmorphd2 is built for Ubuntu 18.04 / Qt 5.9 — copy only its binary and matching libs.
