@@ -9,19 +9,20 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install system dependencies: JRE for lex, supervisord, curl
+# Install system dependencies: JRE for lex, supervisord, curl, Qt5 for hmorphd2
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     curl \
     supervisor \
     default-jre-headless \
+    libqt5network5 \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the entire morph filesystem into /opt/morph and keep the binary in place
 COPY --from=morph-stage / /opt/morph-root/
 
 # Symlink the morph binary and set up library path via wrapper script
-RUN printf '#!/bin/sh\nLD_LIBRARY_PATH=/opt/morph-root/usr/lib:/opt/morph-root/lib exec /opt/morph-root/usr/bin/hmorphd2 "$@"\n' > /usr/local/bin/run-morph \
+RUN printf '#!/bin/sh\nLD_LIBRARY_PATH=/opt/morph-root/usr/lib/x86_64-linux-gnu:/opt/morph-root/lib/x86_64-linux-gnu:/opt/morph-root/usr/lib:/opt/morph-root/lib exec /opt/morph-root/usr/bin/hmorphd2 "$@"\n' > /usr/local/bin/run-morph \
     && chmod +x /usr/local/bin/run-morph
 
 # Copy VDU lex (Spring Boot app)
