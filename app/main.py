@@ -1,49 +1,49 @@
-import gzip
+import json
 import os
-import shutil
 from contextlib import asynccontextmanager
 from pathlib import Path
 
 import httpx
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from gensim.models import FastText
 
-ASSETS_DIR = Path(__file__).resolve().parent.parent / "assets"
-MODEL_BIN = ASSETS_DIR / "cc.lt.300.bin"
-MODEL_GZ = ASSETS_DIR / "cc.lt.300.bin.gz"
+GAMES_DIR = Path(__file__).resolve().parent.parent / "games"
 TARGET_WORD_LEMMA = os.getenv("TARGET_WORD_LEMMA", "krepšinis")
 
 LEX_URL = os.getenv("LEX_URL", "http://localhost:8080/")
 MORPH_URL = os.getenv("MORPH_URL", "http://localhost:8090/morphology")
 
-model = None
 http_client = None
+game_rankings: dict[str, dict] = {}
+game_meta: dict = {}
 
 
-def ensure_model_decompressed() -> Path:
-    if MODEL_BIN.exists():
-        return MODEL_BIN
-    if not MODEL_GZ.exists():
+def game_file_for_target(target: str) -> Path:
+    return GAMES_DIR / f"{target.strip().lower()}.json"
+
+
+def load_game_data(target: str) -> None:
+    global game_rankings, game_meta
+
+    path = game_file_for_target(target)
+    if not path.exists():
         raise FileNotFoundError(
-            f"fastText model not found. Expected {MODEL_BIN} or {MODEL_GZ}."
+            f"Precomputed game file not found: {path}. "
+            "Run scripts/generate_game.py --target <word> first."
         )
-    print(f"[STATUS] Decompressing {MODEL_GZ.name} (~4.2 GB)...")
-    with gzip.open(MODEL_GZ, "rb") as src, open(MODEL_BIN, "wb") as dst:
-        shutil.copyfileobj(src, dst)
-    print(f"[STATUS] Decompressed model written to {MODEL_BIN}")
-    return MODEL_BIN
 
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
 
-def load_models() -> None:
-    global model, http_client
+    game_meta = data.get("meta", {})
+    game_rankings = data.get("rankings", {})
+    if not game_rankings:
+        raise ValueError(f"Game file {path} has no rankings.")
 
-    http_client = httpx.Client(timeout=30.0)
-
-    model_path = ensure_model_decompressed()
-    print(f"[STATUS] Loading fastText vectors from {model_path}...")
-    model = FastText.load_fasttext_format(str(model_path))
-    print(f"[STATUS] Engine ready. Target word lemma: {TARGET_WORD_LEMMA}")
+    print(
+        f"[STATUS] Loaded {len(game_rankings)} precomputed rankings "
+        f"for target '{game_meta.get('target', target)}'"
+    )
 
 
 def wait_for_vdu_services() -> None:
@@ -76,8 +76,10 @@ def wait_for_vdu_services() -> None:
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
-    load_models()
-    wait_for_vdu_services()
+    global http_client
+
+    http_client = httpx.Client(timeout=30.0)
+    load_game_data(TARGET_WORD_LEMMA)
     yield
     if http_client:
         http_client.close()
@@ -101,16 +103,13 @@ def lemmatize(word: str) -> str:
     """Lemmatize a single Lithuanian word using VDU lex + morph services."""
     rune_len = len(word)
 
-    # Step 1: Get segmentation from lex service
     try:
         lex_resp = http_client.post(LEX_URL, content=word)
         lex_resp.raise_for_status()
         lex_data = lex_resp.json()
     except (httpx.HTTPError, Exception):
-        # Fallback: create manual segmentation for a single word
         lex_data = {"seg": [[0, rune_len]], "s": [[0, rune_len]], "p": [[0, rune_len]]}
 
-    # Step 2: Call morph service with text + segmentation
     morph_payload = {
         "scope": "all",
         "body": word,
@@ -127,8 +126,6 @@ def lemmatize(word: str) -> str:
             detail=f"Morphological analysis service unavailable: {e}",
         )
 
-    # Step 3: Extract lemma from morph response
-    # Response format: {"msd": [[["lemma", "mi_tag"], ...], ...], "stem": [...]}
     msd = morph_data.get("msd", [])
     if not msd or not msd[0] or not msd[0][0] or len(msd[0][0]) < 1:
         raise HTTPException(
@@ -136,8 +133,7 @@ def lemmatize(word: str) -> str:
             detail="Unable to parse input text morphology.",
         )
 
-    lemma = msd[0][0][0]
-    return lemma
+    return msd[0][0][0]
 
 
 @app.get("/")
@@ -147,7 +143,12 @@ async def root():
 
 @app.get("/health")
 async def health():
-    return {"status": "healthy", "target_lemma": TARGET_WORD_LEMMA}
+    return {
+        "status": "healthy",
+        "target_lemma": TARGET_WORD_LEMMA,
+        "total_words": len(game_rankings),
+        "game_meta": game_meta,
+    }
 
 
 @app.get("/api/v1/guess")
@@ -158,17 +159,19 @@ async def process_user_guess(word: str = Query(..., min_length=1)):
 
     resolved_lemma = lemmatize(clean_word)
 
-    try:
-        similarity_score = float(model.wv.similarity(resolved_lemma, TARGET_WORD_LEMMA))
-    except KeyError:
+    entry = game_rankings.get(resolved_lemma)
+    if not entry:
         raise HTTPException(
             status_code=404,
-            detail="Žodis nerastas duomenų bazėje.",
+            detail="Žodis nerastas žodyne.",
         )
+
+    similarity_score = float(entry["similarity"])
 
     return {
         "input": word,
         "lemma": resolved_lemma,
         "similarity": round(similarity_score, 5),
+        "rank": int(entry["rank"]),
         "status": "success",
     }
