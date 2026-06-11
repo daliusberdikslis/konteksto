@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konteksto — Lietuviškas žodžių žaidimas</title>
+  <meta name="description" content="Atspėk slaptą lietuvišką žodį! Konteksto – semantinis žodžių žaidimas, paremtas dirbtinio intelekto technologijomis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+</head>
+<body>
+  <div class="app">
+    <!-- Ambient background blobs -->
+    <div class="ambient-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">🧠</span>
+        <h1 class="logo-text">Konteksto</h1>
+      </div>
+      <p class="subtitle">Atspėk slaptą žodį pagal semantinį artimumą</p>
+    </header>
+
+    <main class="main">
+      <!-- Input Section -->
+      <section class="input-section" aria-label="Žodžio įvedimas">
+        <form id="guess-form" class="guess-form" autocomplete="off">
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="guess-input"
+              class="guess-input"
+              placeholder="Įvesk žodį..."
+              aria-label="Įvesk savo spėjimą"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              required
+            >
+            <button type="submit" id="guess-submit" class="guess-submit" aria-label="Spėti">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div id="input-error" class="input-error" role="alert" aria-live="polite"></div>
+        </form>
+        <div class="stats-bar">
+          <div class="stat" id="stat-guesses">
+            <span class="stat-label">Spėjimai</span>
+            <span class="stat-value" id="guess-count">0</span>
+          </div>
+          <div class="stat" id="stat-best">
+            <span class="stat-label">Geriausias</span>
+            <span class="stat-value" id="best-score">—</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results Section -->
+      <section class="results-section" aria-label="Spėjimų rezultatai">
+        <div id="win-banner" class="win-banner" hidden>
+          <div class="win-content">
+            <span class="win-emoji">🎉</span>
+            <h2 class="win-title">Sveikiname!</h2>
+            <p class="win-text">Atspėjai žodį per <span id="win-count">0</span> bandymų!</p>
+          </div>
+        </div>
+        <div id="guess-list" class="guess-list" role="list" aria-label="Spėjimų sąrašas">
+          <div id="empty-state" class="empty-state">
+            <div class="empty-icon">💭</div>
+            <p class="empty-text">Pradėk žaidimą įvesdamas bet kokį lietuvišką žodį</p>
+            <p class="empty-hint">Kuo arčiau semantiškai tavo žodis yra slapto žodžio, tuo aukštesnis balas</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Sukurta su ❤️ naudojant <a href="https://fasttext.cc/" target="_blank" rel="noopener">fastText</a> & <a href="https://www.semantika.lt/" target="_blank" rel="noopener">VDU Lemuoklis</a></p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

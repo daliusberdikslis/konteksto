@@ -56,6 +56,46 @@ def cosine_similarity(model: fasttext.FastText._FastText, word_a: str, word_b: s
     return float(np.dot(va, vb) / (na * nb))
 
 
+def cosine_similarities_to_target(
+    model: fasttext.FastText._FastText,
+    target: str,
+    words: list[str],
+) -> tuple[list[tuple[str, float]], int]:
+    """Batch cosine similarity against one target word (numpy matrix multiply)."""
+    try:
+        target_vec = np.asarray(model.get_word_vector(target), dtype=np.float32)
+    except ValueError:
+        return [], len(words)
+
+    target_norm = np.linalg.norm(target_vec)
+    if target_norm == 0:
+        return [], len(words)
+
+    valid: list[str] = []
+    rows: list[np.ndarray] = []
+    skipped = 0
+    for word in words:
+        try:
+            rows.append(np.asarray(model.get_word_vector(word), dtype=np.float32))
+            valid.append(word)
+        except ValueError:
+            skipped += 1
+
+    if not rows:
+        return [], skipped
+
+    matrix = np.stack(rows)
+    norms = np.linalg.norm(matrix, axis=1)
+    dots = matrix @ target_vec
+    sims = np.divide(
+        dots,
+        norms * target_norm,
+        out=np.zeros_like(dots),
+        where=(norms > 0),
+    )
+    return [(w, float(s)) for w, s in zip(valid, sims)], skipped
+
+
 def top_vocabulary(model: fasttext.FastText._FastText, top_k: int) -> list[str]:
     words, _freqs = model.get_words(include_freq=True)
     return [w.lower() for w in words[:top_k]]

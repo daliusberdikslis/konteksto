@@ -46,34 +46,6 @@ def load_game_data(target: str) -> None:
     )
 
 
-def wait_for_vdu_services() -> None:
-    """Block until VDU lex and morph services are reachable."""
-    import time
-
-    for name, url in [("lex", LEX_URL), ("morph", MORPH_URL)]:
-        for attempt in range(30):
-            try:
-                if name == "lex":
-                    resp = http_client.post(url, content="testas")
-                else:
-                    payload = {
-                        "scope": "all",
-                        "body": "testas",
-                        "annotations": {
-                            "lex": {"seg": [[0, 6]], "s": [[0, 6]], "p": [[0, 6]]}
-                        },
-                    }
-                    resp = http_client.post(url, json=payload)
-                if resp.status_code < 500:
-                    print(f"[STATUS] VDU {name} service ready")
-                    break
-            except httpx.ConnectError:
-                pass
-            time.sleep(1)
-        else:
-            print(f"[WARNING] VDU {name} service not reachable at {url}")
-
-
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     global http_client

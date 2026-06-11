@@ -1,6 +1,8 @@
 .venv/
 assets/cc.lt.300.bin
 assets/cc.lt.300.bin.gz
+assets/hunspell/
+assets/clarin/
 __pycache__/
 *.pyc
 .DS_Store
