@@ -81,6 +81,7 @@ def normalize_to_lemmas(
 
 
 def compute_rankings(model, target: str, lemmas: list[str]) -> dict[str, dict]:
+    """Rank every word by cosine similarity to the target (Contexto-style)."""
     target = target.strip().lower()
     others = [w for w in dict.fromkeys(lemmas) if w != target]
 
@@ -188,6 +189,7 @@ def main() -> None:
             ),
             "lemma_only": lemmatize,
             "lemmatizer": lemmatizer_mode,
+            "ranking_mode": "target_cosine",
         },
         "rankings": rankings,
     }

@@ -44,6 +44,13 @@ LT_WORD_RE = re.compile(r"^[a-ząčęėįšųūž\-]+$", re.IGNORECASE)
 DEFAULT_MAX_LEN = 30
 _MAX_LEN = DEFAULT_MAX_LEN
 
+# Deverbal noun suffixes (veiksmažodinis daiktavardis), e.g. sportavimas, mokėjimas.
+VERBAL_NOUN_SUFFIXES = ("avimas", "ėjimas", "inimas", "stymas", "tavimas", "ymas")
+VERBAL_NOUN_SUFFIX_RE = re.compile(
+    r"(?:avimas|ėjimas|inimas|stymas|tavimas|ymas)$",
+    re.IGNORECASE,
+)
+
 
 def is_valid_lemma(word: str, min_len: int = 2, max_len: int | None = None) -> bool:
     max_len = max_len if max_len is not None else _MAX_LEN
@@ -81,11 +88,28 @@ def load_lemmas_from_freq_file(path: Path) -> list[tuple[str, int]]:
     return entries
 
 
+def load_jcl_lemma_tags(path: Path) -> dict[str, set[str]]:
+    """JCL_lemmas.txt: lemma, POS tag, corpus frequency."""
+    tags: dict[str, set[str]] = {}
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("lemma"):
+                continue
+            parts = line.split("\t")
+            if len(parts) < 3:
+                continue
+            lemma, pos = parts[0].strip().lower(), parts[1].strip()
+            if not is_valid_lemma(lemma):
+                continue
+            tags.setdefault(lemma, set()).add(pos)
+    return tags
+
+
 def load_lemmas_from_jcl_file(
     path: Path,
     allowed_pos: frozenset[str] | None = None,
 ) -> list[tuple[str, int]]:
-    """JCL_lemmas.txt: lemma, POS tag, corpus frequency."""
     entries: list[tuple[str, int]] = []
     with open(path, encoding="utf-8") as f:
         for line in f:
@@ -107,6 +131,48 @@ def load_lemmas_from_jcl_file(
             entries.append((lemma, freq))
     entries.sort(key=lambda x: -x[1])
     return entries
+
+
+def is_verbal_noun(
+    lemma: str,
+    verb_lemmas: frozenset[str] | None = None,
+) -> bool:
+    """Detect deverbal nouns (sportavimas, mokėjimas) by suffix and optional verb stem."""
+    w = lemma.strip().lower()
+    if not VERBAL_NOUN_SUFFIX_RE.search(w):
+        return False
+
+    matched_suffix = next(s for s in VERBAL_NOUN_SUFFIXES if w.endswith(s))
+    if len(w) <= len(matched_suffix) + 1:
+        return False
+
+    if verb_lemmas is None:
+        return True
+
+    root = w[:-len(matched_suffix)]
+    if len(root) < 3:
+        return True
+
+    prefix = root[:5]
+    for verb in verb_lemmas:
+        if verb.startswith(prefix) or prefix in verb:
+            return True
+    return True
+
+
+def filter_verbal_nouns(
+    lemmas: list[str],
+    verb_lemmas: frozenset[str] | None = None,
+) -> list[str]:
+    kept: list[str] = []
+    dropped = 0
+    for lemma in lemmas:
+        if is_verbal_noun(lemma, verb_lemmas):
+            dropped += 1
+            continue
+        kept.append(lemma)
+    print(f"Verbal noun filter: kept {len(kept)}, dropped {dropped}")
+    return kept
 
 
 def load_lemmas_from_utka_file(
@@ -330,6 +396,16 @@ def main() -> None:
         action="store_true",
         help="Drop lemmas not found in Semantika Hunspell dictionary",
     )
+    parser.add_argument(
+        "--exclude-verbal-nouns",
+        action="store_true",
+        help="Drop deverbal nouns (sportavimas, mokėjimas, …) by suffix heuristics",
+    )
+    parser.add_argument(
+        "--include-verbal-nouns",
+        action="store_true",
+        help="Keep deverbal nouns even when --nouns-only is set",
+    )
     parser.add_argument("--max-len", type=int, default=DEFAULT_MAX_LEN)
     args = parser.parse_args()
 
@@ -340,6 +416,11 @@ def main() -> None:
     utka_pos: frozenset[str] | None = None
     if args.nouns_only and args.nouns_all:
         parser.error("Use only one of --nouns-only or --nouns-all")
+    if args.include_verbal_nouns and args.exclude_verbal_nouns:
+        parser.error("Use only one of --include-verbal-nouns or --exclude-verbal-nouns")
+    exclude_verbal_nouns = args.exclude_verbal_nouns or (
+        args.nouns_only and not args.include_verbal_nouns
+    )
     if args.nouns_only:
         jcl_pos = frozenset(JCL_COMMON_NOUN_POS)
         utka_pos = frozenset(("dkt",))
@@ -359,6 +440,18 @@ def main() -> None:
         use_utka = False
 
     lemmas: list[str] = []
+    verb_lemmas: frozenset[str] | None = None
+
+    if exclude_verbal_nouns and use_jcl:
+        jcl_path = args.jcl_zip or (args.clarin_dir / JCL_ZIP)
+        if jcl_path.exists():
+            extracted = extract_zip_member(jcl_path, JCL_LEMMA_MEMBER, None)
+            jcl_tags = load_jcl_lemma_tags(extracted)
+            verb_lemmas = frozenset(
+                lemma for lemma, tags in jcl_tags.items() if "V" in tags
+            )
+            print(f"JCL verbs for deverbal filter: {len(verb_lemmas)} lemmas")
+            shutil.rmtree(extracted.parent, ignore_errors=True)
 
     if args.source in ("clarin", "jcl", "all", "both"):
         entries = load_from_clarin(
@@ -396,6 +489,9 @@ def main() -> None:
 
     if args.hunspell_filter:
         lemmas = filter_hunspell(lemmas)
+
+    if exclude_verbal_nouns:
+        lemmas = filter_verbal_nouns(lemmas, verb_lemmas)
 
     final = lemmas[:args.top_k]
     args.output.parent.mkdir(parents=True, exist_ok=True)
