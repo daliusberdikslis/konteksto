@@ -7,10 +7,9 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
-# Application code, embedding matrix, morphology dicts, legacy game data
+# Application code, embedding matrix, legacy game data
 COPY app ./app
 COPY assets/embeddings ./assets/embeddings
-COPY assets/hunspell ./assets/hunspell
 COPY games ./games
 
 EXPOSE 7860
