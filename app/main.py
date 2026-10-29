@@ -11,12 +11,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from .embeddings import EMBEDDINGS_DIR, EmbeddingStore, Game
+from .lemmatize import lemmatize as lemmatize_word
 
 LEGACY_GAMES_DIR = Path(__file__).resolve().parent.parent / "games"
 LEGACY_TARGET = os.getenv("TARGET_WORD_LEMMA", "krepšinis")
 
-LEX_URL = os.getenv("LEX_URL", "http://localhost:8080/")
-MORPH_URL = os.getenv("MORPH_URL", "http://localhost:8090/morphology")
 MAX_GAMES = int(os.getenv("MAX_GAMES", "10000"))
 
 http_client: httpx.AsyncClient | None = None
@@ -76,42 +75,6 @@ app.add_middleware(
 )
 
 
-async def lemmatize(word: str) -> str:
-    """Lemmatize a single Lithuanian word using VDU lex + morph services."""
-    assert http_client is not None
-    rune_len = len(word)
-
-    try:
-        lex_resp = await http_client.post(LEX_URL, content=word)
-        lex_resp.raise_for_status()
-        lex_data = lex_resp.json()
-    except (httpx.HTTPError, Exception):
-        lex_data = {"seg": [[0, rune_len]], "s": [[0, rune_len]], "p": [[0, rune_len]]}
-
-    morph_payload = {
-        "scope": "all",
-        "body": word,
-        "annotations": {"lex": lex_data},
-    }
-
-    try:
-        morph_resp = await http_client.post(MORPH_URL, json=morph_payload)
-        morph_resp.raise_for_status()
-        morph_data = morph_resp.json()
-    except (httpx.HTTPError, Exception) as e:
-        raise HTTPException(
-            status_code=503,
-            detail=f"Morphological analysis service unavailable: {e}",
-        )
-
-    msd = morph_data.get("msd", [])
-    if not msd or not msd[0] or not msd[0][0] or len(msd[0][0]) < 1:
-        raise HTTPException(
-            status_code=422,
-            detail="Unable to parse input text morphology.",
-        )
-
-    return msd[0][0][0]
 
 
 @app.get("/")
@@ -163,7 +126,8 @@ async def process_user_guess(
         game = store.random_game()
         games[game.id] = game
 
-    resolved_lemma = await lemmatize(clean_word)
+    assert http_client is not None
+    resolved_lemma = await lemmatize_word(http_client, clean_word)
 
     result = store.guess(game.target_index, resolved_lemma)
     if result is None:
