@@ -5,6 +5,9 @@
   "functions": {
     "api/guess.js": {
       "maxDuration": 30
+    },
+    "api/games.js": {
+      "maxDuration": 30
     }
   },
   "headers": [

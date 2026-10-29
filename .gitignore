@@ -1,6 +1,9 @@
 .venv/
 assets/cc.lt.300.bin
 assets/cc.lt.300.bin.gz
+assets/wiki.lt.bin
+assets/wiki.lt.zip
+assets/vdu-social.lt.bin
 assets/hunspell/
 assets/clarin/
 __pycache__/

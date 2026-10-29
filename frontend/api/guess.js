@@ -7,18 +7,20 @@ export default async function handler(req, res) {
     return res.status(405).json({ detail: "Method not allowed" });
   }
 
+  const gameId = req.query.game_id;
   const word = req.query.word;
   if (!word || !word.trim()) {
     return res.status(400).json({ detail: "Word parameter is required." });
   }
-
   const HF_TOKEN = process.env.HF_TOKEN;
   if (!HF_TOKEN) {
     console.error("HF_TOKEN environment variable is not set.");
     return res.status(500).json({ detail: "Server misconfiguration." });
   }
 
-  const backendUrl = `https://daliusber-konteksto.hf.space/api/v1/guess?word=${encodeURIComponent(word)}`;
+  const params = new URLSearchParams({ word: word.trim() });
+  if (gameId) params.set("game_id", gameId);
+  const backendUrl = `https://daliusber-konteksto.hf.space/api/v1/guess?${params.toString()}`;
 
   try {
     const response = await fetch(backendUrl, {

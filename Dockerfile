@@ -47,8 +47,9 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
-# Application code and precomputed game data
+# Application code, embedding matrix, and legacy game data
 COPY app ./app
+COPY assets/embeddings ./assets/embeddings
 COPY games ./games
 
 # Supervisord config

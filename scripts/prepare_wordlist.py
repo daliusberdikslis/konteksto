@@ -23,9 +23,8 @@ from clarin_repo import (
     download_clarin_zip,
 )
 from fasttext_utils import (
-    DEFAULT_MODEL_BIN,
-    DEFAULT_MODEL_GZ,
-    ensure_fasttext_model,
+    ensure_embedding_model,
+    list_embedding_models,
     load_model,
     top_vocabulary,
 )
@@ -389,7 +388,12 @@ def main() -> None:
         action="store_true",
         help="After CLARIN merge, pad with Hunspell-validated fastText lemmas",
     )
-    parser.add_argument("--model", type=Path, default=DEFAULT_MODEL_BIN)
+    parser.add_argument(
+        "--embedding-model",
+        choices=list_embedding_models(),
+        default="cc",
+    )
+    parser.add_argument("--model", type=Path, help="Explicit .bin path")
     parser.add_argument("--download-model", action="store_true")
     parser.add_argument(
         "--hunspell-filter",
@@ -477,10 +481,12 @@ def main() -> None:
     )
 
     if need_fasttext:
-        model_path = ensure_fasttext_model(
-            args.model, DEFAULT_MODEL_GZ, args.download_model
+        model_path, _, embedding_label = ensure_embedding_model(
+            embedding_model=args.embedding_model,
+            model_path=args.model,
+            download=args.download_model,
         )
-        print(f"Loading fastText from {model_path}...")
+        print(f"Loading {embedding_label} from {model_path}...")
         model = load_model(model_path)
         seen = set(lemmas)
         fill = fill_from_fasttext(model, seen, args.top_k)

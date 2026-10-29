@@ -5,23 +5,24 @@
 const CONFIG = {
   API_BASE: "https://daliusber-konteksto.hf.space",
   GUESS_ENDPOINT: "/api/v1/guess",
+  NEW_GAME_ENDPOINT: "/api/v1/games",
   HEALTH_ENDPOINT: "/health",
   WIN_THRESHOLD: 0.9999,
   REQUEST_TIMEOUT_MS: 120_000,
   MAX_ATTEMPTS: 6,
   RETRY_DELAY_MS: 8_000,
-  STORAGE_VERSION: 1,
-  DEFAULT_TARGET: "krepšinis",
+  STORAGE_VERSION: 2,
 };
 
 // --- State ---
 const state = {
+  gameId: null,
   guesses: [],
   isLoading: false,
   hasWon: false,
-  targetLemma: CONFIG.DEFAULT_TARGET,
   totalWords: null,
 };
+
 
 // --- DOM References ---
 const dom = {
@@ -42,8 +43,12 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+const CURRENT_GAME_KEY = `konteksto:v${CONFIG.STORAGE_VERSION}:current-game`;
+
 function storageKey() {
-  return `konteksto:v${CONFIG.STORAGE_VERSION}:${state.targetLemma}`;
+  return state.gameId
+    ? `konteksto:v${CONFIG.STORAGE_VERSION}:${state.gameId}`
+    : CURRENT_GAME_KEY;
 }
 
 // --- Progress persistence ---
@@ -51,13 +56,16 @@ function saveProgress() {
   try {
     const payload = {
       version: CONFIG.STORAGE_VERSION,
-      target: state.targetLemma,
+      gameId: state.gameId,
       totalWords: state.totalWords,
       guesses: state.guesses,
       hasWon: state.hasWon,
       savedAt: new Date().toISOString(),
     };
     localStorage.setItem(storageKey(), JSON.stringify(payload));
+    if (state.gameId) {
+      localStorage.setItem(CURRENT_GAME_KEY, state.gameId);
+    }
   } catch (err) {
     console.warn("Could not save progress:", err);
   }
@@ -65,13 +73,20 @@ function saveProgress() {
 
 function loadProgress() {
   try {
-    const raw = localStorage.getItem(storageKey());
+    let raw = state.gameId ? localStorage.getItem(storageKey()) : null;
+    if (!raw) {
+      const currentId = localStorage.getItem(CURRENT_GAME_KEY);
+      if (currentId) {
+        state.gameId = currentId;
+        raw = localStorage.getItem(storageKey());
+      }
+    }
     if (!raw) return false;
 
     const data = JSON.parse(raw);
     if (
       data.version !== CONFIG.STORAGE_VERSION ||
-      data.target !== state.targetLemma ||
+      data.gameId !== state.gameId ||
       !Array.isArray(data.guesses)
     ) {
       localStorage.removeItem(storageKey());
@@ -101,6 +116,9 @@ function loadProgress() {
 function clearProgress() {
   try {
     localStorage.removeItem(storageKey());
+    if (localStorage.getItem(CURRENT_GAME_KEY) === state.gameId) {
+      localStorage.removeItem(CURRENT_GAME_KEY);
+    }
   } catch (err) {
     console.warn("Could not clear progress:", err);
   }
@@ -118,8 +136,32 @@ async function fetchHealth() {
   }
 }
 
+async function fetchNewGame() {
+  const url = `${CONFIG.API_BASE}${CONFIG.NEW_GAME_ENDPOINT}`;
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), CONFIG.REQUEST_TIMEOUT_MS);
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: "{}",
+      signal: controller.signal,
+    });
+    if (!response.ok) {
+      const body = await response.json().catch(() => ({}));
+      throw new Error(body.detail || `Serverio klaida (${response.status})`);
+    }
+    clearError();
+    return response.json();
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
 async function fetchGuess(word) {
-  const url = `${CONFIG.API_BASE}${CONFIG.GUESS_ENDPOINT}?word=${encodeURIComponent(word)}`;
+  const params = new URLSearchParams({ word });
+  if (state.gameId) params.set("game_id", state.gameId);
+  const url = `${CONFIG.API_BASE}${CONFIG.GUESS_ENDPOINT}?${params.toString()}`;
   let lastError = null;
 
   for (let attempt = 1; attempt <= CONFIG.MAX_ATTEMPTS; attempt += 1) {
@@ -278,21 +320,38 @@ function hideWin() {
   dom.submit.disabled = false;
 }
 
-function resetGame() {
+async function startNewGame() {
+  clearError();
+  setLoading(true);
+  try {
+    const data = await fetchNewGame();
+    clearProgress();
+    state.gameId = data.game_id;
+    state.guesses = [];
+    state.hasWon = false;
+    if (typeof data.total_words === "number") {
+      state.totalWords = data.total_words;
+    }
+    hideWin();
+    renderGuessList();
+    updateStats();
+    saveProgress();
+    dom.input.value = "";
+  } catch (err) {
+    console.error("New game error:", err);
+    showError(err.message || "Nepavyko sukurti naujo žaidimo.");
+  } finally {
+    setLoading(false);
+    dom.input.focus();
+  }
+}
+
+async function resetGame() {
   const confirmed = confirm(
-    "Ištrinti visus spėjimus ir pradėti iš naujo?"
+    "Pradėti naują žaidimą su nauju slaptu žodžiu?"
   );
   if (!confirmed) return;
-
-  clearProgress();
-  state.guesses = [];
-  state.hasWon = false;
-  hideWin();
-  renderGuessList();
-  updateStats();
-  clearError();
-  dom.input.value = "";
-  dom.input.focus();
+  await startNewGame();
 }
 
 // --- Error Display ---
@@ -394,13 +453,8 @@ function escapeHTML(str) {
 // --- Init ---
 async function init() {
   const health = await fetchHealth();
-  if (health) {
-    if (health.target_lemma) {
-      state.targetLemma = health.target_lemma;
-    }
-    if (typeof health.total_words === "number") {
-      state.totalWords = health.total_words;
-    }
+  if (health && typeof health.total_words === "number") {
+    state.totalWords = health.total_words;
   }
 
   const restored = loadProgress();
@@ -410,6 +464,8 @@ async function init() {
     if (state.hasWon) {
       showWin();
     }
+  } else {
+    await startNewGame();
   }
 
   dom.form.addEventListener("submit", handleSubmit);

@@ -10,10 +10,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from fasttext_utils import (
-    DEFAULT_MODEL_BIN,
-    DEFAULT_MODEL_GZ,
+    ensure_embedding_model,
+    list_embedding_models,
     cosine_similarities_to_target,
-    ensure_fasttext_model,
     load_model,
     top_vocabulary,
 )
@@ -110,7 +109,17 @@ def main() -> None:
         help="Lemma file from prepare_wordlist.py (recommended) or raw fastText vocabulary",
     )
     parser.add_argument("--top-k", type=int, default=100000)
-    parser.add_argument("--model", type=Path, default=DEFAULT_MODEL_BIN)
+    parser.add_argument(
+        "--embedding-model",
+        choices=list_embedding_models(),
+        default="cc",
+        help="fastText preset: cc (Common Crawl), wiki, vdu-social",
+    )
+    parser.add_argument(
+        "--model",
+        type=Path,
+        help="Explicit .bin path (overrides --embedding-model)",
+    )
     parser.add_argument("--download-model", action="store_true")
     parser.add_argument("--output", type=Path, help="Output JSON path")
     parser.add_argument(
@@ -144,8 +153,12 @@ def main() -> None:
         print("Lemma-only rankings enabled.")
         target = lemmatizer.lemmatize(target) or target
 
-    model_path = ensure_fasttext_model(args.model, DEFAULT_MODEL_GZ, args.download_model)
-    print(f"Loading fastText from {model_path}...")
+    model_path, embedding_key, embedding_label = ensure_embedding_model(
+        embedding_model=args.embedding_model,
+        model_path=args.model,
+        download=args.download_model,
+    )
+    print(f"Loading {embedding_label} from {model_path}...")
     model = load_model(model_path)
 
     if args.source == "fasttext":
@@ -190,6 +203,8 @@ def main() -> None:
             "lemma_only": lemmatize,
             "lemmatizer": lemmatizer_mode,
             "ranking_mode": "target_cosine",
+            "embedding_model": embedding_key,
+            "embedding_label": embedding_label,
         },
         "rankings": rankings,
     }

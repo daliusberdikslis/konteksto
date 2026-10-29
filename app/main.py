@@ -1,82 +1,88 @@
-import json
+"""Konteksto game API: on-demand games from a precomputed embedding matrix."""
+
 import os
+import secrets
 from contextlib import asynccontextmanager
 from pathlib import Path
 
 import httpx
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
-GAMES_DIR = Path(__file__).resolve().parent.parent / "games"
-TARGET_WORD_LEMMA = os.getenv("TARGET_WORD_LEMMA", "krepšinis")
+from .embeddings import EMBEDDINGS_DIR, EmbeddingStore, Game
+
+LEGACY_GAMES_DIR = Path(__file__).resolve().parent.parent / "games"
+LEGACY_TARGET = os.getenv("TARGET_WORD_LEMMA", "krepšinis")
 
 LEX_URL = os.getenv("LEX_URL", "http://localhost:8080/")
 MORPH_URL = os.getenv("MORPH_URL", "http://localhost:8090/morphology")
+MAX_GAMES = int(os.getenv("MAX_GAMES", "10000"))
 
-http_client = None
-game_rankings: dict[str, dict] = {}
-game_meta: dict = {}
-
-
-def game_file_for_target(target: str) -> Path:
-    return GAMES_DIR / f"{target.strip().lower()}.json"
+http_client: httpx.AsyncClient | None = None
+store: EmbeddingStore | None = None
+games: dict[str, "Game"] = {}
 
 
-def load_game_data(target: str) -> None:
-    global game_rankings, game_meta
+def _load_legacy_game(target: str) -> None:
+    """Register a game pinned to the legacy precomputed target."""
+    if store is None:
+        return
+    idx = store.index.get(target.strip().lower())
+    if idx is None:
+        return
+    game = Game(id=secrets.token_urlsafe(16), target=store.words[idx], target_index=idx)
+    games[game.id] = game
 
-    path = game_file_for_target(target)
-    if not path.exists():
-        raise FileNotFoundError(
-            f"Precomputed game file not found: {path}. "
-            "Run scripts/generate_game.py --target <word> first."
-        )
 
-    with open(path, encoding="utf-8") as f:
-        data = json.load(f)
+class NewGameResponse(BaseModel):
+    game_id: str
+    total_words: int
 
-    game_meta = data.get("meta", {})
-    game_rankings = data.get("rankings", {})
-    if not game_rankings:
-        raise ValueError(f"Game file {path} has no rankings.")
 
-    print(
-        f"[STATUS] Loaded {len(game_rankings)} precomputed rankings "
-        f"for target '{game_meta.get('target', target)}'"
-    )
+class GuessResponse(BaseModel):
+    input: str
+    lemma: str
+    similarity: float
+    rank: int
+    game_id: str
+    status: str = "success"
 
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
-    global http_client
+    global http_client, store
 
-    http_client = httpx.Client(timeout=30.0)
-    load_game_data(TARGET_WORD_LEMMA)
+    http_client = httpx.AsyncClient(timeout=30.0)
+    store = EmbeddingStore.load(EMBEDDINGS_DIR)
+    _load_legacy_game(LEGACY_TARGET)
+    print(f"[STATUS] Loaded {len(store.words)} embeddings from {EMBEDDINGS_DIR}")
     yield
     if http_client:
-        http_client.close()
+        await http_client.aclose()
 
 
 app = FastAPI(
-    title="Lithuanian Contexto Game Engine API",
+    title="Konteksto Game Engine API",
     lifespan=lifespan,
 )
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 
-def lemmatize(word: str) -> str:
+async def lemmatize(word: str) -> str:
     """Lemmatize a single Lithuanian word using VDU lex + morph services."""
+    assert http_client is not None
     rune_len = len(word)
 
     try:
-        lex_resp = http_client.post(LEX_URL, content=word)
+        lex_resp = await http_client.post(LEX_URL, content=word)
         lex_resp.raise_for_status()
         lex_data = lex_resp.json()
     except (httpx.HTTPError, Exception):
@@ -89,7 +95,7 @@ def lemmatize(word: str) -> str:
     }
 
     try:
-        morph_resp = http_client.post(MORPH_URL, json=morph_payload)
+        morph_resp = await http_client.post(MORPH_URL, json=morph_payload)
         morph_resp.raise_for_status()
         morph_data = morph_resp.json()
     except (httpx.HTTPError, Exception) as e:
@@ -115,35 +121,66 @@ async def root():
 
 @app.get("/health")
 async def health():
+    assert store is not None
     return {
         "status": "healthy",
-        "target_lemma": TARGET_WORD_LEMMA,
-        "total_words": len(game_rankings),
-        "game_meta": game_meta,
+        "total_words": len(store.words),
+        "active_games": len(games),
     }
 
 
-@app.get("/api/v1/guess")
-async def process_user_guess(word: str = Query(..., min_length=1)):
+@app.post("/api/v1/games", response_model=NewGameResponse)
+async def create_game():
+    """Create a new game with a random secret word. O(1): just pick an index."""
+    assert store is not None
+    if len(games) >= MAX_GAMES:
+        # Drop an arbitrary old game to bound memory.
+        games.pop(next(iter(games)))
+    game = store.random_game()
+    games[game.id] = game
+    return NewGameResponse(game_id=game.id, total_words=len(store.words))
+
+
+@app.get("/api/v1/guess", response_model=GuessResponse)
+async def process_user_guess(
+    word: str = Query(..., min_length=1),
+    game_id: str | None = Query(default=None),
+):
+    assert store is not None
     clean_word = word.strip().lower()
     if not clean_word:
         raise HTTPException(status_code=400, detail="Word parameter cannot be empty.")
 
-    resolved_lemma = lemmatize(clean_word)
+    if game_id is not None:
+        game = games.get(game_id)
+        if game is None:
+            raise HTTPException(status_code=404, detail="Žaidimas nerastas.")
+    elif games:
+        # Backwards compatibility: single-game clients guess against the
+        # first registered game (legacy target when the vocab contains it).
+        game = next(iter(games.values()))
+    else:
+        game = store.random_game()
+        games[game.id] = game
 
-    entry = game_rankings.get(resolved_lemma)
-    if not entry:
+    resolved_lemma = await lemmatize(clean_word)
+
+    result = store.guess(game.target_index, resolved_lemma)
+    if result is None:
+        # Surface form may be in the vocab even when the lemma is not.
+        result = store.guess(game.target_index, clean_word)
+    if result is None:
         raise HTTPException(
             status_code=404,
             detail="Žodis nerastas žodyne.",
         )
 
-    similarity_score = float(entry["similarity"])
+    similarity_score, rank = result
 
-    return {
-        "input": word,
-        "lemma": resolved_lemma,
-        "similarity": round(similarity_score, 5),
-        "rank": int(entry["rank"]),
-        "status": "success",
-    }
+    return GuessResponse(
+        input=word,
+        lemma=resolved_lemma,
+        similarity=round(float(similarity_score), 5),
+        rank=int(rank),
+        game_id=game.id,
+    )
