@@ -32,7 +32,6 @@ const dom = {
   error: document.getElementById("input-error"),
   guessList: document.getElementById("guess-list"),
   guessCount: document.getElementById("guess-count"),
-  bestScore: document.getElementById("best-score"),
   bestPosition: document.getElementById("best-position"),
   winBanner: document.getElementById("win-banner"),
   winCount: document.getElementById("win-count"),
@@ -206,9 +205,11 @@ async function fetchGuess(word) {
 }
 
 // --- Scoring Helpers ---
-function similarityToPercent(similarity) {
-  const clamped = Math.max(0, Math.min(1, similarity));
-  return Math.round(clamped * 100);
+function rankToProgress(rank, total) {
+  // Log-scale progress toward #1: rank 1 -> 100%, last rank -> ~0%.
+  const n = Math.max(total || 0, 2);
+  const r = Math.min(Math.max(rank, 1), n);
+  return Math.round((1 - Math.log(r) / Math.log(n)) * 100);
 }
 
 function getScoreClass(similarity) {
@@ -228,7 +229,7 @@ function formatPositionLabel(position) {
 
 // --- Rendering ---
 function createGuessRow(guess) {
-  const percent = similarityToPercent(guess.similarity);
+  const progress = rankToProgress(guess.position, state.totalWords);
   const scoreClass = getScoreClass(guess.similarity);
   const isExact = guess.similarity >= CONFIG.WIN_THRESHOLD;
 
@@ -244,24 +245,22 @@ function createGuessRow(guess) {
     <div class="guess-word-col">
       <span class="guess-word">${escapeHTML(guess.input)}</span>
       ${guess.lemma !== guess.input.toLowerCase() ? `<span class="guess-lemma">→ ${escapeHTML(guess.lemma)}</span>` : ""}
-    </div>
-    <div class="guess-bar-col ${scoreClass}">
-      <div class="bar-track">
+      <div class="bar-track" role="progressbar" aria-valuenow="${progress}" aria-valuemin="0" aria-valuemax="100" aria-label="Progresas iki slapto žodžio">
         <div class="bar-fill" style="width: 0%"></div>
       </div>
-      <span class="guess-score">${percent}%</span>
     </div>
   `;
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       const fill = row.querySelector(".bar-fill");
-      if (fill) fill.style.width = `${percent}%`;
+      if (fill) fill.style.width = `${progress}%`;
     });
   });
 
   return row;
 }
+
 
 function renderGuessList() {
   const sorted = [...state.guesses].sort((a, b) => b.similarity - a.similarity);
@@ -285,7 +284,7 @@ function createEmptyState() {
   div.innerHTML = `
     <div class="empty-icon">💭</div>
     <p class="empty-text">Pradėk žaidimą įvesdamas bet kokį lietuvišką žodį</p>
-    <p class="empty-hint">Kuo arčiau semantiškai tavo žodis yra slapto žodžio, tuo aukštesnis balas</p>
+    <p class="empty-hint">Kuo žodis semantiškai artimesnis slaptam žodžiui, tuo aukštesnė jo pozicija</p>
   `;
   return div;
 }
@@ -294,13 +293,9 @@ function updateStats() {
   dom.guessCount.textContent = state.guesses.length;
 
   if (state.guesses.length > 0) {
-    const best = Math.max(...state.guesses.map((g) => g.similarity));
-    dom.bestScore.textContent = `${similarityToPercent(best)}%`;
-
     const bestPos = Math.min(...state.guesses.map((g) => g.position));
     dom.bestPosition.textContent = `#${bestPos}`;
   } else {
-    dom.bestScore.textContent = "—";
     dom.bestPosition.textContent = "—";
   }
 }

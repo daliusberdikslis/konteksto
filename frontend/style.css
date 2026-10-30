@@ -488,7 +488,7 @@ a:hover {
 /* --- Guess Row --- */
 .guess-row {
   display: grid;
-  grid-template-columns: 72px 1fr auto;
+  grid-template-columns: 72px 1fr;
   align-items: center;
   gap: var(--space-md);
   padding: var(--space-sm) var(--space-md);
@@ -497,17 +497,6 @@ a:hover {
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
   animation: row-in 0.4s var(--ease-out-expo);
-}
-
-@keyframes row-in {
-  from {
-    opacity: 0;
-    transform: translateY(-8px) scale(0.98);
-  }
-}
-
-.guess-row:hover {
-  background: var(--bg-card-hover);
 }
 
 .guess-row.exact-match {
@@ -557,20 +546,12 @@ a:hover {
   font-style: italic;
 }
 
-.guess-bar-col {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  min-width: 120px;
-}
-
 .bar-track {
-  flex: 1;
   height: 6px;
+  margin-top: 6px;
   background: rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-full);
   overflow: hidden;
-  min-width: 60px;
 }
 
 .bar-fill {
@@ -579,15 +560,6 @@ a:hover {
   transition: width 0.6s var(--ease-out-expo);
   background: var(--bar-color, var(--accent));
   box-shadow: 0 0 8px var(--bar-glow, transparent);
-}
-
-.guess-score {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  min-width: 38px;
-  text-align: right;
-  color: var(--score-color, var(--text-secondary));
 }
 
 /* Score color classes */
