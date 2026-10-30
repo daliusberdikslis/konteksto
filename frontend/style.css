@@ -540,11 +540,6 @@ a:hover {
   text-overflow: ellipsis;
 }
 
-.guess-lemma {
-  font-size: 0.6875rem;
-  color: var(--text-muted);
-  font-style: italic;
-}
 
 .bar-track {
   height: 6px;

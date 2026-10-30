@@ -243,8 +243,7 @@ function createGuessRow(guess) {
       <span class="guess-position-num">${formatPositionLabel(guess.position)}</span>
     </div>
     <div class="guess-word-col">
-      <span class="guess-word">${escapeHTML(guess.input)}</span>
-      ${guess.lemma !== guess.input.toLowerCase() ? `<span class="guess-lemma">→ ${escapeHTML(guess.lemma)}</span>` : ""}
+      <span class="guess-word">${escapeHTML(guess.lemma)}</span>
       <div class="bar-track" role="progressbar" aria-valuenow="${progress}" aria-valuemin="0" aria-valuemax="100" aria-label="Progresas iki slapto žodžio">
         <div class="bar-fill" style="width: 0%"></div>
       </div>
