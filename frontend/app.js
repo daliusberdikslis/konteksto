@@ -228,15 +228,13 @@ function formatPositionLabel(position) {
 }
 
 // --- Rendering ---
-function createGuessRow(guess) {
+function createGuessRow(guess, isLatest) {
   const progress = rankToProgress(guess.position, state.totalWords);
   const scoreClass = getScoreClass(guess.similarity);
   const isExact = guess.similarity >= CONFIG.WIN_THRESHOLD;
 
   const row = document.createElement("div");
-  row.className = `guess-row ${scoreClass}${isExact ? " exact-match" : ""}`;
-  row.setAttribute("role", "listitem");
-  row.dataset.lemma = guess.lemma;
+  row.className = `guess-row ${scoreClass}${isExact ? " exact-match" : ""}${isLatest ? " latest-guess" : ""}`;
 
   row.innerHTML = `
     <div class="guess-position" aria-label="Pozicija žodyne">
@@ -271,8 +269,9 @@ function renderGuessList() {
     return;
   }
 
+  const latest = state.guesses[state.guesses.length - 1];
   sorted.forEach((guess) => {
-    dom.guessList.appendChild(createGuessRow(guess));
+    dom.guessList.appendChild(createGuessRow(guess, guess === latest));
   });
 }
 

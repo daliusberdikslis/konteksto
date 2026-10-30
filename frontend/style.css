@@ -504,6 +504,11 @@ a:hover {
   background: var(--success-soft);
 }
 
+.guess-row.latest-guess {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 0 1px var(--border-accent), var(--shadow-glow);
+}
+
 .guess-position {
   text-align: center;
   line-height: 1.2;
