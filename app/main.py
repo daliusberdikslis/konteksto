@@ -5,20 +5,18 @@ import secrets
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-import httpx
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from .embeddings import EMBEDDINGS_DIR, EmbeddingStore, Game
-from .lemmatize import lemmatize as lemmatize_word
+from .lemmatize import lemmatize
 
 LEGACY_GAMES_DIR = Path(__file__).resolve().parent.parent / "games"
 LEGACY_TARGET = os.getenv("TARGET_WORD_LEMMA", "krepšinis")
 
 MAX_GAMES = int(os.getenv("MAX_GAMES", "10000"))
 
-http_client: httpx.AsyncClient | None = None
 store: EmbeddingStore | None = None
 games: dict[str, "Game"] = {}
 
@@ -50,15 +48,12 @@ class GuessResponse(BaseModel):
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
-    global http_client, store
+    global store
 
-    http_client = httpx.AsyncClient(timeout=30.0)
     store = EmbeddingStore.load(EMBEDDINGS_DIR)
     _load_legacy_game(LEGACY_TARGET)
     print(f"[STATUS] Loaded {len(store.words)} embeddings from {EMBEDDINGS_DIR}")
     yield
-    if http_client:
-        await http_client.aclose()
 
 
 app = FastAPI(
@@ -73,8 +68,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
 
 
 @app.get("/")
@@ -126,8 +119,7 @@ async def process_user_guess(
         game = store.random_game()
         games[game.id] = game
 
-    assert http_client is not None
-    resolved_lemma = await lemmatize_word(http_client, clean_word)
+    resolved_lemma = lemmatize(clean_word)
 
     result = store.guess(game.target_index, resolved_lemma)
     if result is None:
