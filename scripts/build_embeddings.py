@@ -55,7 +55,7 @@ def main() -> None:
     parser.add_argument("--top-k", type=int, default=100000)
     parser.add_argument(
         "--embedding-model",
-        choices=["cc", "wiki", "vdu-social"],
+        choices=["cc", "wiki"],
         default="cc",
     )
     parser.add_argument("--model", type=Path, default=None)

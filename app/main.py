@@ -1,9 +1,7 @@
 """Konteksto game API: on-demand games from a precomputed embedding matrix."""
 
 import os
-import secrets
 from contextlib import asynccontextmanager
-from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
@@ -12,24 +10,10 @@ from pydantic import BaseModel
 from .embeddings import EMBEDDINGS_DIR, EmbeddingStore, Game
 from .lemmatize import lemmatize
 
-LEGACY_GAMES_DIR = Path(__file__).resolve().parent.parent / "games"
-LEGACY_TARGET = os.getenv("TARGET_WORD_LEMMA", "krepšinis")
-
 MAX_GAMES = int(os.getenv("MAX_GAMES", "10000"))
 
 store: EmbeddingStore | None = None
 games: dict[str, "Game"] = {}
-
-
-def _load_legacy_game(target: str) -> None:
-    """Register a game pinned to the legacy precomputed target."""
-    if store is None:
-        return
-    idx = store.index.get(target.strip().lower())
-    if idx is None:
-        return
-    game = Game(id=secrets.token_urlsafe(16), target=store.words[idx], target_index=idx)
-    games[game.id] = game
 
 
 class NewGameResponse(BaseModel):
@@ -51,8 +35,9 @@ async def lifespan(_: FastAPI):
     global store
 
     store = EmbeddingStore.load(EMBEDDINGS_DIR)
-    _load_legacy_game(LEGACY_TARGET)
     print(f"[STATUS] Loaded {len(store.words)} embeddings from {EMBEDDINGS_DIR}")
+    lemmatize("testas")  # pre-warm Hunspell dictionary (~10s first load)
+    print("[STATUS] Hunspell dictionary ready")
     yield
 
 
@@ -107,17 +92,8 @@ async def process_user_guess(
     if not clean_word:
         raise HTTPException(status_code=400, detail="Word parameter cannot be empty.")
 
-    if game_id is not None:
-        game = games.get(game_id)
-        if game is None:
-            raise HTTPException(status_code=404, detail="Žaidimas nerastas.")
-    elif games:
-        # Backwards compatibility: single-game clients guess against the
-        # first registered game (legacy target when the vocab contains it).
-        game = next(iter(games.values()))
-    else:
-        game = store.random_game()
-        games[game.id] = game
+    if game_id is None or (game := games.get(game_id)) is None:
+        raise HTTPException(status_code=404, detail="Žaidimas nerastas.")
 
     resolved_lemma = lemmatize(clean_word)
 

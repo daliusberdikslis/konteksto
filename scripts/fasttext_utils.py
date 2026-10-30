@@ -23,12 +23,6 @@ FASTTEXT_WIKI_ZIP_URL = (
     "https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.lt.zip"
 )
 
-VDU_SOCIAL_MODEL_HELP = (
-    "VDU social-media FastText is not published as a direct download. "
-    "Place the binary at assets/vdu-social.lt.bin (request via "
-    "http://fasttext.vdu.lt or SITTI https://sitti.vdu.lt/istekliai/). "
-    "Use scripts/compare_top.py --vdu-remote to compare against the public demo."
-)
 
 
 @dataclass(frozen=True)
@@ -56,11 +50,6 @@ EMBEDDING_MODELS: dict[str, FastTextModelSpec] = {
         archive_path=ASSETS / "wiki.lt.zip",
         url=FASTTEXT_WIKI_ZIP_URL,
         archive_member="wiki.lt.bin",
-    ),
-    "vdu-social": FastTextModelSpec(
-        key="vdu-social",
-        label="VDU Lithuanian social media FastText",
-        bin_path=ASSETS / "vdu-social.lt.bin",
     ),
 }
 
@@ -169,14 +158,12 @@ def ensure_embedding_model(
     if spec is None:
         return path, "custom", str(path)
 
-    help_text = VDU_SOCIAL_MODEL_HELP if spec.key == "vdu-social" else None
     resolved = ensure_fasttext_model(
         spec.bin_path,
         spec.archive_path,
         download=download,
         url=spec.url,
         archive_member=spec.archive_member,
-        help_text=help_text,
     )
     return resolved, spec.key, spec.label
 

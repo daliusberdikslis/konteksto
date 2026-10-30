@@ -8,15 +8,12 @@ import json
 import re
 from pathlib import Path
 
-LT_WORD_RE = re.compile(r"^[a-ząčęėįšųūž\-]+$", re.IGNORECASE)
-
 from fasttext_utils import (
     ensure_embedding_model,
     list_embedding_models,
     load_model,
     rank_words_by_target,
 )
-from vdu_fasttext_remote import fetch_neighbors
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_WORDS = ROOT / "assets" / "words" / "lt_nouns_100k.txt"
@@ -73,12 +70,8 @@ def main() -> None:
         type=Path,
         help="Optional precomputed game JSON to show stored rankings",
     )
-    parser.add_argument(
-        "--vdu-remote",
-        action="store_true",
-        help="Also fetch neighbors from http://fasttext.vdu.lt (VDU social demo)",
-    )
     args = parser.parse_args()
+
 
     target = args.target.strip().lower()
 
@@ -96,17 +89,6 @@ def main() -> None:
     ranked = rank_words_by_target(model, target, words)
     print_top(f"{key}: {label}", ranked, args.top)
 
-    if args.vdu_remote:
-        remote_raw = fetch_neighbors(target, limit=200)
-        remote_clean = [
-            (w, s) for w, s in remote_raw
-            if LT_WORD_RE.match(w) and len(w) >= 2
-        ]
-        print_top(
-            "vdu-remote: fasttext.vdu.lt (clean lemmas)",
-            remote_clean,
-            args.top,
-        )
 
 
 if __name__ == "__main__":

@@ -113,7 +113,7 @@ def main() -> None:
         "--embedding-model",
         choices=list_embedding_models(),
         default="cc",
-        help="fastText preset: cc (Common Crawl), wiki, vdu-social",
+        help="fastText preset: cc (Common Crawl), wiki",
     )
     parser.add_argument(
         "--model",
@@ -124,7 +124,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path, help="Output JSON path")
     parser.add_argument(
         "--lemmatizer",
-        choices=["auto", "vdu", "hunspell", "none"],
+        choices=["hunspell", "none"],
         default="none",
         help="Lemma normalization (none for pre-built noun/lemma lists)",
     )
@@ -133,9 +133,8 @@ def main() -> None:
         action="store_true",
         help="Deprecated alias for --lemmatizer none",
     )
-    parser.add_argument("--lex-url", default=None)
-    parser.add_argument("--morph-url", default=None)
     args = parser.parse_args()
+
 
     target = args.target.strip().lower()
     output = args.output or (GAMES_DIR / f"{target}.json")
@@ -143,11 +142,7 @@ def main() -> None:
         "none" if args.no_lemmatize else args.lemmatizer
     )
 
-    lemmatizer = get_lemmatizer(
-        lemmatizer_mode,
-        lex_url=args.lex_url,
-        morph_url=args.morph_url,
-    )
+    lemmatizer = get_lemmatizer(lemmatizer_mode)
     lemmatize = lemmatizer is not None
     if lemmatize:
         print("Lemma-only rankings enabled.")

@@ -317,7 +317,7 @@ def fill_from_fasttext(
     model,
     seen: set[str],
     top_k: int,
-    lemmatizer_mode: LemmatizerMode = "auto",
+    lemmatizer_mode: LemmatizerMode = "hunspell",
 ) -> list[str]:
     lemmatizer = get_lemmatizer(lemmatizer_mode)
     hunspell = HunspellLemmatizer()
