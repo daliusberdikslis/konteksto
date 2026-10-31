@@ -123,28 +123,26 @@ function loadProgress() {
   }
 }
 
-function clearProgress() {
-  try {
-    localStorage.removeItem(storageKey());
-    if (localStorage.getItem(CURRENT_GAME_KEY) === state.gameId) {
-      localStorage.removeItem(CURRENT_GAME_KEY);
-    }
-  } catch (err) {
-    console.warn("Could not clear progress:", err);
-  }
+function isLegacyGameId(id) {
+  // Random ids from before deterministic game ids can never resolve
+  // after a backend restart — treat them as dead and start fresh.
+  return typeof id !== "string" || !/^\d+-[0-9a-f]{12}$/i.test(id);
 }
 
-// --- API ---
-async function fetchHealth() {
-  const url = `${CONFIG.API_BASE}${CONFIG.HEALTH_ENDPOINT}`;
-  try {
-    const response = await fetch(url);
-    if (!response.ok) return null;
-    return response.json();
-  } catch {
-    return null;
-  }
+function isGameNotFound(err) {
+  return Boolean(err && typeof err.message === "string" && err.message.includes("Žaidimas nerastas"));
 }
+ // --- API ---
+ async function fetchHealth() {
+   const url = `${CONFIG.API_BASE}${CONFIG.HEALTH_ENDPOINT}`;
+   try {
+     const response = await fetch(url);
+     if (!response.ok) return null;
+     return response.json();
+   } catch {
+     return null;
+   }
+ }
 
 async function fetchNewGame() {
   const url = `${CONFIG.API_BASE}${CONFIG.NEW_GAME_ENDPOINT}`;
@@ -376,6 +374,14 @@ async function handleHint() {
       saveProgress();
     }
   } catch (err) {
+    if (isGameNotFound(err)) {
+      console.warn("Stale game id on hint, starting fresh:", state.gameId);
+      clearProgress();
+      state.gameId = null;
+      await startNewGame();
+      showError("Senas žaidimas nebegalioja — pradėtas naujas.");
+      return;
+    }
     console.error("Hint error:", err);
     showError(err.message || "Nepavyko gauti užuominos.");
   } finally {
@@ -517,6 +523,14 @@ async function handleSubmit(event) {
     dom.input.value = "";
     dom.input.focus();
   } catch (err) {
+    if (isGameNotFound(err)) {
+      console.warn("Stale game id, starting a fresh game:", state.gameId);
+      clearProgress();
+      state.gameId = null;
+      await startNewGame();
+      showError("Senas žaidimas nebegalioja — pradėtas naujas. Spėk dar kartą!");
+      return;
+    }
     console.error("Guess error:", err);
     showError(err.message || "Nepavyko prisijungti prie serverio.");
   } finally {
@@ -538,7 +552,16 @@ async function init() {
     state.totalWords = health.total_words;
   }
 
-  const restored = loadProgress();
+  let restored = loadProgress();
+  if (restored && isLegacyGameId(state.gameId)) {
+    console.warn("Dropping legacy game id from before deterministic ids:", state.gameId);
+    clearProgress();
+    state.gameId = null;
+    state.guesses = [];
+    state.hasWon = false;
+    state.hintRank = null;
+    restored = false;
+  }
   if (restored) {
     renderGuessList();
     updateStats();

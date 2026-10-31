@@ -99,15 +99,23 @@ async def process_user_guess(
     if not clean_word:
         raise HTTPException(status_code=400, detail="Word parameter cannot be empty.")
 
-    if game_id is None or (game := games.get(game_id)) is None:
+    target_index: int | None = None
+    if game_id is not None:
+        game = games.get(game_id)
+        # Stateless fallback: deterministic ids resolve without in-memory
+        # state, so guesses survive restarts/redeploys and MAX_GAMES eviction.
+        target_index = (
+            game.target_index if game is not None else store.resolve_index(game_id)
+        )
+    if target_index is None:
         raise HTTPException(status_code=404, detail="Žaidimas nerastas.")
 
     resolved_lemma = lemmatize(clean_word)
 
-    result = store.guess(game.target_index, resolved_lemma)
+    result = store.guess(target_index, resolved_lemma)
     if result is None:
         # Surface form may be in the vocab even when the lemma is not.
-        result = store.guess(game.target_index, clean_word)
+        result = store.guess(target_index, clean_word)
     if result is None:
         raise HTTPException(
             status_code=404,
@@ -121,7 +129,7 @@ async def process_user_guess(
         lemma=resolved_lemma,
         similarity=round(float(similarity_score), 5),
         rank=int(rank),
-        game_id=game.id,
+        game_id=game_id,
     )
 
 
@@ -137,16 +145,21 @@ async def get_hint(
     """
     assert store is not None
     game = games.get(game_id)
-    if game is None:
+    # Stateless fallback, same as guesses: deterministic ids resolve
+    # without in-memory state.
+    target_index = (
+        game.target_index if game is not None else store.resolve_index(game_id)
+    )
+    if target_index is None:
         raise HTTPException(status_code=404, detail="Žaidimas nerastas.")
     if best_rank > len(store.words):
         raise HTTPException(status_code=400, detail="Neteisinga pozicija.")
 
-    lemma, similarity, rank = store.hint(game.target_index, best_rank)
+    lemma, similarity, rank = store.hint(target_index, best_rank)
 
     return HintResponse(
         lemma=lemma,
         similarity=round(float(similarity), 5),
         rank=int(rank),
-        game_id=game.id,
+        game_id=game_id,
     )

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import hashlib
+import hmac
 import json
 import secrets
 from dataclasses import dataclass, field
@@ -10,6 +12,11 @@ from pathlib import Path
 import numpy as np
 
 EMBEDDINGS_DIR = Path(__file__).resolve().parent.parent / "assets" / "embeddings"
+
+# Salt binds a game_id to one vocab entry. It is a constant (not a secret):
+# forging another valid game_id only selects a different target word,
+# which gives no advantage. Changing it invalidates all existing game_ids.
+GAME_ID_SALT = "konteksto-v1"
 
 
 @dataclass
@@ -49,9 +56,41 @@ class EmbeddingStore:
             )
         return cls(words=words, matrix=matrix)
 
+    def game_id_for_index(self, idx: int) -> str:
+        """Deterministic, restart-proof game id for a vocab index.
+
+        Same index + same vocab always yields the same id, so the server
+        can resolve it without in-memory state (survives restarts/deploys).
+        """
+        word = self.words[idx]
+        digest = hashlib.sha256(
+            f"{GAME_ID_SALT}:{idx}:{word}".encode("utf-8")
+        ).hexdigest()[:12]
+        return f"{idx}-{digest}"
+
+    def resolve_index(self, game_id: str) -> int | None:
+        """Recover the target index from a deterministic game id, or None."""
+        try:
+            idx_str, digest = game_id.split("-", 1)
+            idx = int(idx_str)
+        except (ValueError, AttributeError):
+            return None
+        if not 0 <= idx < len(self.words):
+            return None
+        expected = hashlib.sha256(
+            f"{GAME_ID_SALT}:{idx}:{self.words[idx]}".encode("utf-8")
+        ).hexdigest()[:12]
+        if not hmac.compare_digest(expected, digest.lower()):
+            return None
+        return idx
+
     def random_game(self) -> Game:
         idx = secrets.randbelow(len(self.words))
-        return Game(id=secrets.token_urlsafe(16), target=self.words[idx], target_index=idx)
+        return Game(
+            id=self.game_id_for_index(idx),
+            target=self.words[idx],
+            target_index=idx,
+        )
 
     def guess(self, target_index: int, lemma: str) -> tuple[float, int] | None:
         """Return (similarity, rank) of lemma against the target word.
