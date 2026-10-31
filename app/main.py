@@ -30,6 +30,13 @@ class GuessResponse(BaseModel):
     status: str = "success"
 
 
+class HintResponse(BaseModel):
+    lemma: str
+    similarity: float
+    rank: int
+    game_id: str
+
+
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     global store
@@ -113,6 +120,33 @@ async def process_user_guess(
         input=word,
         lemma=resolved_lemma,
         similarity=round(float(similarity_score), 5),
+        rank=int(rank),
+        game_id=game.id,
+    )
+
+
+@app.get("/api/v1/hint", response_model=HintResponse)
+async def get_hint(
+    game_id: str = Query(...),
+    best_rank: int = Query(..., ge=2),
+):
+    """Reveal the word halfway between the target and the player's best rank.
+
+    best_rank is supplied by the client (min position among guesses);
+    the server re-derives nothing from guess history, keeping this stateless.
+    """
+    assert store is not None
+    game = games.get(game_id)
+    if game is None:
+        raise HTTPException(status_code=404, detail="Žaidimas nerastas.")
+    if best_rank > len(store.words):
+        raise HTTPException(status_code=400, detail="Neteisinga pozicija.")
+
+    lemma, similarity, rank = store.hint(game.target_index, best_rank)
+
+    return HintResponse(
+        lemma=lemma,
+        similarity=round(float(similarity), 5),
         rank=int(rank),
         game_id=game.id,
     )

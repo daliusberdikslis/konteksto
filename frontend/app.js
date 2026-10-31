@@ -6,12 +6,13 @@ const CONFIG = {
   API_BASE: "https://daliusber-konteksto.hf.space",
   GUESS_ENDPOINT: "/api/v1/guess",
   NEW_GAME_ENDPOINT: "/api/v1/games",
+  HINT_ENDPOINT: "/api/v1/hint",
   HEALTH_ENDPOINT: "/health",
   WIN_THRESHOLD: 0.9999,
   REQUEST_TIMEOUT_MS: 120_000,
   MAX_ATTEMPTS: 6,
   RETRY_DELAY_MS: 8_000,
-  STORAGE_VERSION: 2,
+  STORAGE_VERSION: 3,
 };
 
 // --- State ---
@@ -21,6 +22,7 @@ const state = {
   isLoading: false,
   hasWon: false,
   totalWords: null,
+  hintRank: null,
 };
 
 
@@ -36,6 +38,7 @@ const dom = {
   winBanner: document.getElementById("win-banner"),
   winCount: document.getElementById("win-count"),
   resetBtn: document.getElementById("reset-game"),
+  hintBtn: document.getElementById("hint-btn"),
 };
 
 function sleep(ms) {
@@ -59,6 +62,10 @@ function saveProgress() {
       totalWords: state.totalWords,
       guesses: state.guesses,
       hasWon: state.hasWon,
+      hintRank:
+        typeof state.hintRank === "number" && state.hintRank > 0
+          ? state.hintRank
+          : null,
       savedAt: new Date().toISOString(),
     };
     localStorage.setItem(storageKey(), JSON.stringify(payload));
@@ -101,6 +108,10 @@ function loadProgress() {
         typeof g.position === "number"
     );
     state.hasWon = Boolean(data.hasWon);
+    state.hintRank =
+      typeof data.hintRank === "number" && data.hintRank > 0
+        ? data.hintRank
+        : null;
     if (typeof data.totalWords === "number" && data.totalWords > 0) {
       state.totalWords = data.totalWords;
     }
@@ -204,9 +215,34 @@ async function fetchGuess(word) {
   throw lastError || new Error("Nepavyko prisijungti prie serverio.");
 }
 
+async function fetchHint(bestRank) {
+  const params = new URLSearchParams({
+    game_id: state.gameId,
+    best_rank: String(bestRank),
+  });
+  const url = `${CONFIG.API_BASE}${CONFIG.HINT_ENDPOINT}?${params.toString()}`;
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), CONFIG.REQUEST_TIMEOUT_MS);
+  try {
+    const response = await fetch(url, { signal: controller.signal });
+    if (!response.ok) {
+      const body = await response.json().catch(() => ({}));
+      throw new Error(body.detail || `Serverio klaida (${response.status})`);
+    }
+    clearError();
+    return response.json();
+  } catch (err) {
+    if (err?.name === "AbortError") {
+      throw new Error("Serveris neužsibudino laiku. Bandyk dar kartą po minutės.");
+    }
+    throw err;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
 // --- Scoring Helpers ---
 function rankToProgress(rank, total) {
-  // Log-scale progress toward #1: rank 1 -> 100%, last rank -> ~0%.
   const n = Math.max(total || 0, 2);
   const r = Math.min(Math.max(rank, 1), n);
   return Math.round((1 - Math.log(r) / Math.log(n)) * 100);
@@ -232,9 +268,9 @@ function createGuessRow(guess, isLatest) {
   const progress = rankToProgress(guess.position, state.totalWords);
   const scoreClass = getScoreClass(guess.similarity);
   const isExact = guess.similarity >= CONFIG.WIN_THRESHOLD;
-
   const row = document.createElement("div");
-  row.className = `guess-row ${scoreClass}${isExact ? " exact-match" : ""}${isLatest ? " latest-guess" : ""}`;
+  row.className = `guess-row ${scoreClass}${isExact ? " exact-match" : ""}${isLatest ? " latest-guess" : ""}${guess.isHint ? " hint-row" : ""}`;
+  row.dataset.lemma = guess.lemma;
 
   row.innerHTML = `
     <div class="guess-position" aria-label="Pozicija žodyne">
@@ -296,6 +332,56 @@ function updateStats() {
   } else {
     dom.bestPosition.textContent = "—";
   }
+  updateHintButton();
+}
+
+function updateHintButton() {
+  if (!dom.hintBtn) return;
+  const bestPos =
+    state.guesses.length > 0
+      ? Math.min(...state.guesses.map((g) => g.position))
+      : null;
+  const canHint =
+    !state.isLoading &&
+    !state.hasWon &&
+    bestPos !== null &&
+    bestPos > 1 &&
+    (state.hintRank === null || bestPos < state.hintRank);
+  dom.hintBtn.disabled = !canHint;
+}
+
+async function handleHint() {
+  if (state.isLoading || state.hasWon || state.guesses.length === 0) return;
+  const bestPos = Math.min(...state.guesses.map((g) => g.position));
+  if (bestPos <= 1) return;
+  if (state.hintRank !== null && bestPos >= state.hintRank) return;
+
+  clearError();
+  setLoading(true);
+  try {
+    const data = await fetchHint(bestPos);
+    state.hintRank = data.rank;
+    state.guesses.push({
+      input: data.lemma,
+      lemma: data.lemma,
+      similarity: data.similarity,
+      position: data.rank,
+      isHint: true,
+    });
+    renderGuessList();
+    updateStats();
+    saveProgress();
+    if (data.similarity >= CONFIG.WIN_THRESHOLD) {
+      showWin();
+      saveProgress();
+    }
+  } catch (err) {
+    console.error("Hint error:", err);
+    showError(err.message || "Nepavyko gauti užuominos.");
+  } finally {
+    setLoading(false);
+    dom.input.focus();
+  }
 }
 
 function showWin() {
@@ -322,6 +408,7 @@ async function startNewGame() {
     state.gameId = data.game_id;
     state.guesses = [];
     state.hasWon = false;
+    state.hintRank = null;
     if (typeof data.total_words === "number") {
       state.totalWords = data.total_words;
     }
@@ -365,6 +452,7 @@ function setLoading(loading) {
   state.isLoading = loading;
   dom.submit.disabled = loading || state.hasWon;
   dom.submit.classList.toggle("loading", loading);
+  updateHintButton();
   if (loading) {
     dom.input.setAttribute("aria-busy", "true");
   } else {
@@ -463,6 +551,7 @@ async function init() {
 
   dom.form.addEventListener("submit", handleSubmit);
   dom.resetBtn.addEventListener("click", resetGame);
+  if (dom.hintBtn) dom.hintBtn.addEventListener("click", handleHint);
   dom.input.focus();
 }
 

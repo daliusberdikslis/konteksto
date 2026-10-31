@@ -67,3 +67,24 @@ class EmbeddingStore:
         similarity = float(sims[guess_index])
         rank = int(np.count_nonzero(sims > sims[guess_index])) + 1
         return similarity, rank
+
+    def hint(self, target_index: int, best_rank: int) -> tuple[str, float, int]:
+        """Return the word halfway between the target (rank 1) and best_rank.
+
+        Picks the word at sorted position ceil(best_rank / 2) in
+        descending-similarity order, with its true similarity and rank.
+        The result is strictly better than best_rank (for best_rank >= 2),
+        so it can never duplicate an existing guess.
+        """
+        if best_rank < 2:
+            raise ValueError("best_rank must be at least 2.")
+        target_vec = self.matrix[target_index]
+        sims = self.matrix @ target_vec
+        order = np.argsort(-sims, kind="stable")
+        idx = (best_rank - 1) // 2
+        if idx >= len(self.words):
+            idx = len(self.words) - 1
+        word_idx = int(order[idx])
+        similarity = float(sims[word_idx])
+        rank = int(np.count_nonzero(sims > sims[word_idx])) + 1
+        return self.words[word_idx], similarity, rank

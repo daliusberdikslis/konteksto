@@ -8,6 +8,9 @@
     },
     "api/games.js": {
       "maxDuration": 30
+    },
+    "api/hint.js": {
+      "maxDuration": 30
     }
   },
   "headers": [
