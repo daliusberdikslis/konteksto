@@ -5,16 +5,16 @@
 const PROD_API_BASE = "https://daliusber-konteksto.hf.space";
 
 function resolveApiBase() {
-  // Local static server: talk to the local backend directly (no token needed).
-  // `?api=<url>` overrides outright; `?api=direct` forces production backend.
-  // Production: call the HF Space backend directly.
+  // Local static server (e.g. `python -m http.server 8000 --directory frontend`):
+  // the backend lives on 7860 (see Dockerfile). `?api=<url>` overrides;
+  // `?api=direct` forces the production backend.
   try {
     const params = new URLSearchParams(window.location.search);
     const override = params.get("api");
     if (override === "direct") return PROD_API_BASE;
     if (override) return override.replace(/\/+$/, "");
     const h = window.location.hostname;
-    if (!h || h === "localhost" || h === "127.0.0.1") return "http://127.0.0.1:8000";
+    if (!h || h === "localhost" || h === "127.0.0.1") return "http://127.0.0.1:7860";
   } catch {
     // ignore — fall through to prod
   }
@@ -32,7 +32,7 @@ const CONFIG = {
   REQUEST_TIMEOUT_MS: 120_000,
   MAX_ATTEMPTS: 6,
   RETRY_DELAY_MS: 8_000,
-  STORAGE_VERSION: 4,
+  STORAGE_VERSION: 5,
 };
 
 // --- State ---
