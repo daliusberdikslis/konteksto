@@ -85,8 +85,11 @@ PROTECTED_NOUNS = frozenset({
     "pareigūnas", "kūnas", "gyvūnas", "seniūnas", "svogūnas", "lakūnas",
     "malūnas", "dragūnas", "skalūnas", "perkūnas", "šampūnas", "koldūnas",
     "jaunuolis", "senolis", "šaunuolis", "gražuolis",
+    # -takis fish / body parts, -pietis times, -tarpis periods
+    "upėtakis", "priešpietis", "savitarpis", "laikotarpis",
+    # -dėlė / -užė everyday words
+    "dėlė", "skruzdėlė", "valandėlė", "gegužė", "meilužė",
 })
-
 # Rare medical terms: INN-style drug suffixes and disease suffixes.
 # Applied only below PROTECTED_RANK (frequent vaistas, liga stay).
 # NOTE: bare "-itas" also hits kreditas-class common words — the *itis
@@ -132,7 +135,18 @@ DEVICE_SUFFIX_RE = re.compile(r"(?:iklis)$", re.IGNORECASE)
 # Rare agent nouns for character traits (pašaipūnas, šaunuolis):
 # -ūnas/-uolis persons below the protected rank.
 PERSON_SUFFIX_RE = re.compile(r"(?:ūnas|uolis|uolė)$", re.IGNORECASE)
-
+# Rare micro-demonyms (-ietis): žirmūnietis, merkinietis, friburgietis.
+# Frequent ones (kaunietis, vilnietis, europietis…) rank < PROTECTED_RANK.
+DEMONYM_SUFFIX_RE = re.compile(r"(?:ietis|ietė)$", re.IGNORECASE)
+# Rare -takis conduits (vištakis, šuntakis) — keep antakis/upėtakis via rank.
+TAKIS_SUFFIX_RE = re.compile(r"(?:takis)$", re.IGNORECASE)
+# Junk: fragments, typos, one-off compounds. Exact stems + rare tails.
+JUNK_WORDS = frozenset({
+    "prozopopėja", "šventvakaris", "pusvakaris", "savitarpis",
+    "rukena", "vištakis", "kiška", "sekundininkas",
+    "apsidraudėlė", "vienužė",
+})
+JUNK_SUFFIX_RE = re.compile(r"(?:užė|dėlė|iškė|uškas|okas)$", re.IGNORECASE)
 
 def is_valid_lemma(word: str, min_len: int = 2, max_len: int | None = None) -> bool:
     max_len = max_len if max_len is not None else _MAX_LEN
@@ -285,6 +299,14 @@ def is_cleanup_drop(
         return "device"
     if PERSON_SUFFIX_RE.search(w):
         return "person-suffix"
+    if DEMONYM_SUFFIX_RE.search(w):
+        return "demonym"
+    if TAKIS_SUFFIX_RE.search(w):
+        return "takis"
+    if w in JUNK_WORDS:
+        return "junk-word"
+    if JUNK_SUFFIX_RE.search(w):
+        return "junk-suffix"
 
 def filter_cleanup(
     lemmas: list[str],

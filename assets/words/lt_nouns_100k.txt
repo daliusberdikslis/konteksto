@@ -5011,7 +5011,6 @@ ekonomistė
 transformacija
 adventas
 režisūra
-statybvietė
 avantiūra
 pianinas
 biosfera
@@ -5066,7 +5065,6 @@ morgas
 tabu
 santrumpa
 padėklas
-mažeikiškė
 vokalistė
 milimetras
 ovacija
@@ -5101,7 +5099,6 @@ rėtis
 jodas
 lyderystė
 patalas
-stovyklavietė
 tenoras
 žiotys
 paraštė
@@ -5216,7 +5213,6 @@ sloga
 pirmakursis
 luitas
 samdinys
-burokas
 ieškotojas
 davinys
 pasekėjas
@@ -5239,7 +5235,6 @@ cinamonas
 priedanga
 europarlamentas
 šlapdriba
-tibetietis
 programišius
 dievybė
 kvailystė
@@ -5277,8 +5272,6 @@ ego
 tautiškumas
 pieninė
 flora
-partietis
-dvyliktokas
 sąskrydis
 išgama
 užnugaris
@@ -5342,7 +5335,6 @@ plokštuma
 velionė
 inteligentija
 silicis
-pamiškė
 skalbiniai
 kapelionas
 plantacija
@@ -5383,7 +5375,6 @@ pusdienis
 atmata
 koziris
 dribsniai
-afrikietis
 pralaidumas
 išmonė
 reprezentacija
@@ -5452,7 +5443,6 @@ terminija
 garstyčia
 meteorologija
 ikras
-ukrainietė
 skyryba
 kubilius
 brangenybė
@@ -5502,7 +5492,6 @@ aviganis
 migdolas
 vakaronė
 perdanga
-tvarkietė
 anuitetas
 gipsas
 anatomija
@@ -5522,7 +5511,6 @@ trajektorija
 žibalas
 pingvinas
 spindesys
-druskininkietis
 islandas
 išleistuvės
 žvalgas
@@ -5592,14 +5580,12 @@ atkaklumas
 maršas
 laiduotojas
 pelėsis
-parapijietis
 apgavikas
 agresyvumas
 trupinys
 privatininkas
 kapeika
 soda
-gaisravietė
 psichoterapija
 kupiūra
 bejėgiškumas
@@ -5633,7 +5619,6 @@ fojė
 kiemsargis
 pašalinis
 begalybė
-dokas
 katalikybė
 registratorius
 deklarantas
@@ -5662,7 +5647,6 @@ cukinija
 miokardas
 laisvadienis
 stabas
-meksikietis
 svastika
 teoretikas
 petarda
@@ -5735,7 +5719,6 @@ kurmis
 ūglis
 tinkas
 krematoriumas
-alytiškė
 įkandimas
 grynumas
 čiulpas
@@ -5774,7 +5757,6 @@ amoniakas
 vargonininkas
 kupė
 nešiotojas
-vadavietė
 krioklys
 biodujos
 suinteresuotumas
@@ -5813,7 +5795,6 @@ bonas
 skaitykla
 speigas
 lapuotis
-trečiokas
 dietologas
 prizmė
 drožlė
@@ -5930,7 +5911,6 @@ mikrobas
 sruoga
 niekis
 paistalas
-augavietė
 charizma
 tarnystė
 performansas
@@ -5939,7 +5919,6 @@ kvailė
 orientavimasis
 užmarštis
 baladė
-piliavietė
 gargždiškis
 žvirblis
 sąmyšis
@@ -6007,7 +5986,6 @@ krabas
 jubiliatas
 anonimiškumas
 anyta
-maskvietis
 gysla
 kėslas
 plikis
@@ -6025,7 +6003,6 @@ tąsa
 toras
 mostas
 konvejeris
-olimpietė
 aplodismentai
 ausinė
 delikatesas
@@ -6105,7 +6082,6 @@ apsiaustas
 vicepirmininkė
 dukterėčia
 korozija
-iranietis
 prizininkė
 matrica
 terapeutas
@@ -6126,7 +6102,6 @@ kūjis
 neregys
 šauklys
 erekcija
-biržietė
 tautodailė
 bitas
 realas
@@ -6276,7 +6251,6 @@ bendradarbė
 šešiolikmetis
 ainis
 karyba
-pasaulietis
 raudonis
 sankaupa
 didenybė
@@ -6437,7 +6411,6 @@ izotopas
 sparnuotis
 žemėvalda
 sinoptikė
-šilutiškė
 baigtumas
 likeris
 tuzinas
@@ -6450,7 +6423,6 @@ gravitacija
 pjuvena
 šiferis
 kotletas
-kazokas
 lakštingala
 mongolas
 antgalis
@@ -6503,7 +6475,6 @@ ruošinys
 savanorė
 našlaitė
 kyšininkas
-dešimtokas
 dievaitis
 valdininkė
 lubinas
@@ -6527,7 +6498,6 @@ fobija
 imperatyvas
 nihilizmas
 japonė
-izraelietė
 pabūklas
 vaivada
 audeklas
@@ -6598,7 +6568,6 @@ nuokrypis
 seniūnaitija
 lijundra
 senė
-vidutiniokas
 kebabas
 grybautoja
 išvestinė
@@ -6630,7 +6599,6 @@ memuarai
 grabas
 arklidė
 praba
-suvalkietis
 atilsis
 patikėtinė
 ilguma
@@ -6687,7 +6655,6 @@ perimetras
 širšė
 indė
 manekenas
-afganistanietis
 apsukos
 įdegis
 didumas
@@ -6697,7 +6664,6 @@ karpinys
 karšis
 sėjomaina
 šūsnis
-darbietė
 bendrystė
 kormoranas
 nasrai
@@ -6741,7 +6707,6 @@ identifikacija
 eketė
 linksnis
 sergėtoja
-stačiokas
 sula
 vakcinacija
 puikybė
@@ -6752,16 +6717,13 @@ fosfatas
 gimdytoja
 žvejas
 persas
-dvokas
 migrena
-radviliškietis
 marazmas
 transformatorinė
 užjūris
 aritmetika
 diagrama
 lygtis
-penktokas
 stagnacija
 salvė
 hipertenzija
@@ -6868,11 +6830,9 @@ sumanumas
 menstruacijos
 rezistentas
 kulinaras
-mūsiškė
 balzamas
 monopolistas
 nenauda
-pakistanietis
 lauktuvės
 anestezija
 istoriografija
@@ -6900,7 +6860,6 @@ regalija
 marksizmas
 salyklas
 elektrotechnika
-bendrapartietis
 rondo
 vėžiagyvis
 bastionas
@@ -6933,13 +6892,11 @@ eigulys
 iškamša
 silikonas
 bušido
-peteliškė
 magistrantas
 nuolankumas
 ankštiniai
 katinėlis
 įtaiga
-pasvalietis
 valgytojas
 žiebtuvėlis
 blykstė
@@ -7043,7 +7000,6 @@ metafizika
 nesąžiningumas
 pilnametė
 vilnis
-vienuoliktokas
 orchidėja
 pažiba
 antidepresantas
@@ -7142,7 +7098,6 @@ kolchozas
 masažuotojas
 fakelas
 naujagimė
-pakruojietis
 pėdas
 skalbyklė
 smaigalys
@@ -7303,7 +7258,6 @@ mimika
 dusulys
 siuvykla
 botagas
-klasiokas
 atsakingumas
 balnas
 euroskeptikas
@@ -7314,7 +7268,6 @@ eglynas
 gobtuvas
 skaitovas
 bedarbė
-joniškietis
 mezginys
 grūstis
 levanda
@@ -7328,7 +7281,6 @@ skolintojas
 skontas
 germanis
 aorta
-tauragiškė
 idealistas
 misteris
 psichas
@@ -7471,7 +7423,6 @@ paukštininkystė
 kyšulys
 blyksnis
 įkrovimas
-kubietis
 realumas
 traukulys
 peštynės
@@ -7486,7 +7437,6 @@ smilkalas
 koreliacija
 baltoji
 distiliatas
-jurbarkietis
 pynė
 supratingumas
 gilė
@@ -7524,7 +7474,6 @@ vikšras
 priklausomumas
 lego
 skritulys
-bohemietis
 pusiaujas
 depas
 kluonas
@@ -7615,7 +7564,6 @@ ampulė
 reanimatologas
 rūstybė
 įdomumas
-kolumbietis
 kuluarai
 stebėtoja
 refleksas
@@ -7644,12 +7592,10 @@ tinklininkė
 aranžuotė
 mova
 sapalionė
-ketvirtokas
 klausymasis
 pusmėnulis
 savimeilė
 sezamas
-šeštokas
 tingumas
 maklerė
 tundra
@@ -7662,10 +7608,8 @@ tonusas
 nurodytojas
 fantomas
 kekšė
-kėdainietis
 nosinė
 dekanatas
-kolūkietis
 menkniekis
 genetikas
 profesionalė
@@ -7680,7 +7624,6 @@ ešelonas
 kineskopas
 melodrama
 pilkapynas
-azerbaidžanietis
 ląsteliena
 segė
 viršsvoris
@@ -7780,7 +7723,6 @@ margis
 silosas
 žolininkė
 jazminas
-meksikietė
 šakė
 šlakys
 pitonas
@@ -7816,7 +7758,6 @@ gvazdikas
 konklava
 švarumas
 nuokalnė
-aštuntokas
 irklas
 pamušalas
 jaunimėlis
@@ -7861,7 +7802,6 @@ veidmainystė
 kietumas
 laidininkas
 laris
-libanietis
 dagys
 dializė
 varnėnas
@@ -7929,12 +7869,10 @@ kola
 raižinys
 triukšmadarys
 išeiga
-kietis
 pietvakaris
 priimtinumas
 blizgė
 individualizmas
-kirtavietė
 šimtadienis
 brandumas
 daržininkas
@@ -7990,7 +7928,6 @@ diskrecija
 nitritas
 radionavigacija
 skundikas
-argentinietė
 barmenė
 mašalas
 mėsininkas
@@ -8006,7 +7943,6 @@ kadetas
 numylėtinė
 blizgis
 mergvakaris
-palangiškė
 mieguistumas
 prielinksnis
 barometras
@@ -8038,7 +7974,6 @@ neurochirurgas
 dėdulė
 girna
 pižama
-maltietis
 vilkstinė
 integralumas
 notarė
@@ -8079,14 +8014,12 @@ rankenėlė
 dermatologas
 spendimas
 tesla
-filipinietis
 socialdemokratija
 intakas
 langinė
 endokrinologija
 savitvarda
 užupis
-devintokas
 ekskomisaras
 rašysena
 gardėsis
@@ -8146,7 +8079,6 @@ maitintoja
 pasiuntinybė
 žėlinys
 kabaretas
-marijampolietė
 perdraudikas
 saris
 sportbatis
@@ -8160,7 +8092,6 @@ homoseksualizmas
 paminklotvarka
 gentainis
 karceris
-tautietė
 eksprezidentas
 kartoteka
 kartodromas
@@ -8223,7 +8154,6 @@ tranzistorius
 nukentėjėlis
 transseksualas
 flamingas
-gargždiškė
 žmogutis
 dauba
 daugiakovė
@@ -8270,7 +8200,6 @@ kosmodromas
 habilitacija
 medalininkė
 taksa
-druskininkietė
 rakštis
 plėtotojas
 rožynas
@@ -8279,7 +8208,6 @@ turistė
 bičiulystė
 šališkumas
 fokusas
-kanadietė
 sarkofagas
 skatikas
 sarkazmas
@@ -8466,7 +8394,6 @@ eksternas
 daugis
 gijimas
 laumė
-apuokas
 kukulis
 štilis
 inhibitorius
@@ -8519,7 +8446,6 @@ iškarpa
 nerštas
 gėlininkas
 termofikacija
-partietė
 bandytojas
 neatsakingumas
 priešistorė
@@ -8566,7 +8492,6 @@ aglomeracija
 dvasininkija
 bjaurastis
 klierikas
-pakalniškė
 astrofizika
 žemvaldys
 eršketas
@@ -8579,7 +8504,6 @@ bjaurybė
 kamanos
 neringiškis
 paparacis
-artišokas
 farmakopėja
 nanotechnologija
 trosas
@@ -8594,12 +8518,10 @@ audiencija
 pergamentas
 vikis
 dykaduonis
-išvietė
 kultūristas
 mantra
 vagilė
 metastazė
-iranietė
 tekstūra
 ovalas
 prodekanas
@@ -8623,7 +8545,6 @@ keramikė
 polka
 įkvėpėjas
 aviakatastrofa
-vietnamietis
 nevykėlė
 rozetė
 sarmata
@@ -8695,7 +8616,6 @@ statistikas
 impotentas
 kaliausė
 korepetitorius
-namiškė
 epidemiologas
 lėlininkas
 reguliuotoja
@@ -8729,7 +8649,6 @@ arfa
 asmeniškumas
 kepurėlė
 svaigulys
-septintokas
 pirmtakė
 skanduotė
 posūnis
@@ -8781,7 +8700,6 @@ aiškiaregis
 diversifikacija
 libido
 panteonas
-azijietis
 gavėnas
 tyčiojimasis
 bilietėlis
@@ -8844,7 +8762,6 @@ konditeris
 padermė
 protonas
 medetka
-uteniškė
 saldumas
 gardumynas
 generacija
@@ -8857,7 +8774,6 @@ oranžerija
 kišenpinigiai
 mankurtas
 brazilė
-kaliningradietis
 lira
 bitlas
 konsensas
@@ -8891,7 +8807,6 @@ karmelitas
 karilionas
 ordinatė
 veronika
-elektrošokas
 melagystė
 ponis
 sultonas
@@ -8910,7 +8825,6 @@ ateizmas
 kupeta
 pamokslininkas
 bižuterija
-ortakis
 tyrinėtoja
 rezervacija
 transparantas
@@ -8950,7 +8864,6 @@ popas
 transas
 dresuotojas
 titnagas
-pasaulietė
 akceptas
 klika
 švietėjas
@@ -8979,7 +8892,6 @@ plaštakė
 pramogautojas
 konclageris
 nejautra
-afganistanietė
 antologija
 botulinas
 būdvardis
@@ -9024,7 +8936,6 @@ sonetas
 cenzorius
 omletas
 ėmėjas
-indoeuropietis
 lošėja
 kanibalas
 iniciatyvumas
@@ -9050,7 +8961,6 @@ vieversys
 labdarys
 jidiš
 neskaidrumas
-pietietis
 protestuotoja
 rūgpienis
 gaudytojas
@@ -9074,7 +8984,6 @@ pikapas
 humanistas
 sora
 inkvizicija
-jonavietis
 landšaftas
 leitmotyvas
 margas
@@ -9088,7 +8997,6 @@ gongas
 žibintuvėlis
 aiškiaregė
 užantis
-kaimietė
 konservatizmas
 suomė
 viduržiemis
@@ -9103,9 +9011,7 @@ vienadienis
 diletantas
 komentuotojas
 trešnė
-maskvietė
 dramaturgė
-rytietis
 pasakėčia
 šeštadalis
 šuolininkė
@@ -9124,7 +9030,6 @@ genofondas
 apvalumas
 baltistika
 dvimiestis
-pankrokas
 čiurkšlė
 šiokiadienis
 rankpinigiai
@@ -9138,7 +9043,6 @@ rusniškis
 demografija
 lankininkas
 sagtis
-užsienietė
 cianidas
 žiobris
 postulatas
@@ -9146,7 +9050,6 @@ postulatas
 badmintonininkas
 smagumas
 tekstilininkas
-marokietis
 nėgė
 reliatyvumas
 rotorius
@@ -9165,7 +9068,6 @@ dezinsekcija
 linčas
 kontraindikacija
 kurėnas
-nerštavietė
 sfinksas
 spidometras
 magnolija
@@ -9181,7 +9083,6 @@ pulmonologija
 juslė
 karka
 sueitis
-tailandietis
 šypsenėlė
 depiliacija
 nenaudėlis
@@ -9224,10 +9125,8 @@ viola
 gabentojas
 riedulininkė
 smaragdas
-antrokas
 metikė
 piešėjas
-čilietis
 alibi
 dirglumas
 neteisėtumas
@@ -9321,8 +9220,6 @@ pajacas
 neapdairumas
 pakomisė
 šviesuomenė
-bendrapilietis
-niujorkietis
 dažytoja
 geležtė
 lupena
@@ -9434,7 +9331,6 @@ husaras
 mėšlungis
 spjūvis
 diplomantas
-marsietis
 niežulys
 orientacininkas
 račius
@@ -9470,7 +9366,6 @@ doktorantė
 dedikacija
 ginimas
 menotyra
-slaptavietė
 šunsnukis
 buldogas
 kraikas
@@ -9478,7 +9373,6 @@ pusmetris
 gintarėlis
 santaika
 karbidas
-sodietis
 audėja
 bazilijonas
 neryžtingumas
@@ -9512,12 +9406,10 @@ animatorius
 dienovidis
 filtratas
 nekenksmingumas
-visaginietis
 legitimumas
 pirsas
 plebiscitas
 pleiskana
-ukmergiškė
 valdžiukė
 vingrybė
 baldininkas
@@ -9531,7 +9423,6 @@ tamilas
 volungė
 baisybė
 genialumas
-neandertalietis
 detonatorius
 eksploatuotojas
 eraičinas
@@ -9543,7 +9434,6 @@ meškinas
 vaiskrūmis
 vedęs
 viduramžis
-maltietė
 žiežirba
 krikštamotė
 transportininkas
@@ -9582,9 +9472,7 @@ vandensauga
 absolventė
 arbatėlė
 molė
-dvarvietė
 falas
-kokas
 zylė
 prieširdis
 bostonas
@@ -9612,7 +9500,6 @@ repelentas
 bernvakaris
 distribucija
 rūkorius
-samarietis
 bandytoja
 serotoninas
 indigas
@@ -9622,10 +9509,8 @@ kapituliacija
 kibirėlis
 tyrulis
 krūtinkaulis
-laužavietė
 retransliacija
 rikis
-šiaurietis
 burka
 patamsis
 rulonas
@@ -9638,7 +9523,6 @@ primarijus
 tekstilininkė
 inovatyvumas
 išradėja
-pakistanietė
 semantika
 žąsinas
 ejakuliacija
@@ -9824,7 +9708,6 @@ prašalaitis
 dausos
 raguotis
 kvarcas
-raudonarmietis
 sveikintojas
 degtindaris
 aptvara
@@ -9835,7 +9718,6 @@ sterilizatorius
 žlugtas
 galvažudys
 neklaužada
-urugvajietis
 dermatovenerologas
 atplaiša
 bibliotekininkystė
@@ -9877,7 +9759,6 @@ brolybė
 apartheidas
 beždžionėlė
 dvimetis
-klaipėdiškė
 siautulys
 varnalėša
 karteris
@@ -9926,7 +9807,6 @@ palaikytojas
 satelitas
 trumparegystė
 paliepis
-pašalietis
 topinambas
 graužatis
 lakmusas
@@ -9946,14 +9826,12 @@ sandalas
 stela
 termoizoliacija
 demencija
-nigerietis
 plovas
 silikatas
 vilkolakis
 dinamiškumas
 dirsė
 kumetis
-radviliškietė
 tirada
 žodynėlis
 kraustymasis
@@ -9994,8 +9872,6 @@ simuliatorius
 sąjūdininkas
 veržlė
 hidrantas
-dykvietė
-kelmiškė
 nesvarumas
 sanskritas
 čeburekas
@@ -10050,7 +9926,6 @@ genezė
 alksnynė
 beraštė
 duotybė
-pastarnokas
 sąveikumas
 žolininkas
 burtininkė
@@ -10067,7 +9942,6 @@ kantata
 kinematografas
 nenuoseklumas
 netikėlis
-rygietis
 biografas
 esperanto
 grandynas
@@ -10146,7 +10020,6 @@ sinoptika
 girdykla
 popiergalis
 statinaitė
-afroamerikietis
 artistiškumas
 kiaulaitė
 vasarotojas
@@ -10213,7 +10086,6 @@ humaniškumas
 kosmopolitas
 polipropilenas
 rūkykla
-stafilokokas
 šaltumas
 badmetis
 bendravardis
@@ -10247,7 +10119,6 @@ cukranendrė
 jeronimas
 kriminalistika
 pagardai
-vilkaviškietis
 įgijėja
 salto
 cezis
@@ -10296,7 +10167,6 @@ beržynas
 juodžemis
 sukinys
 pateikėja
-juodkalnietis
 patriotė
 trylikametis
 auksinas
@@ -10331,7 +10201,6 @@ tekila
 kokonas
 perdavėjas
 svingas
-kraštietė
 kryptingumas
 resocializacija
 benzinvežis
@@ -10339,7 +10208,6 @@ bulgarė
 klastotoja
 pasakotoja
 apskaitininkas
-europietė
 flakonas
 hidroenergetika
 laminatas
@@ -10355,7 +10223,6 @@ biseksualas
 dekalogas
 drevė
 fenomenologija
-paryžietis
 samplaika
 tvarkymasis
 aprobuotojas
@@ -10437,7 +10304,6 @@ amalgamacija
 narkologija
 paplotis
 vaikigalis
-kubietė
 disfunkcija
 fotojuosta
 gonorėja
@@ -10494,7 +10360,6 @@ epizootija
 tranas
 liliputas
 rusaitė
-šlapimtakis
 propeleris
 rūpintinis
 sąrėmis
@@ -10505,7 +10370,6 @@ senatorė
 despotas
 laikmatis
 mirtininkė
-telšiškė
 vargonininkė
 žagrė
 slėpynės
@@ -10520,7 +10384,6 @@ egzema
 enkavedistas
 latgalė
 osetinas
-pakruojietė
 prisitaikėlis
 apologetas
 kanistras
@@ -10554,7 +10417,6 @@ fechtavimasis
 raudonukė
 nuodėgulis
 papūgėlė
-vyriokas
 apauga
 bromidas
 durtuvas
@@ -10646,7 +10508,6 @@ inteligencija
 išgijimas
 kulinarė
 šiukšliavežis
-krokas
 kvadratūra
 superherojus
 špaga
@@ -10674,7 +10535,6 @@ akordeonininkas
 hartas
 orangutangas
 skirstytojas
-filipinietė
 laiškininkas
 moderatorius
 neolitas
@@ -10701,7 +10561,6 @@ beteisis
 pipetė
 savimyla
 virbas
-augimvietė
 komposteris
 kvaiša
 liktinis
@@ -10742,9 +10601,7 @@ alinė
 anakardis
 endoskopija
 alergologija
-azerbaidžanietė
 finansuotoja
-joniškietė
 plėvė
 kreiseris
 magistrė
@@ -10765,7 +10622,6 @@ apgavikė
 aukštikalnė
 nerangumas
 paleistuvystė
-prasčiokas
 rododendras
 savikritika
 laka
@@ -10776,7 +10632,6 @@ chrestomatija
 maksimalizmas
 palydėtuvės
 piktadarė
-žemietis
 gondola
 pjūtis
 skaistumas
@@ -10828,7 +10683,6 @@ spalvingumas
 dešimtinė
 gyslotis
 katorga
-kiprietis
 klavišininkas
 kuoka
 kvadratėlis
@@ -10840,7 +10694,6 @@ galera
 gigabaitas
 greideris
 opozicionierė
-parodėlė
 šiupinys
 fotoparoda
 skyrininkas
@@ -10946,7 +10799,6 @@ pašalas
 žastikaulis
 indis
 kniedė
-londonietis
 piktasis
 šmaikštumas
 rombas
@@ -10984,7 +10836,6 @@ antžmogis
 bejėgė
 manoji
 pektinas
-tailandietė
 šovinizmas
 kapitula
 reduktorius
@@ -11009,7 +10860,6 @@ vandentalpa
 šiukšlinė
 eksploatuotoja
 liana
-samarietė
 vyrutis
 šerniena
 žibutis
@@ -11089,7 +10939,6 @@ valstybėlė
 vežikas
 alutis
 nepatikimumas
-plungiškė
 turbokompresorius
 šulinėlis
 atokaita
@@ -11101,7 +10950,6 @@ tarpukalnė
 vasarotoja
 plejada
 traktoristas
-valstietė
 aplinkraštis
 baltai
 cokolis
@@ -11113,7 +10961,6 @@ kompresorinė
 panagė
 stuobrys
 visuomenininkė
-berniokas
 iškyšulys
 mirksnis
 albinosas
@@ -11139,11 +10986,9 @@ augintoja
 baldžius
 begalvis
 flavonoidas
-jurbarkietė
 naganas
 strėnos
 balanda
-burliokas
 komponentė
 miklumas
 armada
@@ -11168,7 +11013,6 @@ naudininkas
 pakrūmė
 cirkininkas
 izraelitas
-mažeikietis
 miu
 urbanistas
 virtiniai
@@ -11285,7 +11129,6 @@ virpulys
 žiniuonis
 deklaruotojas
 grubumas
-alžyrietis
 dešimtokė
 dvinaris
 fleitininkas
@@ -11306,7 +11149,6 @@ galininkas
 sorgas
 stebulė
 desperacija
-kiaušintakis
 ryškis
 vienmintis
 gūžta
@@ -11314,7 +11156,6 @@ laiškanešys
 milinė
 narkotinas
 transkripcija
-enterokokas
 eglišakė
 konstruktas
 matadoras
@@ -11343,7 +11184,6 @@ sintagma
 skalsumas
 špagatas
 dugninė
-černobylietis
 kaminkrėtys
 kankynė
 lygintojas
@@ -11385,7 +11225,6 @@ pipirnė
 daugyba
 gastronomija
 kalendra
-sąjūdietis
 tulikas
 blevyzga
 frontininkas
@@ -11417,8 +11256,6 @@ sklandytoja
 banditėlis
 displėjus
 fotomenas
-kaukazietis
-meningokokas
 daugiakovininkė
 ekspresionizmas
 gospel
@@ -11443,7 +11280,6 @@ naftalinas
 pasaulėlis
 pirotechnikas
 rafinuotumas
-tarpvietė
 atsilikėlis
 baltymingumas
 beatifikacija
@@ -11458,7 +11294,6 @@ pustaškis
 sulfitas
 ekshibicionistas
 hiperaktyvumas
-libanietė
 televizininkas
 diemedis
 kišenvagė
@@ -11470,7 +11305,6 @@ dviprasmiškumas
 lauknešėlis
 liežuvėlis
 žemgrobys
-bendrapartietė
 etnosas
 kalaitė
 legalumas
@@ -11485,7 +11319,6 @@ emocionalumas
 hidroizoliacija
 libiai
 adekvatumas
-boružė
 introdukcija
 kolis
 uogautojas
@@ -11559,7 +11392,6 @@ darbdavė
 kiškutis
 nailonas
 serbenta
-venesuelietis
 geizeris
 gelteklė
 katakombos
@@ -11611,7 +11443,6 @@ sedula
 bioenergetikas
 hamakas
 išauga
-užkandėlė
 dominantė
 nepalankumas
 pasakaitė
@@ -11623,10 +11454,8 @@ pastabėlė
 gudragalvis
 lovelasas
 nejudrumas
-nepalietis
 prerija
 nejautrumas
-seniokas
 skudurynas
 smiltainis
 įtaigumas
@@ -11677,7 +11506,6 @@ starteris
 svaiginimasis
 žilė
 dispersija
-kuršėniškė
 skiedalas
 skrupulas
 spirgas
@@ -11704,7 +11532,6 @@ pagava
 piniguočius
 žiupsnis
 dūzgės
-kėdainietė
 minkštumas
 negalimumas
 okulistas
@@ -11766,9 +11593,7 @@ apsišaukėlė
 kreigas
 pagėgiškis
 sterilumas
-vandentakis
 vergystė
-jonavietė
 mitra
 piktograma
 soma
@@ -11796,7 +11621,6 @@ juriskonsultas
 kuosa
 nikis
 petnešėlė
-popietis
 šinšila
 bursa
 konstruktyvumas
@@ -11995,7 +11819,6 @@ kirtėjas
 reprografija
 scientologija
 skelbėja
-somalietis
 užutėkis
 frankenšteinas
 lenkutis
@@ -12010,11 +11833,9 @@ teplionė
 devyniolikametis
 donžuanas
 impulsyvumas
-jamaikietis
 muziejininkystė
 raizgalynė
 repatriacija
-draugužė
 dviveidis
 identiškumas
 padauža
@@ -12033,19 +11854,16 @@ krikščionė
 rotonda
 ambrozija
 anestetikas
-kamerūnietis
 mumijus
 ostija
 paleontologas
 panegirika
-rokiškietė
 rugiapjūtė
 statramstis
 šliundra
 argonas
 nytis
 paantraštė
-paduvietis
 papirosas
 prozininkė
 separatorius
@@ -12057,8 +11875,6 @@ ekspropriacija
 kempinėlė
 miknius
 mizanscena
-niujorkietė
-rytietė
 siūlytoja
 užnemunė
 brunetas
@@ -12082,7 +11898,6 @@ brolienė
 daugiakalbystė
 difuzorius
 gramofonas
-gvardietis
 hidroenergija
 kontempliacija
 lapiai
@@ -12121,12 +11936,10 @@ elektrokardiograma
 industrializacija
 javainis
 kompozitas
-miestietė
 nacionalsocializmas
 palaidinis
 ryšininkė
 stūmikas
-taivanietis
 batviršis
 mažmenininkė
 pirštinaitė
@@ -12205,7 +12018,6 @@ stebukladaris
 trilapis
 užbaigtumas
 herpesas
-kambariokas
 konformizmas
 lėliukė
 varianta
@@ -12213,10 +12025,8 @@ klavyras
 kledaras
 narsumas
 satyrikas
-trakiškė
 bioritmas
 grambuolys
-kolumbietė
 liberalumas
 rungimasis
 šviesis
@@ -12269,7 +12079,6 @@ badmintonininkė
 karna
 kojinaitė
 kornišonas
-lizdavietė
 nertinis
 senjorė
 tiglis
@@ -12283,7 +12092,6 @@ nominantė
 siauris
 sinusas
 tankistas
-šventvietė
 kanopiniai
 melatoninas
 nesavanaudiškumas
@@ -12295,8 +12103,6 @@ biosauga
 fuga
 kalvinistas
 katarsis
-rokokas
-sienietė
 svajoklis
 kingstonas
 pamaiva
@@ -12377,7 +12183,6 @@ kalamas
 medalionas
 reziumė
 tvarsliava
-žagarietis
 atžalėlė
 cukringumas
 daboklė
@@ -12412,7 +12217,6 @@ vasarojus
 viengungė
 blokatorius
 gaisringumas
-dujotakis
 hunas
 lengvabūdis
 nemetalas
@@ -12436,7 +12240,6 @@ salatis
 serpantinas
 gebenė
 kontrabosininkas
-marokietė
 žagaras
 augalėlis
 bendratis
@@ -12491,12 +12294,10 @@ diskografija
 morfinas
 parafrazė
 reguliacija
-šakietis
 šefė
 imperatorė
 septyniolikametis
 patiltė
-perimvietė
 pilkuma
 primityvumas
 skundimas
@@ -12548,7 +12349,6 @@ kolpingas
 pūkis
 vandentiekininkas
 antimedžiaga
-kretingiškė
 dinama
 einis
 hegemonas
@@ -12578,7 +12378,6 @@ smulkmenėlė
 galvūgalis
 gražgarstė
 gėlininkė
-kiška
 pirmaklasis
 vernisažas
 agronomė
@@ -12607,11 +12406,9 @@ visuomeniškumas
 įpjova
 kasinys
 kraštotyrininkė
-kursiokas
 mašinraštis
 mažažemis
 traukis
-žiemavietė
 bendrakeleivė
 edukologė
 feljetonas
@@ -12645,7 +12442,6 @@ dekoratyvumas
 inkvizitorius
 pasija
 priėmėja
-radimvietė
 rykas
 templė
 upokšnis
@@ -12684,7 +12480,6 @@ stibis
 armagedonas
 hidrologas
 iliustruotojas
-kauniškė
 laužytojas
 medunešis
 morfijus
@@ -12698,7 +12493,6 @@ kūlė
 pažeidėja
 perkamumas
 pertvaras
-sodybvietė
 anapusybė
 ekstravertas
 interferonas
@@ -12710,13 +12504,11 @@ signalizatorius
 sopa
 grundalas
 klientūra
-korėjietė
 nepraeinamumas
 paplavos
 pūgžlys
 ricinas
 sinchronizacija
-užuolaidėlė
 dviveidiškumas
 forintas
 kalambūras
@@ -12740,7 +12532,6 @@ satanizmas
 aversas
 diuretikas
 gerintoja
-indonezietis
 izobara
 mazochizmas
 religijotyra
@@ -12795,7 +12586,6 @@ nepajėgumas
 netaktas
 pasmakrė
 planktonas
-salezietis
 siurbėlė
 slogutis
 svainija
@@ -12820,7 +12610,6 @@ namisėda
 rudenėlis
 turgininkas
 angelėlis
-jordanietis
 menora
 pasiutpolkė
 rikošetas
@@ -12866,7 +12655,6 @@ autotraukinys
 patisonas
 perekšlė
 priesvoris
-streptokokas
 žemumas
 dinamizmas
 kanklininkas
@@ -12919,7 +12707,6 @@ netyčia
 silpnavalis
 sorbentas
 viliokė
-vilniškė
 eunuchas
 perfekcionistas
 vojažas
@@ -12964,7 +12751,6 @@ atsiskyrėlė
 drumstėjas
 fitoplanktonas
 iškylautojas
-jautakis
 kiaušis
 klintys
 kurtinė
@@ -13121,7 +12907,6 @@ pusbatis
 pūdas
 stenokardija
 tendencingumas
-jonaviškė
 laipynė
 profanas
 sulčiaspaudė
@@ -13156,7 +12941,6 @@ dygsnis
 forpostas
 furija
 hipofizė
-kijevietis
 kūmas
 laso
 pulsaras
@@ -13226,7 +13010,6 @@ staras
 tritis
 žaibosauga
 displazija
-katpėdėlė
 mezgėjas
 prielipa
 reptilija
@@ -13288,13 +13071,11 @@ birbynininkas
 demarkacija
 drachma
 estetikas
-kapvietė
 laringitas
 nešiojimasis
 normalė
 parketlentė
 puritonas
-varėniškė
 antrakursis
 dirhamas
 gakta
@@ -13342,7 +13123,6 @@ chna
 intifada
 krautuvininkas
 piltuvėlis
-atėnietis
 kerza
 konkretybė
 kontržvalgybininkas
@@ -13444,7 +13224,6 @@ ernis
 galandimas
 grobuonė
 misticizmas
-pabaltijietis
 talkininkė
 trubadūras
 anodas
@@ -13514,7 +13293,6 @@ antitezė
 druidas
 mecenatė
 rauplė
-rokiškietis
 savitaiga
 skurdumas
 transplantatas
@@ -13563,11 +13341,9 @@ filmuotojas
 fotožurnalistas
 ginkluotojas
 kopėtėlės
-liuksemburgietis
 našlystė
 nešlovė
 pusnynas
-taivanietė
 arkadija
 masajai
 sibilė
@@ -13593,7 +13369,6 @@ altorėlis
 manevringumas
 okeanariumas
 pusdievis
-akmeniškė
 brifingas
 europietiškumas
 formuliaras
@@ -13602,7 +13377,6 @@ straublys
 tulis
 virgulė
 kirtėja
-pasvalietė
 puskelnės
 pyragius
 chaki
@@ -13634,7 +13408,6 @@ fondiu
 galiūnė
 imigrantė
 iracionalumas
-kalnietė
 kompiliacija
 kronprincas
 liumenas
@@ -13648,7 +13421,6 @@ grasa
 jurbarkiškis
 katechetas
 kordonas
-kėdainiškė
 kūniškumas
 mūrijimas
 pasiuntinė
@@ -13663,12 +13435,10 @@ fluidas
 grafomanas
 hindi
 kaspinuotis
-madridietis
 megafonas
 meilumas
 meškis
 paukštininkas
-romietis
 tarantulas
 tvarkdarė
 antvožas
@@ -13696,7 +13466,6 @@ dreifas
 durnaropė
 geraširdiškumas
 katodas
-maironietis
 nuoplova
 popuri
 provincijolas
@@ -13729,7 +13498,6 @@ pavyzdingumas
 žaidimėlis
 bliuzonas
 dekoltė
-garliavietis
 kavamedis
 monograma
 plėšrūnė
@@ -13752,7 +13520,6 @@ vėjavarta
 čiukčė
 ataudai
 bastėja
-berlynietis
 boingas
 fibra
 stagaras
@@ -13812,7 +13579,6 @@ niekintoja
 polikarbonatas
 rautas
 sekmininkas
-vasarvietė
 įkyrumas
 šernė
 bilijonas
@@ -13832,14 +13598,12 @@ gelsvė
 išnara
 militarizmas
 petunija
-prieniškė
 raiškumas
 vaidintojas
 banalumas
 gašlumas
 globotoja
 kaitris
-linkuvietis
 palaimintoji
 rekrutas
 rinkinėlis
@@ -13864,7 +13628,6 @@ sąvaržėlė
 trioksidas
 gelžgalys
 ginkmedis
-kaliningradietė
 mulkintojas
 priekalnė
 sąšauka
@@ -13951,7 +13714,6 @@ pirštakaulis
 prognozuotojas
 rijikas
 seksizmas
-senegalietis
 subrogacija
 įpjovimas
 bufetininkė
@@ -14006,14 +13768,12 @@ bešališkumas
 eidas
 idealybė
 krešumas
-makedonietis
 matuoklė
 mikrofilmas
 prekijas
 reaktyvumas
 sakalėlis
 žeberklas
-balandėlė
 bluostas
 hedonizmas
 kalkuliacija
@@ -14040,7 +13800,6 @@ metalaksilas
 perkasas
 prisiplakėlis
 suvokėjas
-trakietis
 elektromagnetas
 futurizmas
 inspektas
@@ -14124,10 +13883,8 @@ gynimasis
 keturnytis
 kopūstienė
 latgalis
-žagarietė
 dešimtkovininkas
 gliukokortikoidas
-kaišiadorietis
 litosfera
 mulkė
 plombyras
@@ -14138,7 +13895,6 @@ sofistas
 superintendentas
 uždoris
 vertinys
-šalčininkietis
 algalapis
 dušinė
 emocingumas
@@ -14153,7 +13909,6 @@ skrebas
 tradicionalistas
 trumpumas
 žindyvė
-afrikietė
 apypelkis
 iškylautoja
 močia
@@ -14211,7 +13966,6 @@ buožgalvis
 kietakaktis
 pamfletas
 pilvakojis
-puertorikietis
 sukatžolė
 sūrininkas
 uždangalas
@@ -14327,7 +14081,6 @@ griebtuvas
 miegalius
 pasaulėvoka
 pitbulterjeras
-raseiniškė
 reminiscencija
 terabaitas
 vakardiena
@@ -14336,7 +14089,6 @@ aeracija
 autoironija
 beržynė
 detalizacija
-egiptietė
 gramzda
 hidratas
 hidraulika
@@ -14363,20 +14115,17 @@ gėrėjas
 hutas
 konkordatas
 muštras
-neringiškė
 protaka
 radža
 saksai
 tekintoja
 vienmintė
 šliurė
-žuvitakis
 automatizacija
 benamystė
 masažuoklis
 neakivaizdininkas
 rezorbcija
-rusniškė
 tampra
 uolynas
 šimtadalis
@@ -14411,7 +14160,6 @@ ekumenizmas
 kardžuvė
 keverzonė
 kioskininkas
-nepalietė
 neįgalioji
 ondatra
 procimidonas
@@ -14425,9 +14173,7 @@ ksilenas
 metalurgas
 montekristas
 noradrenalinas
-paklydėlė
 tetėnas
-vabalninkietis
 šalinė
 fagas
 frizas
@@ -14475,7 +14221,6 @@ brizas
 ekvatorius
 gaivintojas
 gradientas
-jūsiškė
 kontūzija
 osteomielitas
 parkūras
@@ -14489,7 +14234,6 @@ partkomas
 plepė
 vaizdingumas
 validolis
-venesuelietė
 apvalkalėlis
 atsilikėlė
 atsvaras
@@ -14512,7 +14256,6 @@ bajoraitė
 cukrainė
 dekompresija
 isterikė
-kalvarijietis
 linksmintoja
 metiramas
 pavergėjas
@@ -14525,17 +14268,14 @@ bliovimas
 dalba
 fabrikantas
 gundytojas
-ignalinietis
 piemenė
 reanimatologija
 stacija
 sutaptis
 tapšnotojas
 triukšmingumas
-švėkšniškė
 ūkiškumas
 cikada
-dūmtakis
 džigitas
 fundacija
 hidalgas
@@ -14649,7 +14389,6 @@ vienuolikametė
 žydrynė
 akronimas
 esparcetas
-garliaviškė
 hipokampas
 kiaukutas
 treniravimasis
@@ -14694,7 +14433,6 @@ hipotenzija
 kadagynas
 katechetika
 kiškienė
-mažeikietė
 pagoda
 pakartojamumas
 plonumas
@@ -14705,7 +14443,6 @@ stuomuo
 sugestija
 sąauga
 šnaresys
-ansamblietis
 aukšlė
 autochtonas
 dermatologija
@@ -14741,7 +14478,6 @@ prognozuotoja
 regentas
 suaugėlis
 tuvis
-užupietis
 aspartamas
 autokranas
 brantas
@@ -14781,7 +14517,6 @@ storžievis
 dominija
 furnitūra
 kamertonas
-korintietis
 mandolina
 nasturta
 oksidatorius
@@ -14895,7 +14630,6 @@ sepija
 simptomatika
 sklandumas
 stearatas
-suvalkietė
 ambicingumas
 dracena
 dramatiškumas
@@ -14985,7 +14719,6 @@ infantilumas
 kulkosvaidininkas
 kvadrantas
 neveiksmingumas
-pasienietė
 spragilas
 sąrama
 taleris
@@ -15009,7 +14742,6 @@ testuotojas
 vytinis
 šamanizmas
 aferezė
-birštonietis
 ekscentrikas
 eksprokuroras
 ingušas
@@ -15068,7 +14800,6 @@ robusta
 stengimasis
 taboka
 venteris
-visaginietė
 apyaušris
 brolystė
 dendrologas
@@ -15086,7 +14817,6 @@ aplinkosaugininkė
 apšalas
 atnaša
 avanscena
-babilonietis
 barzdaskutys
 bombikė
 bonitetas
@@ -15114,7 +14844,6 @@ pramuštgalvis
 rašinėtoja
 taikintojas
 tramadolis
-varniškė
 įsteigėjas
 žiemė
 žvėriškumas
@@ -15196,7 +14925,6 @@ kontrapunktas
 maltinis
 numirėlė
 podirvis
-sicilietis
 skerstuvės
 vingė
 šilkverpis
@@ -15246,7 +14974,6 @@ flanšas
 keturvėjininkas
 kreivumas
 kvikstepas
-milanietis
 pavargėlis
 plentvolis
 suvedžiotojas
@@ -15276,7 +15003,6 @@ imazalilas
 lupikautoja
 nesavarankiškumas
 parašiutizmas
-pasileidėlė
 pateiktis
 pederastija
 vingilis
@@ -15342,10 +15068,8 @@ naktipiečiai
 radiofonija
 reviu
 rezginė
-tuokvietė
 vainiklapis
 valstietija
-viekšniškė
 įrodytumas
 citra
 dioptrija
@@ -15360,7 +15084,6 @@ prašmatnumas
 riformingas
 senukė
 videomenininkas
-šilokas
 antocianas
 bošas
 egzaminatorius
@@ -15377,7 +15100,6 @@ monoklis
 murklys
 oligopolija
 pustuzinis
-sekundėlė
 skriemulys
 sąlygiškumas
 troškintuvas
@@ -15393,7 +15115,6 @@ medvarlė
 nartas
 perfuzija
 piktdžiuga
-skuodiškė
 universumas
 vėplys
 apgaubas
@@ -15403,7 +15124,6 @@ freken
 malyba
 radėja
 skydamaris
-sudanietis
 toliaregystė
 valgyklėlė
 šlykštumas
@@ -15435,13 +15155,11 @@ finougrai
 karkalas
 kuliamoji
 nedalomumas
-obelietis
 pasaulietiškumas
 superlaidininkas
 tarifikacija
 topazas
 garsintojas
-jamaikietė
 kurčnebylė
 mentorystė
 metūglis
@@ -15475,14 +15193,12 @@ spalinė
 sparas
 tirozinas
 vagilius
-šiauliškė
 bukaprotė
 funkcionalas
 knygrišys
 krucifiksas
 laimingumas
 levitacija
-nazarietis
 nenuspėjamumas
 pirmavaizdis
 problemiškumas
@@ -15530,7 +15246,6 @@ kepurinė
 knygius
 mandragora
 opalas
-pabaltijietė
 pasakininkas
 pintinėlė
 priebutis
@@ -15553,7 +15268,6 @@ bandažas
 fatas
 hermafroditas
 islamizacija
-kazimierietė
 lėlininkė
 metrikai
 odena
@@ -15609,7 +15323,6 @@ deglis
 degtinėlė
 devyniolikametė
 diecezija
-ekvadorietis
 gastroenteritas
 ginkluotoja
 hominidas
@@ -15625,7 +15338,6 @@ empirija
 fenilendiaminas
 fenilketonurija
 išeivė
-juodkalnietė
 kantorius
 kvintesencija
 lamotriginas
@@ -15667,7 +15379,6 @@ naktibalda
 savikūra
 skitai
 sodybėlė
-venecijietis
 dalytoja
 dygis
 gūnia
@@ -15682,7 +15393,6 @@ pašaknys
 praeinamumas
 radiografija
 sadomazochizmas
-spartietis
 taktiškumas
 trišuolininkė
 vindikacija
@@ -15701,13 +15411,11 @@ liūdnumas
 profanacija
 svetimšalė
 vintas
-čikagietis
 šlakbetonis
 žavumas
 filantropė
 fotoblykstė
 girgždesys
-indonezietė
 lakoniškumas
 maketuotojas
 marodierius
@@ -15715,12 +15423,10 @@ pakanta
 pigmėjas
 pintis
 pusašis
-sirtakis
 skatintoja
 skirstytuvas
 socialistė
 voragyvis
-žūklavietė
 balkonėlis
 bejėgystė
 biometrija
@@ -15732,7 +15438,6 @@ kirpčiai
 korumpuotumas
 kraugerė
 kvaitulys
-lentvarietis
 miestovaizdis
 puantas
 pupmedis
@@ -15770,7 +15475,6 @@ dvejetukininkas
 garsynas
 kapelmeisteris
 konvojuotojas
-linkuvietė
 plongalys
 saviaukla
 suteikėjas
@@ -15845,7 +15549,6 @@ mulatas
 padegėlė
 pasikėsintojas
 rėmimasis
-santarietis
 virusologija
 šildyklė
 alšėniškis
@@ -15868,7 +15571,6 @@ salafitas
 užgiris
 vieversėlis
 šaktarpis
-šatrijietis
 bambeklė
 dažinys
 hagis
@@ -15880,7 +15582,6 @@ sklindis
 spiningininkas
 statmuo
 struma
-sąjūdietė
 sėjikas
 tapatinimasis
 tempera
@@ -15894,7 +15595,6 @@ infocentras
 karklynas
 kombainininkas
 landrasas
-lazdijietis
 mikropasaulis
 neoromantikas
 ranktūris
@@ -15948,7 +15648,6 @@ postmodernas
 primusas
 propenas
 saldybė
-telšietis
 šungaudys
 aistringumas
 alkūnkaulis
@@ -15970,7 +15669,6 @@ magnetosfera
 papetė
 priekabiautoja
 sibutraminas
-stulpavietė
 užkrėstumas
 šilojas
 šukuotis
@@ -16047,7 +15745,6 @@ insignija
 kopijuotojas
 krūtininė
 lunatizmas
-minskietis
 nemandagumas
 sieksnis
 sublimacija
@@ -16075,7 +15772,6 @@ bėris
 charitė
 dispašeris
 dreverniškis
-elektrėniškė
 epistemologija
 galūnėlė
 gleivės
@@ -16109,7 +15805,6 @@ išmanumas
 kreiptis
 pavija
 pretorijus
-ramygalietis
 rudimentas
 tugrikas
 universalizmas
@@ -16117,7 +15812,6 @@ antpelnis
 benomilas
 celestinas
 graižas
-irakietė
 kaklajuostė
 koštuvas
 kriptografija
@@ -16137,12 +15831,10 @@ botagėlis
 diskretiškumas
 genderizmas
 jorkšyrė
-kiprietė
 motokrosininkas
 neigėjas
 raguotasis
 rezistentiškumas
-saulužė
 skeptiškumas
 altana
 apolitiškumas
@@ -16187,8 +15879,6 @@ ožinis
 rudumas
 savinieka
 skaldykla
-sodietė
-somalietė
 sąšlavos
 taškutis
 trankviliantas
@@ -16248,7 +15938,6 @@ vienarankis
 epileptikas
 gontas
 karmelitė
-kaukazietė
 napalmas
 nerimastingumas
 ortodoksija
@@ -16290,8 +15979,6 @@ rodytuvas
 sukutis
 trikampėlis
 vijokliniai
-vilkaviškietė
-černobylietė
 šarada
 šimtasiūlė
 adagio
@@ -16311,7 +15998,6 @@ abreviatūra
 atvertis
 futurologas
 gandrinės
-jemenietis
 mitologas
 nevienodumas
 pentis
@@ -16344,7 +16030,6 @@ meteorizmas
 neaktyvumas
 padūkėlis
 pakilumas
-palestinietė
 pardavinėtoja
 patalpėlė
 plūktas
@@ -16352,7 +16037,6 @@ priešpilis
 tablo
 tikėtinumas
 šoklys
-žemietė
 žąslai
 apdulkintoja
 biblioterapija
@@ -16377,9 +16061,7 @@ refleksoterapija
 spiningautoja
 tromboembolija
 vandenlentė
-varšuvietis
 arsenitas
-azijietė
 blindažas
 eurovizininkas
 garbanėlė
@@ -16420,7 +16102,6 @@ konfucianizmas
 kryžma
 normanai
 oktetas
-paryžietė
 pirdžius
 plato
 purka
@@ -16475,7 +16156,6 @@ permetrinas
 perraša
 plautuvas
 rinklė
-sibirietis
 stagnatorius
 tabernakulis
 troposfera
@@ -16501,7 +16181,6 @@ triušininkystė
 tylenė
 viršytojas
 šunvotė
-alžyrietė
 bikarbonatas
 džamahirija
 epušė
@@ -16595,13 +16274,11 @@ estetiškumas
 gamtonauda
 grindimas
 iridis
-katarietis
 klotuvas
 kubizmas
 metrologas
 patrakėlis
 piktybiškumas
-studenčiokas
 stūmikė
 įtakingumas
 žvirbliniai
@@ -16679,7 +16356,6 @@ salpa
 sandalmedis
 sanuotoja
 sarginė
-sietis
 tamarinas
 valksmas
 akromegalija
@@ -16694,7 +16370,6 @@ fotoportretas
 genetikė
 hipochondrija
 išlaisvintojas
-kintiškė
 konkordansas
 krūminė
 parijas
@@ -16704,9 +16379,7 @@ plėstuvas
 pokrypis
 sutvėrėjas
 vazektomija
-vietnamietė
 virtualizacija
-šilališkė
 šilkmedis
 špicas
 adaptavimasis
@@ -16719,7 +16392,6 @@ etnomuzika
 garbanius
 gitaristė
 morsas
-nigerietė
 pasvaras
 pietizmas
 utėlėtumas
@@ -16737,7 +16409,6 @@ katijonas
 maharadža
 neuromokslas
 oleandras
-pandėlietis
 periodontitas
 piktinimasis
 rūšiuotojas
@@ -16756,7 +16427,6 @@ kajakas
 kavaleristas
 kiauliaganys
 komendantė
-londonietė
 morengas
 musinukė
 neišprusėlis
@@ -16771,7 +16441,6 @@ spartumas
 susna
 vartytuvas
 įpėdinystė
-širvintiškė
 žokėjus
 žonglierė
 agroturizmas
@@ -16779,7 +16448,6 @@ alebastras
 artrologija
 dantratis
 fetišistas
-kariškė
 klifas
 kraujoplūdis
 ksenofobas
@@ -16798,25 +16466,21 @@ tiesmukumas
 vaivoras
 videojuosta
 vienytoja
-čilietė
 šaudyba
 abstrakcionizmas
 blokuotė
 estetizmas
 eurokratas
-havajietis
 iliuminatas
 imobilizacija
 kabukis
 ožragis
 periodontas
 proteazė
-sediškė
 sielovadininkas
 sparva
 tirkšliškis
 triukšmautojas
-tytuvėniškė
 vietovaizdis
 vėrinėlis
 šalė
@@ -16860,7 +16524,6 @@ dogmatika
 epistema
 grenadierius
 grogas
-guoliavietė
 kajutkompanija
 kilniaširdis
 kirčiuotė
@@ -16905,7 +16568,6 @@ vilnamedis
 aklys
 apgalvis
 argonautas
-baisogalietis
 baptistė
 besotė
 chiromantas
@@ -16939,7 +16601,6 @@ lipikas
 neoromantizmas
 pagalvis
 perteikėjas
-priekuliškė
 puponautas
 reklamacija
 stratifikacija
@@ -17051,7 +16712,6 @@ interpoliacija
 ledžinga
 mimikrija
 nuspėjamumas
-parapijietė
 piktavalė
 reformuotoja
 sambaris
@@ -17133,8 +16793,6 @@ virtualybė
 aksonas
 aminazinas
 antikultūra
-apsileidėlė
-australietis
 brangymetis
 dafnija
 dusetiškis
@@ -17157,7 +16815,6 @@ afta
 ankštara
 apipavidalintojas
 asė
-atlantietis
 džiovininkas
 fazenda
 galantiškumas
@@ -17198,11 +16855,9 @@ koronavirusas
 krymiečiai
 materialistė
 mezoterapija
-naujamiestietis
 negatyvizmas
 nesaikingumas
 oksalatas
-pagėgiškė
 priekabumas
 psichoanalitikė
 rafija
@@ -17221,7 +16876,6 @@ kailiadirbys
 kėlėja
 lašintuvas
 makrofitai
-manijokas
 melagingumas
 mikrokompiuteris
 mikrokosmosas
@@ -17229,7 +16883,6 @@ naktigonis
 neprieinamumas
 nuogrinda
 pamokslautojas
-paragvajietis
 pataitė
 pentagrama
 perturbacija
@@ -17246,7 +16899,6 @@ verksnė
 apginamumas
 bendrapavardė
 dvasininkė
-džiazrokas
 fajansas
 geotekstilė
 halsas
@@ -17280,7 +16932,6 @@ multimilijonierė
 mėšlavabalis
 pakluonė
 pakrovėja
-pastumdėlė
 pjaustinys
 psichosomatika
 pužas
@@ -17288,7 +16939,6 @@ racionalizatorius
 rediskontas
 repozicija
 semtuvėlis
-ugniavietė
 užkurys
 virvagalys
 žydiškumas
@@ -17334,7 +16984,6 @@ kortizonas
 kupidonas
 linoraižinys
 mikropluoštas
-neapolietis
 nerealumas
 nesąmoningumas
 parenchima
@@ -17372,7 +17021,6 @@ bėgsena
 erchercogas
 etnonimas
 geosistema
-haitietis
 hidrocefalija
 išimtinumas
 lindihopas
@@ -17385,7 +17033,6 @@ propoksuras
 purentuvas
 skeletonas
 taršalas
-tinklavietė
 vienbalsiškumas
 ūbas
 žiedynkotis
@@ -17400,11 +17047,9 @@ draiskalas
 ekstensyvumas
 flamandė
 migis
-molėtiškė
 netvarkingumas
 praktikė
 propafenonas
-romuvietis
 skleidimasis
 teoretikė
 veliūras
@@ -17424,7 +17069,6 @@ levodopa
 nekintamumas
 padalyvis
 pakraštėlis
-pakruojiškė
 piesta
 plokščiakalnis
 repetitorė
@@ -17472,9 +17116,7 @@ hipofizis
 ilgšis
 knygotyrininkas
 koloidas
-krekenavietis
 kroketas
-kupiškietė
 marginalija
 maudulys
 mažametystė
@@ -17513,7 +17155,6 @@ reketuotojas
 skiltuvas
 smaugikas
 taksonomija
-vakarietė
 violončelistas
 šliaužtinukai
 žiežula
@@ -17537,7 +17178,6 @@ motetas
 nekorektiškumas
 onanizmas
 orientacininkė
-punskietis
 raktininkas
 stroma
 supimasis
@@ -17547,7 +17187,6 @@ verifikacija
 žiedkotis
 žvynabudė
 anonimė
-baltagvardietis
 bolonė
 darželinukė
 dignitorius
@@ -17565,7 +17204,6 @@ siauraprotis
 skaida
 skerdžius
 stazė
-svėdasiškė
 tapijoka
 upeliūkštis
 apatitas
@@ -17621,7 +17259,6 @@ plunksnuotis
 vengėjas
 čekoslovakas
 ėmimasis
-šatrijietė
 agnostikas
 amatininkė
 aršumas
@@ -17650,7 +17287,6 @@ tetrafluoridas
 vaidilutis
 važiuotojas
 viengungystė
-vilkijietis
 vėsumas
 šmeižikė
 šova
@@ -18029,7 +17665,6 @@ tonometras
 užduotėlė
 šalitiltis
 apynėlis
-bliuzrokas
 dešinumas
 edelveisas
 epsilon
@@ -18102,7 +17737,6 @@ dygliuotis
 ekstinkcija
 gingivitas
 gyvatėlė
-ignalinietė
 intermezzo
 kariautojas
 kirmgraužos
@@ -18145,7 +17779,6 @@ savivaliautojas
 sielininkas
 simetriškumas
 simondsija
-singapūrietis
 siuntinėlis
 skystalas
 tikrenybė
@@ -18179,7 +17812,6 @@ parinktis
 paskuigalis
 paslėpsnis
 pašnabždos
-pneumokokas
 premisa
 sifilitikas
 sorbitanas
@@ -18228,13 +17860,10 @@ tikutis
 tipografas
 traktorininkė
 transportuotojas
-zarasiškė
 šimtininkas
 agluonėniškis
 amatininkystė
 anglistas
-atėnietė
-baisogalietė
 bufetininkas
 darkytojas
 demagogė
@@ -18274,7 +17903,6 @@ fantas
 filomatas
 gadintoja
 grobikė
-kijevietė
 krikščionija
 krotonas
 mikologija
@@ -18298,7 +17926,6 @@ sublicencija
 teokratija
 toksoplazma
 užsakytojas
-velžietis
 viendeginis
 zootechnikė
 įspūdingumas
@@ -18367,7 +17994,6 @@ verpikas
 įsėlis
 šlifas
 adjunktas
-afroamerikietė
 andragogika
 antiprotonas
 ezofagitas
@@ -18388,7 +18014,6 @@ nemokėtojas
 privatizuotojas
 pseudokultūra
 puotautojas
-raguviškė
 riešutinė
 rudžemis
 savicenzūra
@@ -18399,7 +18024,6 @@ tetralogija
 totemizmas
 turiningumas
 užventiškis
-šakietė
 atribucija
 autoinspektorius
 benzenkarboksirūgštis
@@ -18427,7 +18051,6 @@ vagišė
 vandenvardis
 vazopresinas
 vežiminė
-vilijampolietis
 šauksmininkas
 alpulys
 apsodas
@@ -18449,9 +18072,7 @@ liberaldemokratė
 litotripsija
 mechanoterapija
 optometrija
-perujietis
 politkorektiškumas
-raudondvarietis
 timpanas
 toliaregiškumas
 trumpalaikiškumas
@@ -18466,7 +18087,6 @@ vinilacetatas
 altistas
 aptakumas
 chloritas
-dagestanietis
 dešimtakė
 difenbachija
 dvėsena
@@ -18474,7 +18094,6 @@ eigastis
 ekskretas
 elastanas
 gatvėvardis
-genujietis
 integruotumas
 kambras
 kaniulė
@@ -18482,7 +18101,6 @@ konvertitas
 laikiškumas
 laparotomija
 lentvariškis
-maskviškė
 mažulytis
 naujasėdys
 niūfaundlendas
@@ -18507,8 +18125,6 @@ despotija
 fanaberija
 fisharmonija
 imunosupresantas
-kalvarijietė
-kavarskietis
 keturratininkas
 kirkė
 linksminimasis
@@ -18522,7 +18138,6 @@ pakrūmis
 paslėptis
 peizažistas
 pilkalnis
-polinezietis
 prislėgtumas
 pusverpaliai
 radiola
@@ -18568,7 +18183,6 @@ viršytoja
 įlaja
 šakojimasis
 žvairys
-ansamblietė
 apologetika
 beribiškumas
 bobšė
@@ -18584,7 +18198,6 @@ foliantas
 folklorininkas
 fotokatodas
 fotosfera
-garliavietė
 infantilizmas
 kaminkrėtė
 kilobitas
@@ -18596,7 +18209,6 @@ naujokynas
 nenuovokumas
 nepriimtinumas
 oksamilas
-overlokas
 poliariškumas
 priesiuvas
 slipas
@@ -18608,7 +18220,6 @@ vulkanizacija
 archyvistika
 ataugėlė
 barškalas
-berlynietė
 bretlingė
 cinikė
 dražė
@@ -18620,7 +18231,6 @@ karbarilas
 klajoklė
 kontekstualumas
 kryžmažiedžiai
-kybartietis
 lankininkė
 mielinas
 nenaudingumas
@@ -18678,11 +18288,9 @@ eonas
 grūdvežis
 imitatorė
 indosatas
-jemenietė
 juočkis
 knygrišykla
 kolposkopija
-krekenavietė
 krikštavaikis
 leksema
 lizė
@@ -18772,7 +18380,6 @@ svetimautojas
 tarptautininkas
 uodegikaulis
 šyvis
-žalgirietė
 afalina
 amerikonizmas
 beneficija
@@ -18951,7 +18558,6 @@ trimaranas
 troškė
 tututis
 užkrūtis
-variokas
 vilkingas
 šelmė
 šturmuotojas
@@ -18990,13 +18596,11 @@ stačiatikė
 surikas
 tapyras
 vardažodis
-ėriškietis
 akomodacija
 aktualizacija
 antreprenerystė
 apibrėžtybė
 apsakymėlis
-baltijietis
 barbitūratas
 bulatas
 decimetras
@@ -19098,13 +18702,9 @@ trioba
 tėvūnija
 urdu
 užkrečiamumas
-vabalninkietė
 vaisėdis
 variagas
 vedžiotojas
-veliuonietis
-vėžaitiškė
-žagariškė
 žydruma
 aerotankas
 afazija
@@ -19126,7 +18726,6 @@ mikrorentgenas
 molynas
 molynė
 neprieštaringumas
-nidiškė
 pasmerktumas
 perkūnsargis
 purinas
@@ -19214,7 +18813,6 @@ rąstgalys
 saira
 skridinėlis
 supersimetrija
-tibetietė
 toksikologė
 tracheostoma
 tracheotomija
@@ -19248,7 +18846,6 @@ koduotė
 liūtukė
 multikultūriškumas
 mėgėjiškumas
-nenaudėlė
 neužbaigtumas
 novelos
 nukreiptumas
@@ -19268,9 +18865,7 @@ vahabitas
 važiuotoja
 žalmargis
 adsorbcija
-anykštietis
 apopleksija
-australietė
 brolžudystė
 daugialypiškumas
 ekonomizmas
@@ -19289,7 +18884,6 @@ liestinė
 miškininkė
 oleumas
 postprodukcija
-puertorikietė
 repriza
 rislingas
 rusmenė
@@ -19306,7 +18900,6 @@ vynuogininkystė
 šaudytoja
 ūkininkaitis
 žemiškumas
-žiemužė
 žiga
 akvamarinas
 bedievybė
@@ -19321,7 +18914,6 @@ invokacija
 izoprenas
 jotis
 juodgrūdė
-katalonietis
 knaisiojimasis
 kūjagalvis
 latentiškumas
@@ -19362,7 +18954,6 @@ modifikatorius
 muškatas
 nenatūralumas
 nenugalimumas
-pamarietis
 paternalizmas
 piligrimė
 plonis
@@ -19380,7 +18971,6 @@ tufas
 užklydėlis
 veganė
 veizolai
-viliokas
 šunpalaikis
 aglomeratas
 apyvaisis
@@ -19433,7 +19023,6 @@ etažerė
 habanera
 jodinas
 kabardinas
-kretietis
 laktazė
 laminarija
 ledkirtis
@@ -19503,7 +19092,6 @@ kaukutis
 kregas
 kriaušaitė
 kursorius
-leipalingietis
 leksikografas
 liuminoforas
 materializacija
@@ -19520,7 +19108,6 @@ rūpintoja
 smiltpievė
 solipsizmas
 stereometrija
-sudanietė
 svėrinys
 termoreguliatorius
 tąsymasis
@@ -19556,7 +19143,6 @@ murzė
 paikumas
 paminklėlis
 prašinėtojas
-ramygalietė
 ribavirinas
 riterystė
 skanumėlis
@@ -19590,9 +19176,7 @@ kailialupys
 kamora
 kerpena
 kriticizmas
-kupiškietis
 latifundija
-lentvarietė
 lizocimas
 okeanologija
 organiškumas
@@ -19674,7 +19258,6 @@ ginėja
 gūžduobė
 harpija
 interesantė
-kaišiadorietė
 mašininkas
 megommetras
 neurodermitas
@@ -19695,7 +19278,6 @@ tiopentalis
 tvarslė
 čiulbuonėlis
 žirnienė
-alkvietė
 altininkė
 apeliantė
 aspartatas
@@ -19708,7 +19290,6 @@ bungalas
 chlorinas
 dedešva
 draiskana
-eleuterokokas
 fatalistas
 greiferis
 heliodoras
@@ -19716,7 +19297,6 @@ izoliacionizmas
 izomerizacija
 išradyba
 išėma
-juodkrantiškė
 laktitolis
 machorka
 maskavimasis
@@ -19736,7 +19316,6 @@ traktierius
 triušė
 tėviškėlė
 vedlinė
-veiviržėniškė
 veloergometrija
 čiuožynė
 žaginys
@@ -19756,7 +19335,6 @@ kankinimasis
 kastoras
 kaupikas
 kelutis
-korsikietis
 kriptonas
 kvakeris
 kyšininkė
@@ -19777,7 +19355,6 @@ rogutininkas
 rūdynas
 savidisciplina
 savigriova
-seradėlė
 skudutininkas
 somnambulizmas
 stūmėjas
@@ -19795,7 +19372,6 @@ durklažuvė
 fibrinas
 garsonas
 granuliatorius
-greitvietė
 imipraminas
 iranėnas
 išsodrintojas
@@ -19820,7 +19396,6 @@ puskalbė
 raganėlė
 raudonodis
 raštininkė
-rygietė
 statiškumas
 tirštuma
 torakoskopija
@@ -19850,7 +19425,6 @@ fototerapija
 heteroatomas
 institucionalizacija
 kebeknė
-krakiškė
 kulisė
 kulonas
 laidotojas
@@ -19862,7 +19436,6 @@ makedonė
 malachitas
 miriadas
 nelygiateisiškumas
-obelietė
 odininkystė
 onkochirurgija
 padurkas
@@ -19872,7 +19445,6 @@ reketis
 sekvestras
 skiltininkas
 tipografija
-troškūnietis
 tylumas
 vagonetė
 vėjopatis
@@ -19902,10 +19474,8 @@ gėrovas
 išsklaida
 karbonilas
 kariotipas
-kolūkietė
 konditerininkas
 kortuotojas
-kražiškė
 kristalėlis
 lipolizė
 lojikas
@@ -20007,9 +19577,7 @@ kavavirė
 kriminalistė
 lantanas
 lenkmetis
-liuksemburgietė
 lybis
-naumiestiškė
 nemarumas
 nepunktualumas
 nuobirynas
@@ -20058,9 +19626,7 @@ kailiadirbystė
 knygnešė
 komingsas
 kvieslė
-lazdijiškė
 lengvatininkas
-leninietis
 merinosas
 nedemokratiškumas
 nekeičiamumas
@@ -20082,20 +19648,17 @@ virykla
 aeronuotrauka
 akordeonistė
 akrilatas
-anykštietė
 aprengėjas
 asenizacija
 burbeklis
 echidna
 galai
-havajietė
 horeljefas
 indapamidas
 inverteris
 kandikas
 karvedilolis
 konspiratorius
-krekenaviškė
 kumštynės
 labdarybė
 limfadenitas
@@ -20119,7 +19682,6 @@ serologija
 sprūdis
 stipena
 sukrumas
-trakietė
 veliuoniškis
 vilpišys
 švaistytoja
@@ -20247,7 +19809,6 @@ grėsmingumas
 heksahidratas
 izofermentas
 juodašimtis
-jurbarkiškė
 kinotyrininkė
 lauramedis
 medgalys
@@ -20267,7 +19828,6 @@ stebėjimasis
 svertuvas
 tapinys
 tatuiruotojas
-tauragietis
 topiramatas
 tošinė
 trinitratas
@@ -20407,14 +19967,12 @@ lavondėmė
 makrokosmas
 miesteliūkštis
 migrantė
-minskietė
 neorealizmas
 pajaunys
 palpacija
 pigmėjė
 pogumburis
 potašas
-prieglaudėlė
 priešpienis
 rusiškumas
 saldė
@@ -20424,7 +19982,6 @@ strepetys
 sąmatininkas
 valkšnumas
 vigvamas
-čikagietė
 amarilė
 antiamerikanizmas
 apkepėlė
@@ -20434,14 +19991,12 @@ biržėnas
 cezūra
 dirbėja
 dulkinimasis
-echinokokas
 genealogas
 grūstuvėlis
 hagiografija
 hipertekstas
 indoeuropeistika
 istoriografas
-jordanietė
 kabintoja
 kaustytojas
 klubakaulis
@@ -20473,7 +20028,6 @@ tešlainis
 tretininkas
 tvyksnis
 vežtuvai
-viešvilietis
 įnosės
 šakumas
 šilainiškis
@@ -20485,7 +20039,6 @@ apdirbėja
 biokatalizatorius
 blandis
 braižytoja
-darbavietė
 ergonomiškumas
 fiziokratas
 germanizmas
@@ -20496,7 +20049,6 @@ koloristika
 laktamas
 linkuvė
 lėmėjas
-malajietis
 mikčius
 muedzinas
 naujakurystė
@@ -20504,7 +20056,6 @@ nebranda
 netolerantiškumas
 nevienalytiškumas
 novicijus
-panemunietis
 paralaksas
 piktnaudžiautoja
 plagiatorė
@@ -20594,7 +20145,6 @@ etapiškumas
 fonologija
 fosforingumas
 garždenis
-gvatemalietis
 homologai
 išaiža
 kaituotojas
@@ -20703,7 +20253,6 @@ okeanologas
 ordinacija
 pakraigė
 paruoštumas
-pietietė
 poniškumas
 purkštas
 purkštuvėlis
@@ -20711,7 +20260,6 @@ radiofizika
 raizgalynas
 rarotai
 remontuotojas
-rietaviškė
 rokada
 scholastikas
 seralis
@@ -20720,7 +20268,6 @@ svėrėja
 tapybiškumas
 tauragniškis
 tukanas
-ukmergietis
 uzurpacija
 vojerizmas
 čiuožikas
@@ -20753,7 +20300,6 @@ filgrastimas
 fitoftora
 formiatas
 ginklinė
-juodupietis
 kartušas
 klaikumas
 kolostoma
@@ -20772,7 +20318,6 @@ nevieningumas
 ostfryzas
 patrankėlė
 podesta
-prašalietis
 privalomybė
 prostatektomija
 protestantė
@@ -20813,7 +20358,6 @@ kairiarankiškumas
 kelmynas
 kralis
 mangrovės
-marselietė
 mediastinitas
 meldynas
 menadė
@@ -20826,9 +20370,6 @@ oocitas
 organizuotojas
 pakauškaulis
 pakojis
-pandėlietė
-pažangietis
-pitagorietis
 pliuškė
 priekalnis
 priešgyna
@@ -20863,7 +20404,6 @@ birumas
 cyplė
 derinimasis
 dialektikas
-dreverniškė
 endekas
 fangas
 feritas
@@ -20875,7 +20415,6 @@ kaitaliojimasis
 kišenaitė
 kolembola
 laidotoja
-leningradietis
 linininkas
 mansiai
 martirologija
@@ -20907,7 +20446,6 @@ traumatologė
 trikdytojas
 trombinas
 vaikščiotoja
-venecijietė
 vitingas
 alergiškumas
 antrokėlis
@@ -20940,7 +20478,6 @@ methemoglobinas
 mikrolustas
 moša
 nemoralumas
-neobarokas
 nuožulnumas
 onomastika
 operėlė
@@ -20961,7 +20498,6 @@ teogonija
 traukikas
 uostytoja
 verstuvė
-ybiškė
 činšininkas
 įrankinė
 šilumingumas
@@ -20986,10 +20522,8 @@ kaverna
 kinžalas
 komodoras
 kosmopolitė
-krokuvietis
 krūsnis
 kūlynas
-laiptatakis
 lalauninkas
 linažolė
 madingumas
@@ -21012,7 +20546,6 @@ sestercijus
 snūdas
 surdologija
 sutažas
-talinietis
 tekšė
 trichomona
 varsna
@@ -21113,7 +20646,6 @@ idiš
 izotopija
 kameriškumas
 kaminkrėtystė
-karkliškė
 karmėlaviškis
 karštagalvis
 kleptomanė
@@ -21146,7 +20678,6 @@ sufražistė
 trichina
 triukšmautoja
 ugrofinai
-vainutiškė
 varantas
 vibrotechnika
 įprastumas
@@ -21178,9 +20709,7 @@ kapibara
 kasymasis
 kirtimasis
 kolodijus
-kuolavietė
 kurkulas
-lazdynietis
 leksikologija
 lelijėlė
 lengvybė
@@ -21213,11 +20742,9 @@ trumpavamzdis
 tuščiagarbė
 tvirtis
 vargšiukė
-varšuvietė
 vėplė
 įžodis
 šlyžys
-šrilankietis
 žagrenis
 žymėtojas
 akmenbetonis
@@ -21229,8 +20756,6 @@ belkanto
 biopolimeras
 dekompensacija
 dezinfekuotoja
-efezietis
-ekvadorietė
 fibroadenoma
 ilgaamžystė
 kantilena
@@ -21265,7 +20790,6 @@ selektorius
 sinchronija
 skandalingumas
 skundėja
-smalininkietis
 sprakšis
 tarpubamblis
 tatuiruotoja
@@ -21296,7 +20820,6 @@ granas
 gubernatūra
 herma
 homocisteinas
-honkongietis
 kalbotyrininkas
 kalingumas
 kalorimetras
@@ -21408,7 +20931,6 @@ abstinentė
 akcidencija
 anorgazmija
 antilenkiškumas
-antklodėlė
 apykvailis
 balneologija
 bufonada
@@ -21453,7 +20975,6 @@ palūkininkas
 paroksetinas
 plikumas
 pliurpalynė
-plungietis
 poliaratis
 prataka
 priklydėlis
@@ -21472,18 +20993,14 @@ trofika
 trylikmetė
 tvėrėjas
 vertikalumas
-vilijampolietė
 įnoringumas
 įrankininkas
 įtemptis
 įtikimumas
 šlapumas
-šventvakaris
 žymena
 aborigenė
-agluonėniškė
 akcentuacija
-aleksotiškė
 amonitas
 anaerobas
 apostazė
@@ -21514,7 +21031,6 @@ mamukė
 marcinkoniškis
 meandras
 medkopis
-naujamiestietė
 neršykla
 neskelbtinumas
 nichromas
@@ -21527,7 +21043,6 @@ pensnė
 pitekantropas
 pramuštgalvė
 primicijos
-prūsokas
 psalmininkas
 santarvininkas
 savavaliautoja
@@ -21540,7 +21055,6 @@ tarpumiškis
 užvarta
 vabzdžiagaudė
 varlikė
-šiaurietė
 žiužis
 žvėriūkštis
 akvanautas
@@ -21567,7 +21081,6 @@ kustodija
 lipdytojas
 lotynistas
 makrokosmosas
-merkinietė
 nelankomumas
 organoterapija
 paleidėjas
@@ -21604,7 +21117,6 @@ vaipymasis
 vandenženklis
 variatorius
 voliuta
-šaipokas
 šaltkalvystė
 šelmuo
 šlaistymasis
@@ -21631,7 +21143,6 @@ karpytojas
 katalizė
 komtūrija
 kūlvirstis
-lazdijietė
 lengvatikystė
 liejimasis
 machinatorė
@@ -21641,7 +21152,6 @@ monofosfatas
 naltreksonas
 nanoelektronika
 normintoja
-odesietis
 ožkena
 pakinkis
 pertaras
@@ -21686,7 +21196,6 @@ desikantas
 dializatorius
 disgrafija
 duobagyvis
-dusetiškė
 dvarininkija
 egzotiškumas
 fluorofortas
@@ -21733,12 +21242,9 @@ veislininkas
 vištvagis
 čiauškutis
 čiuptuvėlis
-šalčininkietė
-šventojiškė
 afiksas
 akišveitė
 akytkūnis
-alšėniškė
 astrofizikė
 autolenktynės
 bekelnis
@@ -21781,7 +21287,6 @@ neurofiziologija
 normatyvumas
 oksidazė
 pagarbumas
-pamūšietis
 pasvališkis
 penetracija
 pleistocenas
@@ -21795,7 +21300,6 @@ riebuilis
 rokitai
 simensas
 tamsis
-telšietė
 trigarsis
 trukdytoja
 užsparnis
@@ -21804,7 +21308,6 @@ vežiotojas
 viduvasaris
 šarlatanė
 šnekėtojas
-žarnokas
 alogiškumas
 analfabetizmas
 analfabetė
@@ -21824,14 +21327,11 @@ difosfatas
 dihidrochloridas
 egzegetas
 ekskrecija
-elėjietis
 encefalograma
 etilentiokarbamidas
 ferosilicis
 fitohormonas
 froidizmas
-galilėjietis
-gonokokas
 grytelninkas
 grįžgatvis
 gurvuolys
@@ -21841,7 +21341,6 @@ improvizatorė
 indometacinas
 jūrės
 kapotojas
-kongietis
 kovaras
 kramė
 krovimasis
@@ -21929,7 +21428,6 @@ nitrifikacija
 oligurija
 padažinė
 palaidynė
-pamariškė
 paskirstytojas
 pašaknė
 penketukininkas
@@ -21972,7 +21470,6 @@ asignacija
 bakšišas
 bazuka
 blaivininkė
-bremenietis
 bužas
 chasidizmas
 chemizacija
@@ -21984,7 +21481,6 @@ finasteridas
 fotografika
 frenčius
 gramatikėlė
-haitietė
 imunostimuliatorius
 intuityvumas
 jutubas
@@ -21996,7 +21492,6 @@ laksva
 latifundininkas
 litologija
 lupulinas
-malajietė
 metilmetakrilatas
 obskurantizmas
 oficiantė
@@ -22049,11 +21544,9 @@ karklininkas
 kasikas
 kauperis
 kitara
-kiškė
 knibždėlynė
 kondiloma
 kontaminacija
-kromanjonietis
 kubistas
 laukiniškumas
 lonžeronas
@@ -22080,7 +21573,6 @@ racionalizatorė
 ramsas
 retorta
 rėtininkas
-sibirietė
 sitalas
 skirsnemuniškis
 slopintoja
@@ -22132,11 +21624,8 @@ observantas
 odeonas
 pakylėtumas
 paliegėlė
-panamietis
-paragvajietė
 pasirinktis
 pateris
-pašvitinietis
 peroksosulfatas
 petroglifas
 plaktuvė
@@ -22144,7 +21633,6 @@ planingumas
 pramogėlė
 prapjova
 remediumas
-romietė
 rupumas
 sargasas
 sengalvėlė
@@ -22154,7 +21642,6 @@ skystumas
 slavofilas
 superfinalininkas
 teofanija
-tirkšliškė
 tonalumas
 tradeskantė
 transpozicija
@@ -22172,7 +21659,6 @@ apklausėja
 asilaitis
 atžanga
 avininkas
-barselonietis
 baugulys
 bichromatas
 brevė
@@ -22217,7 +21703,6 @@ ornitofauna
 padrikumas
 pasiuntinystė
 pedantizmas
-perujietė
 pogleivis
 poliglotė
 politeizmas
@@ -22225,7 +21710,6 @@ pomada
 postinė
 prievaža
 priešslėgis
-punskietė
 pusšešėlis
 putoklis
 raikytojas
@@ -22240,7 +21724,6 @@ stambiakrūtė
 taurininkas
 telferis
 tetraploidas
-tirolietis
 topografas
 transcendentalumas
 vaginizmas
@@ -22287,10 +21770,8 @@ lyginimasis
 makrolidas
 menhyras
 mikrosporija
-milanietė
 mioglobinas
 mokyklinukė
-neeuropietis
 nepažinumas
 neurastenikas
 pamuilės
@@ -22336,7 +21817,6 @@ demaskuotoja
 demonologija
 denatūratas
 diletantė
-dublinietis
 dėtys
 echolokacija
 egiptologija
@@ -22354,7 +21834,6 @@ klumpdirbys
 konstruotoja
 kriochirurgija
 ksantofilas
-kybartietė
 laibenis
 laringoskopas
 lornetas
@@ -22379,7 +21858,6 @@ septetas
 slydis
 storžievė
 supuvėlis
-užventiškė
 vitiligas
 vižlas
 įrengėjas
@@ -22393,7 +21871,6 @@ alkenas
 antineutrinas
 antrepreneriškumas
 asignacijos
-bangladešietis
 bekalbis
 bėdulis
 būriavimasis
@@ -22440,7 +21917,6 @@ meškininkas
 meškuitiškis
 mičmanas
 mucinas
-neapolietė
 neišardomumas
 niekšė
 oligarchė
@@ -22482,12 +21958,10 @@ alveolitas
 antsėlis
 aptarnautojas
 apysakaitė
-ariogališkė
 asimetriškumas
 badmirys
 beatodairiškumas
 beprotiškumas
-brandenburgietis
 chrizolitas
 cūga
 distopija
@@ -22506,7 +21980,6 @@ italikai
 išliekamumas
 ištęstumas
 kailinėliai
-kaišiadoriškė
 kalifornis
 kanojininkė
 karklavijas
@@ -22521,8 +21994,6 @@ kvatoklė
 leptonas
 linarūtė
 lipikė
-liverpulietis
-monokokas
 monopalmitatas
 neautentiškumas
 negridas
@@ -22543,7 +22014,6 @@ psicholingvistika
 sauvalė
 schizmatikas
 seismingumas
-senegalietė
 solenizantė
 sėdynkaulis
 termosfera
@@ -22581,7 +22051,6 @@ heptahidratas
 interpretatorė
 išmoningumas
 kaltybė
-karsakiškietis
 katalazė
 katžuvė
 kaučiukmedis
@@ -22670,7 +22139,6 @@ nerezultatyvumas
 nerimtumas
 neturtingumas
 nulėpausė
-onuškietis
 ostmarkė
 pasukamumas
 patvirtintojas
@@ -22686,7 +22154,6 @@ riestanosė
 sausmetis
 savaimingumas
 skopolija
-tarpumiškė
 tautotyra
 trankymasis
 traukėjas
@@ -22701,7 +22168,6 @@ vitražistė
 įvalkalas
 žemažiūris
 ženklintoja
-altajietis
 altruistė
 antidiskriminacija
 antspaudėlis
@@ -22774,7 +22240,6 @@ trupintuvas
 tvoklė
 vakarotojas
 vokietininkas
-čekiškietis
 širšalas
 apdanga
 atonija
@@ -22810,7 +22275,6 @@ livrėja
 lizosoma
 luošė
 makropasaulis
-marcinkoniškė
 multiplikacija
 naisiškis
 negrabumas
@@ -22827,7 +22291,6 @@ pjaustytuvas
 plinkšiškis
 plokštikalnė
 prakartas
-raudondvarietė
 relikvinė
 rentgenologė
 retikulosarkoma
@@ -22846,7 +22309,6 @@ timinas
 trabantas
 tripsinas
 triušidė
-ukmergietė
 užkulas
 vandalė
 vargingumas
@@ -22865,7 +22327,6 @@ asparaginas
 atostūmis
 atraktyvumas
 bantustanas
-briuselietis
 bylina
 cefazolinas
 denacifikacija
@@ -22883,7 +22344,6 @@ gavimasis
 goniometras
 grafologė
 gyvulininkas
-hamburgietis
 hidrotransformatorius
 idiotiškumas
 ilgšė
@@ -22927,7 +22387,6 @@ vilktakys
 įstanga
 įžeidumas
 švaistūniškumas
-švenčioniškė
 šypsojimasis
 abstraktybė
 akvatinta
@@ -22941,7 +22400,6 @@ bakteriologas
 bandūra
 barkasas
 bekojė
-biržiškė
 cefuroksimas
 demonstrantė
 desorbcija
@@ -22955,7 +22413,6 @@ gaubtuvės
 gestagenai
 glutaminas
 hesperidė
-hondūrietis
 juodgrybis
 kampuotumas
 kepurininkas
@@ -23020,7 +22477,6 @@ vitalizmas
 advekcija
 aeronavigacija
 akrecija
-apypietė
 atlaidininkas
 atomizacija
 babitas
@@ -23031,7 +22487,6 @@ buriatė
 chlorpromazinas
 chromosfera
 daugintoja
-daugiškė
 dietininkas
 dogmatiškumas
 džioveklė
@@ -23069,7 +22524,6 @@ narvalas
 nirtulys
 ordonansas
 paaugliukė
-palemonietis
 pasikartojamumas
 plytininkystė
 pobūris
@@ -23089,10 +22543,8 @@ tadžikė
 tambūrinas
 termoplastikas
 tolumas
-tryškietis
 tėviškumas
 užlaukė
-vizitietė
 vyriausybininkas
 čelesta
 įdagas
@@ -23101,7 +22553,6 @@ vyriausybininkas
 šiurė
 šoferė
 žadėtoja
-židikiškė
 žiomenė
 akvariumininkas
 anatema
@@ -23112,7 +22563,6 @@ aprišalas
 arsinas
 asilėnas
 autotransplantatas
-baidokas
 baigmuo
 baisogališkis
 baltalas
@@ -23143,12 +22593,10 @@ hidrobromidas
 ileostoma
 industrializmas
 izopentilas
-kaimavietė
 kalumas
 kalėdotoja
 kambariūkštis
 karboksihemoglobinas
-karitietė
 kirtikas
 klaksonas
 kopininkas
@@ -23163,7 +22611,6 @@ kvėdarniškis
 lalautojas
 laurilsulfatas
 lėmėja
-marsietė
 neatsitiktinumas
 neribotumas
 neveika
@@ -23252,7 +22699,6 @@ neformalumas
 negriukė
 nekokybiškumas
 oktagonas
-pabiržietis
 pagyrūnė
 paleidėja
 patronatas
@@ -23300,7 +22746,6 @@ antsparnis
 anurija
 baritas
 bimsas
-bostonietis
 daužymasis
 despotiškumas
 dieveris
@@ -23326,7 +22771,6 @@ kailininkas
 kalendorėlis
 kalpokė
 kamšalynė
-kavarskietė
 keikūnė
 kompiuterininkė
 konto
@@ -23336,9 +22780,7 @@ kvapsnis
 kęsmas
 kšatrijas
 labdarė
-lentvariškė
 liejininkystė
-liepojietis
 metateorija
 mikrosfera
 minosvaidininkas
@@ -23422,13 +22864,11 @@ egzaminatorė
 epifora
 epoetinas
 finikas
-flagštokas
 fluoritas
 fotolizė
 geomorfologija
 grioviakasys
 guobynas
-honkongietė
 izoliuotojas
 išpažinėja
 japoniukė
@@ -23493,7 +22933,6 @@ turgadienis
 uogininkas
 vamzdininkas
 vepriškis
-zalcburgietis
 šapito
 šarvonė
 altistė
@@ -23509,7 +22948,6 @@ bortinžinierius
 bronchektazė
 bronchiolė
 chinkalis
-dagestanietė
 daugialypumas
 denatūrantas
 depersonalizacija
@@ -23560,9 +22998,7 @@ prieduris
 propedeutika
 rektoskopija
 romanistika
-rupūžiokas
 septima
-singapūrietė
 skautininkė
 spardymasis
 spąsteliai
@@ -23577,7 +23013,6 @@ trisomija
 usnynas
 vąšas
 česnakė
-šakiškė
 šelpėja
 švarykla
 ūžautojas
@@ -23645,7 +23080,6 @@ ochlokratija
 oficiolas
 oftalmoskopija
 oligofrenija
-panerietis
 pemolinas
 perfokorta
 petechija
@@ -23673,7 +23107,6 @@ sūrininkė
 sūtrauka
 telkėjas
 telūridas
-toskanietis
 transeptas
 vadystė
 valdymasis
@@ -23689,14 +23122,12 @@ vyndarė
 agroekologija
 akiniuotė
 angelologija
-antakalnietis
 antidetonatorius
 antkrumplis
 apyakis
 ateizacija
 atlantizmas
 atpjovimas
-aukštadvarietė
 ausinukė
 autodafė
 aštruma
@@ -23763,7 +23194,6 @@ rekognoskuotė
 rinovirusas
 robinija
 rudmarškinis
-rūdiškietis
 siluminas
 sinergizmas
 skaptas
@@ -23774,7 +23204,6 @@ sofitas
 staipymasis
 stribė
 supresorius
-sūduvietis
 tiraminas
 tosteris
 trisienis
@@ -23798,7 +23227,6 @@ atelana
 bacitracinas
 badymasis
 bilingvizmas
-birštonietė
 brahmanizmas
 bronchospazmas
 buožainė
@@ -23831,7 +23259,6 @@ hirsutizmas
 inspiratorius
 izoimunizacija
 juokautojas
-kamerūnietė
 kapanojimasis
 kardažolė
 kilpavirvė
@@ -23873,7 +23300,6 @@ sartė
 serogrupė
 silpnadvasiškumas
 sintoizmas
-smolenskietis
 spardytojas
 spaustuvėlė
 spektrograma
@@ -23890,7 +23316,6 @@ usnynė
 užausis
 užrašinėtojas
 vitražininkas
-zarasietis
 čiabuvė
 šerpė
 šiurpumas
@@ -23915,14 +23340,11 @@ centurija
 chuliganiškumas
 dalgininkas
 debesynas
-dvariškė
-eišiškietis
 ekstrasistolija
 elnininkystė
 enciklopedininkas
 epizodėlis
 galvanometras
-gargždietis
 genėtuvas
 geodinamika
 geradarybė
@@ -23964,7 +23386,6 @@ ofortistas
 oksikodonas
 ordovikas
 paleontologė
-panemunietė
 pasėstas
 peilininkas
 pelagra
@@ -24010,7 +23431,6 @@ vyniotuvas
 šarovaras
 šmeižėjas
 švietėjiškumas
-žirmūnietis
 abisinai
 abonentininkas
 aktinolitas
@@ -24054,7 +23474,6 @@ kabinėtojas
 kardininkas
 kardioverteris
 katachrezė
-kačerginietis
 kliovimasis
 konkurentingumas
 krantosauga
@@ -24101,8 +23520,6 @@ trombofilija
 tėtušėlis
 valumas
 vazodilatacija
-velžietė
-veronietis
 vienužis
 vištukė
 vėtyklė
@@ -24153,14 +23570,11 @@ integruotojas
 intervencionizmas
 invencija
 javapjovė
-joniškėlietis
 kapininkė
 karšėjas
 kontinentalumas
 kraustytoja
 krautuvininkė
-kretingališkė
-kupreliškietis
 kurkinas
 kvartilis
 našlaitystė
@@ -24356,7 +23770,6 @@ filogenezė
 fokoliarai
 fototeka
 gazifikacija
-gelgaudiškietis
 gigakalorija
 giliamintiškumas
 gupis
@@ -24401,7 +23814,6 @@ pirklija
 plynuma
 pneumonitas
 polifagas
-prienietis
 pulpitas
 rekonkista
 reljefiškumas
@@ -24418,14 +23830,12 @@ spinduliuotuvas
 sviestmušys
 sūdytojas
 tarpšonkaulis
-tauragietė
 tepėja
 tiapridas
 tipingumas
 transpiracija
 tūkstantininkas
 upininkas
-užtakis
 varpininkė
 vikunija
 vokietukė
@@ -24437,7 +23847,6 @@ yrimasis
 čiumas
 šelmystė
 šilumėlė
-šiluviškė
 žemaitybė
 žioveinis
 achondroplazija
@@ -24486,7 +23895,6 @@ instrumentalizmas
 inteligibilumas
 juodbruvys
 kalikė
-karmėlaviškė
 koprocesorius
 krantotyra
 krokidolitas
@@ -24565,10 +23973,8 @@ zemstva
 šuniūkštis
 žirgės
 žąsidė
-adomynietis
 aerobas
 agraras
-andrioniškietis
 angelaitė
 apsiaustėlis
 apsidraudėlis
@@ -24577,7 +23983,6 @@ atviraširdė
 autarkija
 barškesys
 baugumas
-birštoniškė
 braižiklinė
 bydermejeris
 chačiapuris
@@ -24599,7 +24004,6 @@ gamelanas
 geobotanika
 geodezininkė
 geraniolis
-grinkiškietis
 guodimasis
 hiatas
 hidromorfonas
@@ -24616,7 +24020,6 @@ išniekintoja
 karcinogenas
 katapleksija
 kaštanas
-kernaviškė
 kipšėkas
 kirgizė
 knygininkė
@@ -24624,7 +24027,6 @@ kolpitas
 konstruktyvistas
 kontroversiškumas
 kostiumininkas
-kulautuvietis
 lankainis
 lenkintojas
 ligroinas
@@ -24633,7 +24035,6 @@ ląstelynas
 meistrautojas
 metantankas
 minezingeris
-miunchenietis
 mosėdiškis
 nafazolinas
 nekritiškumas
@@ -24662,14 +24063,12 @@ sausringumas
 savivardis
 servalas
 siauraprotiškumas
-sintautietis
 skraidytoja
 slastai
 smaginimasis
 sulfasalazinas
 tarplysvis
 tauškalė
-tbilisietis
 tekamumas
 traiškytuvas
 transudatas
@@ -24722,9 +24121,7 @@ eremitas
 euroskeptiškumas
 evangelikė
 gintarininkas
-giružė
 glikolizė
-gvatemalietė
 gėralinė
 hemopoezė
 holmis
@@ -24732,7 +24129,6 @@ indoeuropeistas
 informatikė
 isteriškumas
 jaunasis
-jeruzalietis
 jodoformas
 kanva
 katinonas
@@ -24821,7 +24217,6 @@ beidėjiškumas
 bendraatsakovė
 bisulfitas
 brolvaikis
-cikadėlė
 darbavimasis
 demonstravimasis
 densitometrija
@@ -24867,7 +24262,6 @@ komisūrotomija
 konvojininkas
 kulninė
 kustodas
-kybartiškė
 lamaizmas
 lavsanas
 liuksmetras
@@ -24881,7 +24275,6 @@ motorlaivininkas
 mėsininkė
 nekvalifikuotumas
 nemezija
-neringietis
 nevarėniškis
 niekšingumas
 normiškumas
@@ -24924,7 +24317,6 @@ trenkimasis
 truizmas
 tvarkinys
 unitarizmas
-užklydėlė
 vaikūzas
 vazodilatatorius
 vinpocetinas
@@ -24996,7 +24388,6 @@ kaimiškumas
 kanabėkas
 kantaras
 karbonaras
-kelmietis
 kietagalvis
 klotoidė
 komercializmas
@@ -25161,7 +24552,6 @@ pusaukštis
 pėžaitiškis
 rajūnė
 rapidografas
-raseinietis
 rentimas
 revaskuliarizacija
 ripsas
@@ -25169,7 +24559,6 @@ salmeterolis
 sambrėškis
 saprofagas
 simpatiškumas
-skaudviliškė
 spondilolistezė
 spudulas
 stabaras
@@ -25269,18 +24658,15 @@ nitroprusidas
 nuokarpa
 oligopolininkas
 olivinas
-omanietis
 ommetras
 optimistiškumas
 orpūtė
-pajuodėlė
 papulkininkė
 paraparezė
 paronomazija
 paršingumas
 perimetrija
 pilkybė
-pilviškietis
 piroga
 pirtininkė
 plėšymasis
@@ -25317,7 +24703,6 @@ transportabilumas
 tremolitas
 triacetatas
 trivialumas
-troškūnietė
 užgauliotoja
 užmovimas
 užpildomumas
@@ -25330,7 +24715,6 @@ visažiniškumas
 vyresnumas
 zeolitas
 ziprazidonas
-čikagiškė
 įdauža
 širdukė
 šmeižėja
@@ -25385,7 +24769,6 @@ iššovimas
 jonpapartis
 juokautoja
 kamiengalis
-kazokiškietis
 keratokonusas
 klavesinininkė
 koarktacija
@@ -25397,7 +24780,6 @@ krosniakurys
 kultūrtechnika
 laivakaulis
 lamstas
-latgalietis
 lašiniukai
 leucitas
 marizmas
@@ -25419,7 +24801,6 @@ nubai
 ožiavimasis
 ožkabarzdis
 paikybė
-petrašiūnietis
 pielografija
 pirmametė
 polihimnija
@@ -25433,10 +24814,8 @@ pustulė
 putnagas
 raikytoja
 rustika
-saugumietė
 saulainė
 saulėtumas
-sicilietė
 sintagmatika
 sliabas
 smailuma
@@ -25481,7 +24860,6 @@ biotestas
 bukybė
 ceftiofuras
 chinidinas
-damaskietis
 debesiūkštis
 delinkventas
 delinkventiškumas
@@ -25508,7 +24886,6 @@ hipospadija
 imunograma
 indiferencija
 ištremtis
-išverstakis
 jiezniškis
 jotvingė
 kabikas
@@ -25529,7 +24906,6 @@ mamiliarija
 maurabragis
 memantinas
 mikrometastazė
-miletietis
 mitiškumas
 miškastepė
 naujinys
@@ -25575,7 +24951,6 @@ salingas
 samdininkas
 santechnikė
 selegilinas
-smalininkietė
 smegma
 smilgenė
 studijėlė
@@ -25597,7 +24972,6 @@ vaizduosena
 vandensvydininkė
 vatalinas
 verptuvas
-vieviškė
 vilkutis
 vyžočius
 įtrūka
@@ -25649,7 +25023,6 @@ esėjai
 fertilumas
 folklorininkė
 formuotuvas
-gargždietė
 garintojas
 geismingumas
 glebumas
@@ -25678,10 +25051,8 @@ kiauliškumas
 kliveris
 konditerininkė
 kondominiumas
-korsikietė
 kriptosporidijos
 kurortologas
-kuršėnietė
 kvietizmas
 lauravyšnė
 lengvapėdis
@@ -25724,7 +25095,6 @@ plerza
 polimetalas
 praktikavimasis
 prepozitas
-proeuropietis
 proktologija
 propranololis
 prozelitas
@@ -25732,9 +25102,7 @@ psichomotorika
 refektoriumas
 riešutynas
 rostverkas
-rudgrūdėlė
 sankamša
-saratovietis
 seirijiškis
 selteris
 semtuvė
@@ -25755,7 +25123,6 @@ važinėtoja
 vienarūšiškumas
 virvėlaidis
 įvertintojas
-šeduviškė
 šermukšnynas
 šienautoja
 šifrograma
@@ -25771,11 +25138,9 @@ aklatikis
 aklybė
 aktinis
 apeigiškumas
-argietis
 artinys
 atitinkamumas
 baigtuvės
-balbieriškietis
 balintojas
 balkanizacija
 baltizmas
@@ -25815,7 +25180,6 @@ inklinacija
 išlaidūnė
 jurisdika
 kampininkė
-karmėlavietis
 kaulažolė
 keratoplastika
 kirvapentė
@@ -25837,7 +25201,6 @@ metakrilatas
 metandienonas
 mikrosoma
 modernistė
-monakietis
 monotipas
 namudininkė
 nenuolaidumas
@@ -25854,7 +25217,6 @@ pentoksifilinas
 piastras
 pirmaeiliškumas
 plačiaburnis
-plinkšiškė
 plėšytoja
 pogentis
 poliolefinai
@@ -25863,7 +25225,6 @@ proktitas
 prolegomenas
 pseudocista
 pusinteligentis
-raguvietis
 reformizmas
 reumatikas
 ribonukleinas
@@ -25877,7 +25238,6 @@ silvinitas
 sinonimiškumas
 sinovioma
 siringomielija
-sirokas
 sklera
 spastiškumas
 stoikė
@@ -25910,7 +25270,6 @@ vėjuotumas
 įkliuvimas
 šakotumas
 šantažistė
-šuntakis
 žemaslėnis
 žemažiūrė
 žemėvaizdis
@@ -25921,7 +25280,6 @@ vėjuotumas
 agitpunktas
 alalija
 aliumosilikatas
-altajietė
 amilopektinas
 antacidas
 aplazija
@@ -25986,7 +25344,6 @@ kartografė
 kietaširdiškumas
 komiltonas
 komplektuotojas
-kongietė
 kontraversiškumas
 krioabliacija
 kriolitas
@@ -26136,7 +25493,6 @@ karboplatina
 kardioversija
 karnalitas
 kartotekininkas
-keružė
 kibumas
 klaidatikė
 klajotoja
@@ -26164,7 +25520,6 @@ nuokana
 organogenezė
 osteochondroma
 osteomaliacija
-pajūrietis
 paleogenas
 paramstis
 peikėjas
@@ -26174,7 +25529,6 @@ piktdžiugiškumas
 piritionas
 plaukiotojas
 polistilistika
-prahietis
 prakalas
 prieškalnis
 proletarė
@@ -26206,7 +25560,6 @@ valiūkė
 vypsnis
 įtūžėlis
 šlubumas
-štokas
 štuceris
 šukuotoja
 šukuotojas
@@ -26269,7 +25622,6 @@ geltonodė
 gliukoneogenezė
 godonė
 gražuolėlė
-griškabūdietis
 groteskiškumas
 gruperis
 gyvataras
@@ -26288,7 +25640,6 @@ kartenė
 kazokė
 keinsizmas
 kelmarovė
-kelmietė
 kirpimasis
 klarnetininkė
 kliurkė
@@ -26297,12 +25648,9 @@ kondensorius
 konjunktūrininkas
 konsekvencija
 kostiumininkė
-krasnodarietis
 kserostomija
-kulautuviškė
 kupriukė
 kvartirmeisteris
-laštakis
 leibgvardija
 lepūnė
 lesintoja
@@ -26325,7 +25673,6 @@ mulitas
 mėlitas
 neliga
 nepopulistas
-odesietė
 osifikacija
 paraproktitas
 partikuliaras
@@ -26336,7 +25683,6 @@ pirklė
 plaušenė
 plepalynė
 pliauškynė
-plunksnagraužė
 ponystė
 posėdžiautoja
 prekingumas
@@ -26362,7 +25708,6 @@ skerdikė
 smuklininkė
 specdrabužiai
 spietimasis
-stokholmietis
 sufozija
 sukalbamumas
 sukinėjimasis
@@ -26388,11 +25733,9 @@ vaikytojas
 varmiai
 vazokonstriktorius
 veiveriškis
-vidukliškė
 vienkinkis
 viršumas
 vivera
-vištakis
 įskrandis
 įskundėjas
 įteikėja
@@ -26406,7 +25749,6 @@ akmenširdis
 akompanuotoja
 aldinas
 arbolitas
-ariogalietis
 artrodezė
 asimiliavimasis
 asociatas
@@ -26434,7 +25776,6 @@ dietilamidas
 disekcija
 disipacija
 draskytoja
-dusmeniškė
 echokardiograma
 enchiridionas
 eskimė
@@ -26492,7 +25833,6 @@ mechanizuotoja
 mesalazinas
 metasekvoja
 montelukastas
-nazaretietis
 nebylystė
 nepastebimumas
 netraukumas
@@ -26536,7 +25876,6 @@ statmenumas
 stormuo
 studenčiukė
 sėklynas
-tanzanietis
 tarpulaikis
 tautininkė
 tragakantas
@@ -26548,7 +25887,6 @@ varganumas
 variuotojas
 varžynas
 vidupys
-vievietis
 vilkiukė
 vinkristinas
 vitrifikacija
@@ -26625,7 +25963,6 @@ juodiniai
 juodžolė
 kanapienė
 karšininkas
-kenijietis
 klajotojas
 klistronas
 kniauklys
@@ -26694,7 +26031,6 @@ regimumas
 retikulocitas
 riestumas
 rodžersija
-roterdamietis
 rytietiškumas
 sausmė
 sausvėjis
@@ -26709,7 +26045,6 @@ smaugėjas
 sovietologija
 specialumas
 stiklininkystė
-streiklaužė
 streta
 sublimatas
 subnuomininkė
@@ -26800,7 +26135,6 @@ invertazė
 janapoliškis
 jaukalas
 juokimasis
-kamajietis
 kedenė
 kerpsamanės
 klaidatikystė
@@ -26811,7 +26145,6 @@ kosmiškumas
 krakeliūra
 krioglobulinas
 kukulienė
-kuršėnietis
 lanktis
 lančas
 lūpažiedžiai
@@ -26827,7 +26160,6 @@ neišmintingumas
 nekūrybiškumas
 nemokamumas
 nepalyginamumas
-nevarėniškė
 niekdirbys
 nimesulidas
 opozicininkas
@@ -26835,7 +26167,6 @@ pasikliautinumas
 pažintuvės
 petrašiūniškis
 pirmaparšė
-plungietė
 plunksnalapė
 poliarumas
 polihidramnionas
@@ -26844,7 +26175,6 @@ pralanka
 prancūziškumas
 priesienis
 prorėža
-prozopopėja
 pseudoalergija
 pulsatorius
 purvinumas
@@ -26858,7 +26188,6 @@ riebulis
 saprofitas
 sardoniksas
 sargumas
-simniškė
 sinefrinas
 skaidumas
 skeltažiedis
@@ -26897,7 +26226,6 @@ albuminurija
 algicidas
 angioma
 apdegėlis
-ariogalietė
 asindetonas
 autoreguliacija
 avoparcinas
@@ -26910,7 +26238,6 @@ bendrasavininkiškumas
 besaikiškumas
 besilatas
 besotystė
-biskajietis
 blefarospazmas
 briedragė
 chininmedis
@@ -26942,7 +26269,6 @@ glamonėjimasis
 gneisas
 griozdiškumas
 gudrumėlis
-hamburgietė
 heterodinas
 hipersekrecija
 homogenizatorius
@@ -26982,7 +26308,6 @@ minutininkas
 miringoplastika
 mirkykla
 monodija
-naisiškė
 narkologė
 neoekspresionizmas
 nepelningumas
@@ -26990,7 +26315,6 @@ nesolidumas
 nesvarbumas
 norpipanonas
 oksicianidas
-orleanietis
 pagalvėlis
 paleoantropologija
 papentis
@@ -27026,7 +26350,6 @@ reikmeninė
 repoliarizacija
 seismograma
 siaubingumas
-siesikietis
 smogikė
 smėlžemis
 stenografininkė
@@ -27046,9 +26369,7 @@ vaikštinėtoja
 vandenmaišis
 vedmuo
 veršenikė
-vidiškietis
 vilanas
-zapyškietis
 čiulbuonėlė
 šalčmirys
 šateikiškis
@@ -27069,7 +26390,6 @@ atomistika
 autochtoniškumas
 autoinspektorė
 balista
-bangladešietė
 barstytojas
 beduonė
 benzoilekgoninas
@@ -27084,7 +26404,6 @@ cefapirinas
 chloracetofenonas
 cistostoma
 civilistika
-daugpilietis
 devyndienis
 dietininkė
 dimetilftalatas
@@ -27128,7 +26447,6 @@ kapitalistė
 kapituliantas
 karpažoliniai
 karveliniai
-kaupavietė
 kelpinigiai
 kilniadvasė
 kimštuvas
@@ -27152,7 +26470,6 @@ metiprilonas
 metisė
 mofetilis
 morfometrija
-mosėdiškė
 mėlyniautoja
 nedegumas
 nedisciplinuotumas
@@ -27275,7 +26592,6 @@ bigamija
 bitartratas
 butilmetakrilatas
 cementvežis
-charkovietis
 chromatizmas
 daržovininkas
 daugiadievystė
@@ -27304,7 +26620,6 @@ flegmatiškumas
 fluvoksaminas
 funkciškumas
 galvanotechnika
-gardinietis
 gastroduodenitas
 gliseris
 gramatūra
@@ -27349,7 +26664,6 @@ neteismingumas
 netirpumas
 neuroma
 neurosifilis
-nidietis
 nitrolakas
 nuotakumas
 okapija
@@ -27399,7 +26713,6 @@ sevofluranas
 skleistenis
 slėgtuvas
 spalvotumas
-stakliškietis
 stumdynės
 suicidologė
 sukauptis
@@ -27427,7 +26740,6 @@ vakarieniautoja
 valvuloplastika
 vidužiemis
 vienpatystė
-vilkijietė
 vilkimasis
 viltingumas
 vinorelbinas
@@ -27502,7 +26814,6 @@ interseksualumas
 jonometras
 juvenologas
 kaltuvas
-karmėlavietė
 kniedytoja
 knygpalaikė
 kodavimasis
@@ -27522,17 +26833,14 @@ legislatūra
 leipalingiškis
 lizergidas
 logorėja
-lvovietis
 lydkrosnė
 manganitas
-mauritanietis
 menzula
 mišmetalas
 monoparezė
 motodromas
 nadyras
 neatvirumas
-nemenčinietis
 nemoksliškumas
 netikėtinumas
 nevikrumas
@@ -27558,13 +26866,11 @@ prokainamidas
 prokainas
 proziškumas
 purtymasis
-pušalotietis
 radiobiologija
 raudonvaris
 raudonžemis
 raukymasis
 rezervuotumas
-rumšiškietė
 rutozidas
 rąstagalys
 salsvumas
@@ -27594,16 +26900,13 @@ užgijimas
 užmušėja
 užvartis
 valakininkas
-valkininkietis
 valtornistas
 vamzdžiadantis
 varinėtojas
 venedai
 verbalizacija
-viešvilietė
 vilkena
 vištapienė
-vyžuoniškė
 zeranolis
 zidovudinas
 zuikiakrūmis
@@ -27613,7 +26916,6 @@ zuikiakrūmis
 širdininkė
 šlubė
 ženklininkas
-žiežmarietis
 afakija
 aikštijimasis
 alantiškis
@@ -27701,7 +27003,6 @@ košenilis
 kriptologija
 kumščiavimasis
 kurpinys
-kurtuvėniškė
 kvatojimasis
 lakuotojas
 languotumas
@@ -27744,7 +27045,6 @@ panzootija
 pasodninkas
 pastoginė
 pavaizdumas
-pašušvietis
 pentaeritritas
 pentakarbonilas
 perikarpis
@@ -27755,7 +27055,6 @@ plaukiotoja
 posnapis
 potenciometrija
 pramipeksolis
-prašalietė
 privilegijuotumas
 progresyvistas
 prometis
@@ -27764,7 +27063,6 @@ provokuotoja
 punktuacija
 pushektaris
 puskapis
-puskarietė
 pusponis
 puspūris
 raganautojas
@@ -27772,7 +27070,6 @@ rangymasis
 rauvolfija
 rekonvalescentas
 renklodas
-rumšiškietis
 sangvinikė
 sensomotorika
 serediškis
@@ -27794,7 +27091,6 @@ troppo
 tuščiažodžiautoja
 vagotomija
 veidmainingumas
-vepriškė
 verpinys
 veršena
 videodisplėjus
@@ -27804,7 +27100,6 @@ voltažas
 vylimasis
 vyrystė
 vėlumas
-zarasietė
 zenitininkas
 zolmitriptanas
 įsivaizduojamybė
@@ -27824,7 +27119,6 @@ adžarai
 airšyrai
 akcelerantas
 akreditavimasis
-alizavietis
 alternatorius
 amnioskopas
 androginija
@@ -27864,7 +27158,6 @@ decilitras
 dermoidas
 dibrompropamidinas
 dioliai
-diplokokas
 disidentiškumas
 draikymasis
 drebutiena
@@ -27873,9 +27166,7 @@ duenja
 dujosvaidis
 dvišakumas
 džiovintoja
-edinburgietis
 efemeroidas
-eišiškietė
 ekstensija
 elegiškumas
 elektrokauteris
@@ -27921,14 +27212,12 @@ intelektika
 izoforonas
 izohelija
 jefreitorė
-joniškėlietė
 kainitas
 kalbingumas
 kalorimetrija
 kanceliarininkas
 katastrofiškumas
 katatonija
-keliavietė
 kitakilmis
 klederas
 kloakiniai
@@ -28078,7 +27367,6 @@ adentija
 afrikansas
 aklimatizavimasis
 alfakalcidolis
-alvitietis
 ambrijimas
 andezitas
 anencefalija
@@ -28111,7 +27399,6 @@ dirvenis
 dislalija
 dispergatorius
 distichas
-drezdenietis
 drėskimas
 dvarlaukis
 džiugumas
@@ -28156,7 +27443,6 @@ hidropultas
 hiperinsulinizmas
 hipokotilis
 hipomanija
-hondūrietė
 hotentotai
 ilgmoliūgis
 imituoklis
@@ -28181,7 +27467,6 @@ kelmabudė
 kiauliaganė
 kimsai
 kirpikas
-kirėnietis
 klinčas
 kniauklė
 kolektomija
@@ -28189,7 +27474,6 @@ kolorimetrija
 kontraktacija
 kontramarkė
 košeris
-kražietis
 kukluksklanininkas
 kunkulas
 kvantorius
@@ -28207,7 +27491,6 @@ minkštakrėslis
 mirtenis
 monomanija
 multiciklonas
-musninkietis
 mušikas
 naratriptanas
 nikomorfinas
@@ -28252,7 +27535,6 @@ promedolis
 protautojas
 pseudoportretas
 radiopelengatorius
-raseinietė
 relinas
 riebalingumas
 riebulė
@@ -28421,7 +27703,6 @@ kanapynas
 kartografininkas
 keliamumas
 ketazolamas
-kilblokas
 kirmijimas
 klemastinas
 klinketas
@@ -28443,15 +27724,12 @@ laižykla
 landsknechtas
 laringotracheitas
 levofloksacinas
-lichtenšteinietis
 liguliarija
 limnologija
 litoponas
-londoniškė
 loprazolamas
 marbofloksacinas
 marumas
-mauritanietė
 mažutytis
 meklokvalonas
 metakvalonas
@@ -28484,7 +27762,6 @@ pasišiaušėlė
 patriarchališkumas
 patvirkėlis
 pavijimas
-pašalietė
 pipradrolis
 piroksilinas
 pjovimasis
@@ -28541,7 +27818,6 @@ torakoskopas
 trimatiškumas
 triukšmamatis
 tuberkulas
-tveriškė
 tvindekas
 uniformiškumas
 užkrova
@@ -28564,10 +27840,7 @@ zoogeografija
 šlakstyklė
 šleivumas
 šnipinėtoja
-žarėniškė
 žaržolai
-želviškė
-žiežmarietė
 žirgininkė
 žiurkininkas
 žiūroviškumas
@@ -28578,7 +27851,6 @@ adenoidektomija
 agnozija
 agropramonininkas
 aleksandrinas
-alsėdiškė
 alundas
 amiantas
 amidotrizoatas
@@ -28593,7 +27865,6 @@ aukštaitybė
 autokratė
 autorotacija
 balantidiazė
-bandotakis
 bandšunis
 besotiškumas
 betaksololis
@@ -28650,7 +27921,6 @@ greitaeigiškumas
 grūmimasis
 harmonizuotojas
 helotas
-helsinkietis
 hemihidratas
 hemoroidektomija
 homeostatas
@@ -28661,7 +27931,6 @@ izochrona
 iškunigis
 ištuoktinis
 išvaizdumas
-jiezniškė
 juodbėrė
 kapliadantė
 kartojamumas
@@ -28688,7 +27957,6 @@ kėlikas
 labetalolis
 laminektomija
 laurencis
-leipcigietis
 lenkintoja
 letalumas
 liejėja
@@ -28698,15 +27966,12 @@ lotynizmas
 luidoras
 lygmatis
 mainytoja
-maironietė
-makedonietė
 mastoidektomija
 mašaliukai
 menadionas
 mesna
 mezaljansas
 mezgimasis
-mikrokokas
 mindytoja
 mineralizatorius
 minkytojas
@@ -28726,14 +27991,11 @@ nutrūkstamumas
 olfaktometrija
 palaipa
 pananginas
-panemuniškė
 paraproteinas
 pasiūlytoja
-pasvališkė
 patvirkėlė
 paukštukė
 penkrublinė
-perpietė
 petikaulis
 pievininkystė
 pilstytuvas
@@ -28752,7 +28014,6 @@ protautoja
 pusiaukraštinė
 pusmovė
 putbetonis
-raguvietė
 raibumas
 raktažoliniai
 ramygališkis
@@ -28783,7 +28044,6 @@ spirografas
 spėjėjas
 stabmeldybė
 stenografuotoja
-stoglatakis
 storlentė
 stovyklininkas
 stygininkė
@@ -28807,7 +28067,6 @@ topenantas
 trikotinas
 trūnijimas
 uretroskopija
-užnemunietis
 užėmėjas
 vapesys
 vardatėvis
@@ -28882,7 +28141,6 @@ dispečerizacija
 disputantas
 distorsija
 divergentas
-dotnuviškė
 dragomanas
 dvarponė
 dvipusiškumas
@@ -29017,10 +28275,8 @@ redaguotoja
 reevakuacija
 regresyvumas
 ritinukė
-rudaminietis
 rėžėja
 saulabrolis
-semeliškietis
 seroma
 skaidrybė
 skaistažiedė
@@ -29043,7 +28299,6 @@ suslegiamumas
 sąmaiša
 sūpavimasis
 tarpvartė
-taujėniškė
 tauškutis
 telegrafininkas
 telugai
@@ -29090,13 +28345,10 @@ zyzlė
 acetoactas
 agenezė
 ajeriniai
-alantiškė
 aleurolitas
-alizavietė
 alopurinolis
 alprostadilis
 amerikoniukė
-amsterdamietis
 anarchosindikalizmas
 aneuploidija
 anoksija
@@ -29124,7 +28376,6 @@ desantininkė
 dešimtšūvis
 dinamometrija
 diskriminatorius
-dotnuvietis
 dualybė
 duplikacija
 dužlumas
@@ -29144,7 +28395,6 @@ estronas
 etilefrinas
 etilgyvsidabris
 etiudininkas
-ferarietis
 ferovolframas
 flebografija
 flucitozinas
@@ -29188,7 +28438,6 @@ juodpuodis
 kablograma
 kardiografija
 kelininkė
-kenijietė
 keratokonjunktyvitas
 ketursienis
 kliautininkas
@@ -29197,7 +28446,6 @@ kooptacija
 kopūstgalvė
 kraipytoja
 kratyklė
-krokuviškė
 kruopmilčiai
 kuklybė
 kultūrbolševizmas
@@ -29287,7 +28535,6 @@ sambalsis
 sarkastiškumas
 saulužėlė
 scintiliacija
-sekundininkas
 seminaristė
 sengalvėlis
 septoplastika
@@ -29342,7 +28589,6 @@ upininkystė
 uranitas
 užnarvis
 užsibuvėlis
-valkininkietė
 valkiojimasis
 varguolėlė
 variometras
@@ -29355,7 +28601,6 @@ visateisiškumas
 vizyras
 yrėjas
 zujimas
-čiobiškietis
 čiužesys
 įmaišalas
 įvardytojas
@@ -29382,7 +28627,6 @@ amineptinas
 anetolis
 angiochirurgė
 angiospazmas
-angloamerikietis
 apkvaišėlis
 apraksija
 apretūra
@@ -29390,18 +28634,15 @@ apžvalgumas
 apžvelgiamumas
 arančinas
 asteriskas
-astraviškė
 auksakalė
 autoblokuotė
 autoplastika
 babirusa
-babtiškė
 balaganininkas
 balandininkystė
 balangraužis
 balža
 barškynė
-bebruliškietis
 beicuotoja
 bernužis
 blusininkas
@@ -29443,7 +28684,6 @@ eutrofija
 fenilpiperidinas
 fluotanas
 formalybė
-frankfurtietis
 fratrija
 galukaimis
 garota
@@ -29472,7 +28712,6 @@ izopodas
 kabeltovas
 kaišinys
 kamštenis
-kapčiamiestietis
 karakalpakai
 kardinalumas
 ketvertukininkas
@@ -29496,14 +28735,11 @@ lenktyniautojas
 lokomobilis
 luomiškumas
 maistininkė
-maišiagalietis
 matūra
 meduloblastoma
 megestrolis
-meklenburgietis
 menoragija
 mepivakainas
-merkinietis
 mesterolonas
 metalokeramika
 metilizobutilkarbinolis
@@ -29512,9 +28748,7 @@ mikrofizika
 minkštaširdiškumas
 miotomija
 miotonija
-miunchenietė
 mometazonas
-monakietė
 monoacetilmorfinas
 mėlžolė
 nabumetonas
@@ -29536,7 +28770,6 @@ oligohidramnionas
 omfalitas
 onicholizė
 ortodifosfatas
-pabradietis
 palapinukė
 paleoklimatas
 panytėlė
@@ -29563,7 +28796,6 @@ prūsistika
 pseudomiksoma
 puikimas
 puošnybė
-pusvakaris
 pusvalakis
 racionalistė
 radiotelefonininkas
@@ -29596,11 +28828,9 @@ spirginys
 staklininkė
 stereofotogrametrija
 stiklasparniai
-stoniškietis
 stroncianitas
 sulysėlis
 sunkėjas
-surinamietė
 svetimoterystė
 svogūnienė
 sėklintoja
@@ -29631,10 +28861,7 @@ valkčiagrybis
 valonėja
 vardaženklis
 varniukė
-veisiejietis
-veliuoniškė
 vibrometras
-vidiškietė
 vielokaištis
 vienklasis
 vigonė
@@ -29667,7 +28894,6 @@ akmenširdė
 aleuronas
 alteplazė
 aneksuotojas
-angloamerikietė
 anoftalmija
 antiteatras
 anttrobis
@@ -29679,7 +28905,6 @@ atskila
 atskyrininkas
 atžvalga
 aukakalnis
-babtietis
 bakteriologė
 baltintojas
 barstalas
@@ -29717,7 +28942,6 @@ flateris
 fluorimetrija
 fokusavimasis
 frazierius
-friburgietis
 frontininkė
 gaišintoja
 gaižumas
@@ -29782,7 +29006,6 @@ liuminalis
 logometras
 lupėjas
 lėksmas
-madagaskarietis
 makrosomija
 maprotilinas
 marsilija
@@ -29849,7 +29072,6 @@ praleidinėtojas
 pranešinėtoja
 prasmėvaizdis
 preparatorius
-priekulietis
 priešsrovė
 priimtuvės
 proterozojus
@@ -29937,7 +29159,6 @@ verslingumas
 vežiojimasis
 videograma
 vienišybė
-vienužė
 vilkiena
 viniplastas
 virilizacija
@@ -29945,9 +29166,7 @@ virkdytojas
 viršnormis
 vulkanizuotojas
 yrėja
-zapyškietė
 zuklopentiksolis
-čadietis
 čalma
 čiulpėja
 čiuožikė
@@ -29964,7 +29183,6 @@ zuklopentiksolis
 šropšyrai
 žandinės
 žarnigalis
-žaslietis
 žiemvakariai
 žvejoklė
 abisalė
@@ -30042,11 +29260,9 @@ errata
 etamsilatas
 etidronatas
 evolventė
-ežeriokas
 fabrikuotojas
 fatalumas
 fonastenija
-futštokas
 gaišintojas
 galvotumas
 garduoklė
@@ -30153,7 +29369,6 @@ ovogenezė
 pachisandra
 padienininkas
 pagelbėtojas
-palermietis
 palūkininkė
 paraistorija
 pasakininkė
@@ -30197,7 +29412,6 @@ racionalas
 radikalizavimasis
 radiotechnikė
 raičiojimasis
-ramygališkė
 reducentai
 rekonversija
 reologija
@@ -30211,7 +29425,6 @@ samdininkė
 saulašariniai
 sausakrūmis
 sausašilis
-seirijiškė
 semitologas
 separatistė
 siautulingumas
@@ -30237,7 +29450,6 @@ subnitratas
 suburbanizacija
 sufentanilas
 sunaikintoja
-surinamietis
 suspaudėjas
 sąvokynas
 taisinys
@@ -30267,11 +29479,9 @@ vargovaikis
 varistorius
 varžybininkas
 veldinys
-veliuonietė
 veratrinas
 vidikonas
 viensėdininkas
-viešvėniškė
 vigabatrinas
 viniakalė
 vitražininkė
@@ -30301,7 +29511,6 @@ zuperis
 žudykla
 žuvidė
 žvynuotė
-žygaitiškė
 acenokumarolis
 acidofilinas
 advokacija
@@ -30323,11 +29532,9 @@ antodis
 antriešis
 apgaubtis
 apotema
-apsidraudėlė
 apsmuktakelnis
 apsmurgėlis
 apvijimas
-archangelskietis
 ascidija
 astrantija
 atliepa
@@ -30338,7 +29545,6 @@ autobiografas
 autolas
 automobilistė
 ašarikaulis
-babtietė
 baltintoja
 baristeris
 barstiniai
@@ -30382,7 +29588,6 @@ difosfonatas
 dimetindenas
 diolaminas
 diurablis
-dotnuvietė
 draudžiamumas
 drėkstamumas
 duobėtumas
@@ -30416,7 +29621,6 @@ filogenija
 fitotronas
 fluokortolonas
 fokusininkė
-folklandietis
 fordevindas
 formestanas
 fundoplastika
@@ -30485,7 +29689,6 @@ kušitai
 kvaišumas
 laigonas
 laringologija
-leipcigietė
 lejomioma
 lenktyniautoja
 lenčiukė
@@ -30494,7 +29697,6 @@ linezolidas
 lipoidas
 lutecis
 lęšienė
-magdeburgietis
 makroglosija
 mebeverinas
 medgręžiai
@@ -30531,7 +29733,6 @@ niketamidas
 novokainamidas
 nuvijimas
 olimpionikas
-omanietė
 ortodontologija
 osterija
 ožiškumas
@@ -30551,7 +29752,6 @@ pefloksacinas
 pelkėtumas
 pentagastrinas
 periciazinas
-perlojietis
 pernuomotoja
 perversmininkė
 piktdžiugė
@@ -30603,7 +29803,6 @@ sakingumas
 salvarsanas
 semantizmas
 senmotė
-serediškė
 serpentariumas
 sertindolas
 sintonija
@@ -30699,7 +29898,6 @@ zvimbalas
 žargonininkas
 žiemotojas
 žiemovidis
-žiemovietė
 žuvintiškis
 aeroterapija
 akcesas
@@ -30763,7 +29961,6 @@ diamorfinas
 diatomėjos
 diazidas
 didžiapilvis
-dieveniškietis
 dimetoksanas
 dinoprostas
 dinoprostonas
@@ -30818,7 +30015,6 @@ internacionalistė
 išlepėlė
 išsiskėtėlis
 išsišiepėlis
-išsprogtakis
 išverstagerklis
 jomenai
 jonofonas
@@ -30835,7 +30031,6 @@ kaucija
 kavintonas
 kazuistas
 kerštininkas
-kiauštakis
 kieliukė
 kimumas
 kliokvinolis
@@ -30885,7 +30080,6 @@ mutiliacija
 nacionalistiškumas
 nateglinidas
 natrolitas
-naumiestietis
 nefelometrija
 neišdavikas
 nekonceptualumas
@@ -30961,7 +30155,6 @@ reprodukavimasis
 rezolventė
 riaušininkė
 riestuvas
-rietavietis
 rinologija
 rūgėsis
 samplūdis
@@ -31090,7 +30283,6 @@ aerofiltras
 aerolitas
 aeronomija
 agloporitas
-agluonietis
 akižara
 aklinumas
 akuotumas
@@ -31135,7 +30327,6 @@ bevaisiškumas
 biokibernetika
 bjaurojimasis
 blerbalas
-bostonietė
 brandmeisteris
 bronopolis
 brėžtuvas
@@ -31209,7 +30400,6 @@ fotoemulsija
 fotorezistorius
 framicetinas
 frotė
-galicijietis
 gingivostomatitas
 gleiviagrybis
 glifas
@@ -31219,7 +30409,6 @@ graibstytoja
 graibstytojas
 grandininkė
 greitakalbystė
-griškabūdietė
 gruntotyra
 grūdeklis
 gudragalvystė
@@ -31237,7 +30426,6 @@ hiperpireksija
 hipopigmentacija
 hiposulfitas
 idiotybė
-ignaliniškė
 imelmanas
 impresionistė
 inkstininkas
@@ -31247,8 +30435,6 @@ interceptorius
 inventorizuotoja
 išpurtėlis
 išvarinėtojas
-jašiūnietis
-jieznietis
 jontoforezė
 kaducėjus
 kalkuliatorininkas
@@ -31291,7 +30477,6 @@ liūnmeldis
 logograma
 lyderiškumas
 lyginamumas
-madagaskarietė
 magaldratas
 maksimalumas
 manovakuummetras
@@ -31336,7 +30521,6 @@ nereprezentatyvumas
 neskubumas
 nestropumas
 nevalstybiškumas
-neveronietis
 nigrolas
 nigrozinas
 normoblastas
@@ -31406,7 +30590,6 @@ pusmeistris
 rabdomioma
 rachitikė
 rambursas
-raudonarmietė
 raugerškiniai
 renegatė
 repiteris
@@ -31438,7 +30621,6 @@ siringobulbija
 siūdinimasis
 skreplinė
 skrybėliukė
-skuodietė
 skylėtumas
 smaugikė
 smaukimasis
@@ -31462,7 +30644,6 @@ suglebėlė
 suplatastas
 surdopsichologija
 taksuotoja
-tanzanietė
 tarnaičiukė
 tarpeilis
 tarpubėgis
@@ -31485,7 +30666,6 @@ trazodonas
 trilypumas
 trimipraminas
 trisilikatas
-tryškiškė
 tuberkulioma
 tuokimasis
 turtininkas
@@ -31496,12 +30676,9 @@ užvalkas
 užvertis
 vaisgraužis
 vaivadystė
-valensijietis
 valerijoniniai
 vambrijimas
 vandenplūkis
-vandžiogalietė
-vandžiogališkė
 varputynas
 veldėtojas
 verteiviškumas
@@ -31531,7 +30708,6 @@ zulintojas
 įkyrybė
 įsakumas
 šakniagraužis
-šeimyniškė
 šerniūkštis
 šiuolaikybė
 šiurpulingumas
@@ -31556,7 +30732,6 @@ zulintojas
 abchazė
 acetonurija
 adjunktūra
-adutiškietis
 adytojas
 aeronas
 agurkliniai
@@ -31588,7 +30763,6 @@ avantažas
 azapropazonas
 aztreonamas
 baironizmas
-balninkietis
 balzganumas
 bambuterolis
 barnininkas
@@ -31651,8 +30825,6 @@ elektroosmosas
 elipsiškumas
 enzistalis
 epinastija
-eritrėjietis
-eritrėjietė
 eustachitas
 falkonetas
 farmakoepidemiologija
@@ -31689,7 +30861,6 @@ grytelninkė
 gulstainis
 gumbavapsvė
 gumbenė
-gvardietė
 gąsčiojimasis
 heksilacetatas
 hematinas
@@ -31726,7 +30897,6 @@ karcinosarkoma
 kardiostimuliacija
 karizoprodolis
 karmustinas
-katalonietė
 katatermometras
 katerininkas
 kefalinas
@@ -31780,7 +30950,6 @@ mikrolitas
 militaristė
 mimetizmas
 ministerialai
-mintaujietis
 mivakuris
 mizoginizmas
 modiljonas
@@ -31892,7 +31061,6 @@ respiracija
 restruktūrizavimasis
 risordžimentas
 romanė
-rukena
 sabalpalmė
 sagopalmė
 saidrenis
@@ -31912,7 +31080,6 @@ sindaktilija
 skaudvabaliai
 skobinys
 slalomininkas
-smolenskietė
 snukiavimasis
 sofora
 spaustuvininkė
@@ -31920,7 +31087,6 @@ spondilolizė
 spraustlentė
 sprūstis
 stacionarumas
-stelmužietis
 stereofilmas
 stereoskopija
 stereotipija
@@ -31960,7 +31126,6 @@ vandensargė
 varžytininkas
 vasarūnė
 vidurmiškis
-viekšnietis
 vilkaduobė
 vilkakojė
 virbynas
@@ -31990,12 +31155,10 @@ zuikbaravykis
 švyturininkas
 žaizdotumas
 žaizdrininkas
-žaslietė
 žinialapis
 žiratas
 žnybis
 žuvininkėlis
-žuvintietis
 abiogenezė
 absentizmas
 acebutololis
@@ -32043,7 +31206,6 @@ atraugos
 atsiuvimas
 atšvaistė
 audiofonas
-augsburgietis
 aurotiomalatas
 autentifikavimasis
 autobiografė
@@ -32260,7 +31422,6 @@ laivagraužis
 laktoskopas
 landstingas
 leberalcentristas
-leipalingiškė
 leksikologė
 levobunololis
 lietuvaičiukė
@@ -32344,7 +31505,6 @@ niekniekėlis
 niklozamidas
 nizatidinas
 numezgimas
-nusižudėlė
 nuskendėlis
 okeanologė
 oksibutininas
@@ -32464,7 +31624,6 @@ skersapjūklis
 skersstaktis
 skleroma
 skudurininkė
-skuodietis
 skynimasis
 smarkautojas
 snarglėjimasis
@@ -32538,7 +31697,6 @@ ultraliberalė
 undecilenatas
 uostininkė
 uostinėtojas
-upyniškė
 upėtyra
 urobilinas
 urolitas
@@ -32562,11 +31720,9 @@ veidmainiautojas
 veizėtoja
 veltuvai
 vienetininkė
-vilkijiškė
 vilkpalaikis
 vindezinas
 virginalas
-višakietis
 višteliniai
 vojažierius
 voliumetras
@@ -32596,8 +31752,6 @@ zylionė
 šovikas
 štancas
 šuoliškumas
-šventežerietė
-švenčionėliškė
 švirkštynė
 švitintuvas
 ūkvedyba
@@ -32630,7 +31784,6 @@ alilestrenolis
 alkaftadinas
 alklometazonas
 alksniabudė
-alovietis
 altimetrija
 amalgamatorius
 amfibolitas
@@ -32639,7 +31792,6 @@ amodiakvinas
 amortizavimasis
 anemorumbografas
 anistreplazė
-antalieptietis
 antifilmas
 antiįstatymiškumas
 antralangis
@@ -32665,7 +31817,6 @@ autokodas
 autokolimacija
 automatizavimasis
 autooperatorius
-babilonietė
 baidymasis
 bakongai
 balsvumas
@@ -32730,7 +31881,6 @@ didžialenkiškumas
 didžiavyriškumas
 dienestrolis
 dietilkarbamazinas
-dieveniškietė
 diloksanidas
 dimetilsulfonas
 diolefinai
@@ -32768,13 +31918,11 @@ etilidendiacetatas
 etinodiolis
 eurazianistas
 fascikuliacija
-feisbukietis
 fenelzinas
 fenoksibenzaminas
 fenotrinas
 flozekvinanas
 fluorplastikas
-folklandietė
 fonokardiografas
 fonoskopas
 fosforanas
@@ -32819,7 +31967,6 @@ ichneumonas
 ichtamolis
 ichtiofagas
 indemnitetas
-indoeuropietė
 indoraminas
 infarktininkas
 inteligentingumas
@@ -32833,10 +31980,8 @@ izokssuprinas
 izotermija
 izotiazolinonas
 išdėliotojas
-išplėstakis
 ištiškimas
 išvirtėlis
-jieznietė
 juodbruvumas
 jūrasmiltė
 jūrsvogūnis
@@ -32848,7 +31993,6 @@ kanrenoatas
 kapiliaritas
 kardiotachometras
 kardiotoksiškumas
-karvatakis
 kaspofunginas
 kaulingumas
 kaulininkas
@@ -32904,7 +32048,6 @@ laivininkė
 laktobionatas
 laringofonas
 latamoksefas
-lazdynietė
 lengvaatletininkas
 lindikė
 linininkė
@@ -32915,7 +32058,6 @@ lofeksidinas
 lošikė
 lošimasis
 lygimasis
-maišiagalietė
 makrocefalija
 malkininkė
 maloninimasis
@@ -32994,7 +32136,6 @@ neskelbiamumas
 nespecifiškumas
 netendencingumas
 neuroretinitas
-neveronietė
 nevisapusiškumas
 neįskaitomumas
 nešdinimasis
@@ -33023,7 +32164,6 @@ onkochirurgė
 oogenezė
 oscilometrija
 otenitas
-pabradietė
 pakhauzas
 pakišalas
 paladiumas
@@ -33117,7 +32257,6 @@ sinechija
 sinergetai
 sintaksonas
 skandinavistė
-skudutiškietis
 skyrininkė
 skėstuvas
 slapūnė
@@ -33193,13 +32332,11 @@ vaisininkystė
 vaizdininkas
 varnakojė
 vaškininkas
-veisiejietė
 velagliucerazė
 verifikatorius
 vibroskopas
 vietaženklis
 viloksazinas
-vincentietė
 voltamperas
 vortinklis
 vynininkė
@@ -33227,12 +32364,10 @@ zotarolimuzas
 šovimasis
 špacija
 šungarstė
-šventežerietis
 šviesratis
 žabalumas
 žaislininkė
 žaladarė
-žasliškė
 žiaudrinys
 žiemrytys
 žiemvakaris
