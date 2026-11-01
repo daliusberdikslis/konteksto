@@ -288,7 +288,7 @@ function createGuessRow(guess, isLatest) {
     <div class="bar-track" role="progressbar" aria-valuenow="${progress}" aria-valuemin="0" aria-valuemax="100" aria-label="Progresas iki slapto žodžio">
       <div class="bar-fill" style="width: 0%"></div>
     </div>
-    <span class="guess-word">${escapeHTML(guess.lemma)}</span>
+    <span class="guess-word">${isExact ? '<svg class="win-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>' : ""}${escapeHTML(guess.lemma)}</span>
     <div class="guess-position" aria-label="Pozicija žodyne">
       <span class="guess-position-num">${formatPositionLabel(guess.position)}</span>
     </div>

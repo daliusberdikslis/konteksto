@@ -389,7 +389,8 @@ body::before {
   border-radius: var(--radius-lg);
   overflow: hidden;
   isolation: isolate;
-  transition: border-color var(--transition-fast);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .bar-track {
@@ -405,19 +406,24 @@ body::before {
   border-radius: 0;
   transition: width 0.6s var(--ease-out-expo);
   background: var(--bar-color, var(--accent));
-  opacity: 0.45;
+  opacity: var(--bar-lift, 0.22);
 }
 
 @supports (background: color-mix(in srgb, red 50%, transparent)) {
   .bar-fill {
-    background: color-mix(in srgb, var(--bar-color, var(--accent)) 55%, transparent);
+    background: color-mix(in srgb, var(--bar-color, var(--accent)) calc(var(--bar-lift, 0.22) * 100%), transparent);
     opacity: 1;
+  }
+
+  .guess-row.exact-match .bar-fill {
+    background: color-mix(in srgb, var(--success) calc(var(--bar-lift, 0.38) * 100%), transparent);
   }
 }
 
 .guess-row.latest-guess {
-  border-color: var(--text-primary);
-  box-shadow: 0 0 0 1px var(--text-primary);
+  border-color: var(--border-accent);
+  background: var(--accent-soft);
+  box-shadow: var(--shadow-card), var(--shadow-glow);
 }
 
 .latest-separator {
@@ -428,18 +434,33 @@ body::before {
 
 .guess-row.exact-match {
   border-color: rgba(34, 197, 94, 0.5);
-  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.5);
+  background: var(--success-soft);
+  box-shadow: var(--shadow-card), 0 0 0 2px rgba(34, 197, 94, 0.35);
 }
 
 .guess-row.exact-match .bar-fill {
-  background: var(--success-soft);
+  background: var(--success);
+  opacity: 0.3;
+  background-image: repeating-linear-gradient(-45deg, transparent 0 6px, rgba(255, 255, 255, 0.18) 6px 8px);
 }
 
 .guess-row.hint-row .guess-word {
+  color: var(--text-primary);
+}
+
+.guess-row.hint-row .guess-word::after {
+  content: " • užuomina";
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   color: var(--accent);
+  white-space: nowrap;
 }
 
 .guess-word {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
   font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -450,10 +471,9 @@ body::before {
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
 }
 
-.guess-position {
-  text-align: right;
-  line-height: 1.2;
+.win-check {
   flex-shrink: 0;
+  color: var(--success);
 }
 
 .guess-position-num {
@@ -464,12 +484,13 @@ body::before {
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
 }
 
-/* Score color classes */
-.score-cold { --score-color: hsl(240 60% 72%); --bar-color: var(--bar-cold); }
-.score-cool { --score-color: hsl(200 75% 65%); --bar-color: var(--bar-cool); }
-.score-warm { --score-color: hsl(35 95% 65%); --bar-color: var(--bar-warm); }
-.score-hot  { --score-color: hsl(140 65% 60%); --bar-color: var(--bar-hot); }
-.score-exact { --score-color: var(--success); --bar-color: var(--success); }
+/* Score color classes: hue + luminance both rise with closeness,
+   so the ramp survives color blindness (cold dim → hot bright) */
+.score-cold { --score-color: hsl(240 60% 72%); --bar-color: var(--bar-cold); --bar-lift: 0.16; }
+.score-cool { --score-color: hsl(200 75% 65%); --bar-color: var(--bar-cool); --bar-lift: 0.22; }
+.score-warm { --score-color: hsl(35 95% 65%); --bar-color: var(--bar-warm); --bar-lift: 0.30; }
+.score-hot  { --score-color: hsl(140 65% 60%); --bar-color: var(--bar-hot); --bar-lift: 0.38; }
+.score-exact { --score-color: var(--success); --bar-color: var(--success); --bar-lift: 0.38; }
 
 /* Duplicate word shake */
 .guess-row.shake {
