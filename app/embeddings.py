@@ -138,3 +138,16 @@ class EmbeddingStore:
         similarity = float(sims[word_idx])
         rank = int(np.count_nonzero(sims > sims[word_idx])) + 1
         return self.words[word_idx], similarity, rank
+
+    def top_n(self, target_index: int, n: int = 10) -> list[tuple[str, float, int]]:
+        """Return the n closest words to the target with true similarity and rank."""
+        target_vec = self.matrix[target_index]
+        sims = self.matrix @ target_vec
+        order = np.argsort(-sims, kind="stable")
+        result: list[tuple[str, float, int]] = []
+        for idx in order[: max(1, n)]:
+            word_idx = int(idx)
+            similarity = float(sims[word_idx])
+            rank = int(np.count_nonzero(sims > sims[word_idx])) + 1
+            result.append((self.words[word_idx], similarity, rank))
+        return result

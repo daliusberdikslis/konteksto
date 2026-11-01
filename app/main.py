@@ -30,6 +30,17 @@ class GuessResponse(BaseModel):
     status: str = "success"
 
 
+class SurrenderWord(BaseModel):
+    lemma: str
+    similarity: float
+    rank: int
+
+
+class SurrenderResponse(BaseModel):
+    words: list[SurrenderWord]
+    game_id: str
+
+
 class HintResponse(BaseModel):
     lemma: str
     similarity: float
@@ -163,3 +174,24 @@ async def get_hint(
         rank=int(rank),
         game_id=game_id,
     )
+
+
+@app.get("/api/v1/surrender", response_model=SurrenderResponse)
+async def surrender(game_id: str = Query(...)):
+    """Reveal the 10 closest words to the target, rank 1 first."""
+    assert store is not None
+    game = games.get(game_id)
+    target_index = (
+        game.target_index if game is not None else store.resolve_index(game_id)
+    )
+    if target_index is None:
+        raise HTTPException(status_code=404, detail="Žaidimas nerastas.")
+    words = [
+        SurrenderWord(
+            lemma=lemma,
+            similarity=round(float(similarity), 5),
+            rank=int(rank),
+        )
+        for lemma, similarity, rank in store.top_n(target_index, 10)
+    ]
+    return SurrenderResponse(words=words, game_id=game_id)

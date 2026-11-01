@@ -507,7 +507,7 @@ body::before {
 /* --- Action Bar: hint + new game --- */
 .action-bar {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: var(--space-sm);
   margin-top: var(--space-lg);
 }
@@ -545,6 +545,10 @@ body::before {
   opacity: 0.4;
   cursor: not-allowed;
   transform: none;
+}
+
+.surrender-btn:not(:disabled):hover {
+  border-color: rgba(245, 158, 11, 0.45);
 }
 
 .action-btn svg {

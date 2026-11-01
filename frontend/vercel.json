@@ -11,6 +11,9 @@
     },
     "api/hint.js": {
       "maxDuration": 30
+    },
+    "api/surrender.js": {
+      "maxDuration": 30
     }
   },
   "headers": [
