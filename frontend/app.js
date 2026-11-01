@@ -33,8 +33,6 @@ const dom = {
   submit: document.getElementById("guess-submit"),
   error: document.getElementById("input-error"),
   guessList: document.getElementById("guess-list"),
-  guessCount: document.getElementById("guess-count"),
-  bestPosition: document.getElementById("best-position"),
   winBanner: document.getElementById("win-banner"),
   winCount: document.getElementById("win-count"),
   resetBtn: document.getElementById("reset-game"),
@@ -322,14 +320,6 @@ function createEmptyState() {
 }
 
 function updateStats() {
-  dom.guessCount.textContent = state.guesses.length;
-
-  if (state.guesses.length > 0) {
-    const bestPos = Math.min(...state.guesses.map((g) => g.position));
-    dom.bestPosition.textContent = `#${bestPos}`;
-  } else {
-    dom.bestPosition.textContent = "—";
-  }
   updateHintButton();
 }
 
