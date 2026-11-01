@@ -43,12 +43,95 @@ LT_WORD_RE = re.compile(r"^[a-ząčęėįšųūž\-]+$", re.IGNORECASE)
 DEFAULT_MAX_LEN = 30
 _MAX_LEN = DEFAULT_MAX_LEN
 
-# Deverbal noun suffixes (veiksmažodinis daiktavardis), e.g. sportavimas, mokėjimas.
-VERBAL_NOUN_SUFFIXES = ("avimas", "ėjimas", "inimas", "stymas", "tavimas", "ymas")
+# Deverbal noun suffixes (veiksmažodinis daiktavardis): the full -(i)mas
+# family covers sportavimas, mokėjimas, žaidimas, tyrimas, sprendimas.
+# NOTE: order matters — longest first (ojimas before ymas/imas).
+VERBAL_NOUN_SUFFIXES = (
+    "ojimas", "avimas", "ėjimas", "eijimas",
+    "inimas", "stymas", "tavimas", "ymas", "imas",
+)
 VERBAL_NOUN_SUFFIX_RE = re.compile(
-    r"(?:avimas|ėjimas|inimas|stymas|tavimas|ymas)$",
+    r"(?:ojimas|avimas|ėjimas|eijimas|inimas|stymas|tavimas|ymas|imas)$",
     re.IGNORECASE,
 )
+
+# Diminutive suffixes (mažybiniai): pincetukas, vaistukas, rankelė.
+# Exact-match PROTECTED_NOUNS are exempt (berniukas, dėžutė, ...).
+DIMINUTIVE_SUFFIX_RE = re.compile(
+    r"(?:ukas|iukas|utė|ytė|elis|elė|užėlis|uliukas)$",
+    re.IGNORECASE,
+)
+
+# Concrete nouns that look deverbal/diminutive by suffix but denote real
+# things, not actions. Exact-match only; everything else with the suffix
+# pattern is dropped (below the protected rank cutoff).
+PROTECTED_NOUNS = frozenset({
+    # -imas/-ymas lookalikes (institutions, places, groups, objects)
+    "seimas", "kaimas", "režimas", "likimas", "jaunimas",
+    # -ukas/-iukas lookalikes that are base words, not diminutives
+    "laukas", "plaukas", "berniukas", "vyrukas", "senukas", "triukas",
+    # -utė/-ytė: time units, kinship, everyday objects
+    "minutė", "močiutė", "dėžutė", "eglutė", "lemputė", "žvaigždutė",
+    # -elis/-elė: everyday objects
+    "birželis", "modelis", "tunelis", "upelis", "erelis", "kabelis",
+    "kortelė", "lentelė", "suknelė", "ląstelė", "plokštelė", "knygelė",
+    "panelė", "pelė", "porelė", "mergelė", "miestelis", "darželis",
+    "senelis", "butelis",
+    # frequent -iklis devices
+    "rodiklis", "variklis", "saugiklis", "skaitiklis", "jauniklis",
+    # frequent chemistry / food
+    "alkoholis", "etanolis", "glicerolis", "fenolis", "cholesterolis",
+    # frequent -ūnas / -uolis persons and body parts
+    "pareigūnas", "kūnas", "gyvūnas", "seniūnas", "svogūnas", "lakūnas",
+    "malūnas", "dragūnas", "skalūnas", "perkūnas", "šampūnas", "koldūnas",
+    "jaunuolis", "senolis", "šaunuolis", "gražuolis",
+})
+
+# Rare medical terms: INN-style drug suffixes and disease suffixes.
+# Applied only below PROTECTED_RANK (frequent vaistas, liga stay).
+# NOTE: bare "-itas" also hits kreditas-class common words — the *itis
+# family is enumerated explicitly instead.
+DRUG_SUFFIX_RE = re.compile(
+    r"(?:prilis|sartanas|statinas|ciklinas|micinas|tinibas|mabas|azolas|"
+    r"azepamas|parinas|tidas|cilinas|fenas|dronas|semidas|glitazonas|"
+    r"zolis|pinas|viras|vudin|naviras)$",
+    re.IGNORECASE,
+)
+DISEASE_SUFFIX_RE = re.compile(
+    r"(?:ligė|ozė|emija|patija|celė|sklerozė|stenozė|trombozė|"
+    r"nefritas|dermatitas|artritas|gastritas|hepatitas|bronchitas|"
+    r"meningitas|otitas|faringitas|cistitas|neuritas|sinusitas|"
+    r"miokarditas|endokarditas|encefalitas|apendicitas|poliomielitas|"
+    r"celiulitas)$",
+    re.IGNORECASE,
+)
+MEDICAL_WORD_RE = re.compile(
+    r"^(?:vaist|ligon|tablet|doz|tepal|antibiot|insulin|"
+    r"paracetamol|ibuprofen|aspirin|skiep|sirup|dozator)",
+    re.IGNORECASE,
+)
+# Top-N frequent lemmas are never dropped by the cleanup filters.
+PROTECTED_RANK = 5000
+# Rare chemistry terms: alcohols/solvents (-olis/-ilas), alkanes (-anas),
+# polymers/monomers (-enas/-inas), reagents (-idas). Frequent words with
+# the same tails (alkoholis, adrenalinas…) survive via PROTECTED_NOUNS.
+CHEM_SUFFIX_RE = re.compile(
+    r"(?:etanolis|metanolis|propanolis|butanolis|fenolis|glicerolis|"
+    r"glikolis|sorbitolis|manitolis|ksilitolis|mentolis|retinolis|"
+    r"cholesterolis|eteris|esteris|acetilas|metilas|etilas|butilas|"
+    r"propilas|fenilas|vinilas|akrilas|nitrilas|stirenas|benzenas|"
+    r"toluenas|metanas|etanas|propanas|butanas|heksanas|polietilenas|"
+    r"antigenas|alergenas|estrogenas|kolagenas|gliukozė|fruktozė|"
+    r"sacharozė|celiuliozė|amfetaminas|nikotinas|kofeinas|toksinas|"
+    r"histaminas|heparinas|chlorofilas|trotilas|acetonas|ketonas)$",
+    re.IGNORECASE,
+)
+# Rare technical devices (-iklis): atskyriklis, tirpiklis, emulsiklis.
+# Frequent ones (variklis, rodiklis…) survive via PROTECTED_NOUNS.
+DEVICE_SUFFIX_RE = re.compile(r"(?:iklis)$", re.IGNORECASE)
+# Rare agent nouns for character traits (pašaipūnas, šaunuolis):
+# -ūnas/-uolis persons below the protected rank.
+PERSON_SUFFIX_RE = re.compile(r"(?:ūnas|uolis|uolė)$", re.IGNORECASE)
 
 
 def is_valid_lemma(word: str, min_len: int = 2, max_len: int | None = None) -> bool:
@@ -132,45 +215,96 @@ def load_lemmas_from_jcl_file(
     return entries
 
 
-def is_verbal_noun(
+def is_verbal_noun(  # legacy alias: kept for external callers
     lemma: str,
     verb_lemmas: frozenset[str] | None = None,
 ) -> bool:
-    """Detect deverbal nouns (sportavimas, mokėjimas) by suffix and optional verb stem."""
-    w = lemma.strip().lower()
-    if not VERBAL_NOUN_SUFFIX_RE.search(w):
-        return False
+    """Legacy wrapper around is_cleanup_drop (rank unknown → unprotected)."""
+    return is_cleanup_drop(lemma, PROTECTED_RANK, verb_lemmas) == "verbal-noun"
 
-    matched_suffix = next(s for s in VERBAL_NOUN_SUFFIXES if w.endswith(s))
-    if len(w) <= len(matched_suffix) + 1:
-        return False
+def has_verb_stem(
+    lemma: str,
+    verb_lemmas: frozenset[str] | None,
+    suffix: str,
+) -> bool:
+    """True if a same-root verb exists in the JCL verb inventory.
 
+    Handles Lithuanian stem alternations (sprendimas→spręsti,
+    žaidimas→žaisti, tyrimas→tirti, gėrimas→gerti) by trying the
+    e/ė/ei/i/a root-vowel variants before matching.
+    """
     if verb_lemmas is None:
-        return True
-
-    root = w[:-len(matched_suffix)]
-    if len(root) < 3:
-        return True
-
-    prefix = root[:5]
+        return False
+    w = lemma.strip().lower()
+    root = w[:-len(suffix)] if suffix else w
+    if len(root) < 2:
+        return False
+    variants = {root}
+    if len(root) >= 3:
+        head, tail = root[:-2], root[-2:]
+        for alt in ("e", "ė", "ei", "i", "a", "o", "u"):
+            variants.add(head + alt + tail[-1])
+        variants.add(root[:-1])
+        variants.add(root + "i")
+    endings = ("ti", "sti", "šti", "oti", "uoti", "ėti", "yti", "auti")
+    for variant in variants:
+        if len(variant) < 2:
+            continue
+        for end in endings:
+            if variant + end in verb_lemmas:
+                return True
+    prefix = root[:5] if len(root) >= 5 else root
     for verb in verb_lemmas:
-        if verb.startswith(prefix) or prefix in verb:
+        if verb.startswith(prefix) and abs(len(verb) - len(root)) <= 4:
             return True
-    return True
+    return False
 
 
-def filter_verbal_nouns(
+def is_cleanup_drop(
+    lemma: str,
+    rank: int,
+    verb_lemmas: frozenset[str] | None = None,
+) -> str | None:
+    """Return drop reason, or None to keep. Frequent ranks are protected."""
+    w = lemma.strip().lower()
+    if rank < PROTECTED_RANK or w in PROTECTED_NOUNS:
+        return None
+    if VERBAL_NOUN_SUFFIX_RE.search(w):
+        suffix = next(s for s in VERBAL_NOUN_SUFFIXES if w.endswith(s))
+        if verb_lemmas is None or has_verb_stem(w, verb_lemmas, suffix):
+            return "verbal-noun"
+    if DIMINUTIVE_SUFFIX_RE.search(w):
+        return "diminutive"
+    if MEDICAL_WORD_RE.match(w):
+        return "medical-word"
+    if DRUG_SUFFIX_RE.search(w) or DISEASE_SUFFIX_RE.search(w):
+        return "medical-suffix"
+    if CHEM_SUFFIX_RE.search(w):
+        return "chemistry"
+    if DEVICE_SUFFIX_RE.search(w):
+        return "device"
+    if PERSON_SUFFIX_RE.search(w):
+        return "person-suffix"
+
+def filter_cleanup(
     lemmas: list[str],
     verb_lemmas: frozenset[str] | None = None,
 ) -> list[str]:
+    """Drop rare action nouns, diminutives, drugs and diseases.
+
+    Top PROTECTED_RANK frequent lemmas and PROTECTED_NOUNS are never
+    dropped: sprendimas, vaistas, puodelis stay playable, while rare
+    subruzdimas, pincetukas, paracetamolis go.
+    """
     kept: list[str] = []
-    dropped = 0
-    for lemma in lemmas:
-        if is_verbal_noun(lemma, verb_lemmas):
-            dropped += 1
-            continue
-        kept.append(lemma)
-    print(f"Verbal noun filter: kept {len(kept)}, dropped {dropped}")
+    dropped: dict[str, int] = {}
+    for rank, lemma in enumerate(lemmas):
+        reason = is_cleanup_drop(lemma, rank, verb_lemmas)
+        if reason is None:
+            kept.append(lemma)
+        else:
+            dropped[reason] = dropped.get(reason, 0) + 1
+    print(f"Cleanup filter: kept {len(kept)}, dropped {dropped}")
     return kept
 
 
@@ -403,12 +537,22 @@ def main() -> None:
     parser.add_argument(
         "--exclude-verbal-nouns",
         action="store_true",
-        help="Drop deverbal nouns (sportavimas, mokėjimas, …) by suffix heuristics",
+        help="Legacy alias for --cleanup (rare action nouns are dropped)",
     )
     parser.add_argument(
         "--include-verbal-nouns",
         action="store_true",
-        help="Keep deverbal nouns even when --nouns-only is set",
+        help="Keep rare action nouns (skip the verbal-noun part of --cleanup)",
+    )
+    parser.add_argument(
+        "--cleanup",
+        action="store_true",
+        help="Drop rare action nouns, diminutives, drugs and diseases",
+    )
+    parser.add_argument(
+        "--no-cleanup",
+        action="store_true",
+        help="Skip the cleanup filters entirely",
     )
     parser.add_argument("--max-len", type=int, default=DEFAULT_MAX_LEN)
     args = parser.parse_args()
@@ -420,10 +564,11 @@ def main() -> None:
     utka_pos: frozenset[str] | None = None
     if args.nouns_only and args.nouns_all:
         parser.error("Use only one of --nouns-only or --nouns-all")
-    if args.include_verbal_nouns and args.exclude_verbal_nouns:
-        parser.error("Use only one of --include-verbal-nouns or --exclude-verbal-nouns")
-    exclude_verbal_nouns = args.exclude_verbal_nouns or (
-        args.nouns_only and not args.include_verbal_nouns
+    if args.cleanup and args.no_cleanup:
+        parser.error("Use only one of --cleanup or --no-cleanup")
+    keep_verbal = args.include_verbal_nouns
+    do_cleanup = not args.no_cleanup and (
+        args.cleanup or args.exclude_verbal_nouns or args.nouns_only
     )
     if args.nouns_only:
         jcl_pos = frozenset(JCL_COMMON_NOUN_POS)
@@ -446,7 +591,7 @@ def main() -> None:
     lemmas: list[str] = []
     verb_lemmas: frozenset[str] | None = None
 
-    if exclude_verbal_nouns and use_jcl:
+    if do_cleanup:
         jcl_path = args.jcl_zip or (args.clarin_dir / JCL_ZIP)
         if jcl_path.exists():
             extracted = extract_zip_member(jcl_path, JCL_LEMMA_MEMBER, None)
@@ -454,7 +599,7 @@ def main() -> None:
             verb_lemmas = frozenset(
                 lemma for lemma, tags in jcl_tags.items() if "V" in tags
             )
-            print(f"JCL verbs for deverbal filter: {len(verb_lemmas)} lemmas")
+            print(f"JCL verbs for cleanup filter: {len(verb_lemmas)} lemmas")
             shutil.rmtree(extracted.parent, ignore_errors=True)
 
     if args.source in ("clarin", "jcl", "all", "both"):
@@ -496,8 +641,23 @@ def main() -> None:
     if args.hunspell_filter:
         lemmas = filter_hunspell(lemmas)
 
-    if exclude_verbal_nouns:
-        lemmas = filter_verbal_nouns(lemmas, verb_lemmas)
+    if do_cleanup:
+        if keep_verbal:
+            # --include-verbal-nouns: run every cleanup except verbal-noun.
+            kept: list[str] = []
+            dropped: dict[str, int] = {}
+            for rank, lemma in enumerate(lemmas):
+                reason = is_cleanup_drop(lemma, rank, verb_lemmas)
+                if reason == "verbal-noun":
+                    kept.append(lemma)
+                elif reason is None:
+                    kept.append(lemma)
+                else:
+                    dropped[reason] = dropped.get(reason, 0) + 1
+            print(f"Cleanup filter (keep verbal): kept {len(kept)}, dropped {dropped}")
+            lemmas = kept
+        else:
+            lemmas = filter_cleanup(lemmas, verb_lemmas)
 
     final = lemmas[:args.top_k]
     args.output.parent.mkdir(parents=True, exist_ok=True)
