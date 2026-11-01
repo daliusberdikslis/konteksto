@@ -3,34 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Konteksto — Lietuviškas žodžių žaidimas</title>
-  <meta name="description" content="Atspėk slaptą lietuvišką žodį! Konteksto – semantinis žodžių žaidimas, paremtas dirbtinio intelekto technologijomis.">
+  <title>Konteksto — lietuviškų žodžių žaidimas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23735af2'/><text x='50' y='70' font-size='58' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'>K</text></svg>">
 </head>
 <body>
   <div class="app">
-    <!-- Ambient background blobs -->
-    <div class="ambient-bg">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="blob blob-3"></div>
-    </div>
+    
 
     <header class="header">
       <div class="header-top">
         <div class="logo">
-          <span class="logo-icon">🧠</span>
+          <span class="logo-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8" cy="8" r="3.2"/><circle cx="20" cy="10" r="3.2"/><circle cx="13" cy="20" r="3.2"/><path d="M10.8 9.2l6.2.6M9.3 10.9l2.4 6M18.4 12.6l-3.6 4.6"/></svg></span>
           <h1 class="logo-text">Konteksto</h1>
         </div>
         <button type="button" id="reset-game" class="reset-btn" aria-label="Naujas žaidimas">
           Naujas žaidimas
         </button>
         <button type="button" id="hint-btn" class="reset-btn hint-btn" aria-label="Gauti užuominą">
-          💡 Užuomina
+          Užuomina
         </button>
       </div>
       <p class="subtitle">Atspėk slaptą žodį pagal semantinį artimumą</p>
@@ -61,20 +55,30 @@
           </div>
           <div id="input-error" class="input-error" role="alert" aria-live="polite"></div>
         </form>
+        <div class="stats-bar">
+          <div class="stat" id="stat-guesses">
+            <span class="stat-label">Spėjimai</span>
+            <span class="stat-value" id="guess-count">0</span>
+          </div>
+          <div class="stat" id="stat-position">
+            <span class="stat-label">Geriausia pozicija</span>
+            <span class="stat-value" id="best-position">—</span>
+          </div>
+        </div>
       </section>
 
       <!-- Results Section -->
       <section class="results-section" aria-label="Spėjimų rezultatai">
         <div id="win-banner" class="win-banner" hidden>
           <div class="win-content">
-            <span class="win-emoji">🎉</span>
+            <span class="win-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="16"/><path d="M13.5 20.5l5 5 8-9"/></svg></span>
             <h2 class="win-title">Sveikiname!</h2>
             <p class="win-text">Atspėjai žodį per <span id="win-count">0</span> bandymų!</p>
           </div>
         </div>
         <div id="guess-list" class="guess-list" role="list" aria-label="Spėjimų sąrašas">
           <div id="empty-state" class="empty-state">
-            <div class="empty-icon">💭</div>
+            <div class="empty-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="17" cy="17" r="9"/><line x1="24" y1="24" x2="32" y2="32"/><path d="M13.5 17h7"/></svg></div>
             <p class="empty-text">Pradėk žaidimą įvesdamas bet kokį lietuvišką žodį</p>
             <p class="empty-hint">Kuo žodis semantiškai artimesnis slaptam žodžiui, tuo aukštesnė jo pozicija</p>
           </div>
@@ -83,7 +87,7 @@
     </main>
 
     <footer class="footer">
-      <p>Sukurta su ❤️ naudojant <a href="https://fasttext.cc/" target="_blank" rel="noopener">fastText</a> & <a href="https://github.com/Semantika2/Hunspell-Zodynai-ir-gramatika-v.45" target="_blank" rel="noopener">Semantika Hunspell</a></p>
+      <p>Sukurta naudojant <a href="https://fasttext.cc/" target="_blank" rel="noopener">fastText</a> ir <a href="https://github.com/Semantika2/Hunspell-Zodynai-ir-gramatika-v.45" target="_blank" rel="noopener">Semantika Hunspell</a></p>
     </footer>
   </div>
 

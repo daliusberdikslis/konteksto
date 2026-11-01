@@ -121,6 +121,23 @@ function loadProgress() {
   }
 }
 
+function clearProgress() {
+  try {
+    localStorage.removeItem(storageKey());
+    if (state.gameId) {
+      try {
+        if (localStorage.getItem(CURRENT_GAME_KEY) === state.gameId) {
+          localStorage.removeItem(CURRENT_GAME_KEY);
+        }
+      } catch (err) {
+        localStorage.removeItem(CURRENT_GAME_KEY);
+      }
+    }
+  } catch (err) {
+    console.warn("Could not clear progress:", err);
+  }
+}
+
 function isLegacyGameId(id) {
   // Random ids from before deterministic game ids can never resolve
   // after a backend restart — treat them as dead and start fresh.
@@ -292,17 +309,17 @@ function createGuessRow(guess, isLatest) {
 
 
 function renderGuessList() {
-  const sorted = [...state.guesses].sort((a, b) => b.similarity - a.similarity);
+  const ordered = [...state.guesses].reverse();
 
   dom.guessList.innerHTML = "";
 
-  if (sorted.length === 0) {
+  if (ordered.length === 0) {
     dom.guessList.appendChild(createEmptyState());
     return;
   }
 
   const latest = state.guesses[state.guesses.length - 1];
-  sorted.forEach((guess) => {
+  ordered.forEach((guess) => {
     dom.guessList.appendChild(createGuessRow(guess, guess === latest));
   });
 }
@@ -312,7 +329,7 @@ function createEmptyState() {
   div.id = "empty-state";
   div.className = "empty-state";
   div.innerHTML = `
-    <div class="empty-icon">💭</div>
+    <div class="empty-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="17" cy="17" r="9"/><line x1="24" y1="24" x2="32" y2="32"/><path d="M13.5 17h7"/></svg></div>
     <p class="empty-text">Pradėk žaidimą įvesdamas bet kokį lietuvišką žodį</p>
     <p class="empty-hint">Kuo žodis semantiškai artimesnis slaptam žodžiui, tuo aukštesnė jo pozicija</p>
   `;

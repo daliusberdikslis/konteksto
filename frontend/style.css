@@ -12,14 +12,12 @@
   --bg-input: rgba(255, 255, 255, 0.06);
   --bg-input-focus: rgba(255, 255, 255, 0.09);
 
-  --text-primary: #e8e8ed;
-  --text-secondary: #8a8a9a;
-  --text-muted: #55556a;
-
+  --text-primary: #eceaf2;
+  --text-secondary: #a5a3b8;
+  --text-muted: #7e7c94;
   --accent-hue: 250;
-  --accent: hsl(var(--accent-hue) 85% 65%);
-  --accent-soft: hsl(var(--accent-hue) 85% 65% / 0.15);
-  --accent-glow: hsl(var(--accent-hue) 85% 65% / 0.3);
+  --accent: hsl(var(--accent-hue) 88% 72%);
+  --accent-soft: hsl(var(--accent-hue) 88% 72% / 0.15);
 
   --success: #22c55e;
   --success-soft: rgba(34, 197, 94, 0.12);
@@ -27,10 +25,10 @@
   --error: #ef4444;
   --error-soft: rgba(239, 68, 68, 0.12);
 
-  /* Gradient stops for similarity bars */
-  --bar-cold: hsl(240 60% 55%);
-  --bar-warm: hsl(35 90% 55%);
-  --bar-hot: hsl(140 70% 45%);
+  --bar-cold: hsl(240 65% 68%);
+  --bar-cool: hsl(200 75% 58%);
+  --bar-warm: hsl(35 95% 62%);
+  --bar-hot: hsl(140 65% 55%);
 
   /* Borders */
   --border-subtle: rgba(255, 255, 255, 0.06);
@@ -50,14 +48,10 @@
   --radius-lg: 1rem;
   --radius-xl: 1.25rem;
   --radius-full: 9999px;
-
-  /* Shadows */
-  --shadow-glow: 0 0 30px hsl(var(--accent-hue) 85% 65% / 0.08);
+  --shadow-glow: 0 0 0 2px hsl(var(--accent-hue) 88% 72% / 0.35);
   --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.25);
 
-  /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-sans: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 
   /* Transitions */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -112,57 +106,15 @@ a:hover {
   position: relative;
 }
 
-/* --- Ambient Background --- */
-.ambient-bg {
+/* --- Backdrop: single ink surface with a faint top vignette --- */
+body::before {
+  content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 0%, hsl(var(--accent-hue) 60% 20% / 0.22), transparent 55%);
 }
-
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.35;
-  animation: float 20s ease-in-out infinite;
-}
-
-.blob-1 {
-  width: 400px;
-  height: 400px;
-  background: hsl(260 80% 45%);
-  top: -10%;
-  left: -10%;
-  animation-delay: 0s;
-}
-
-.blob-2 {
-  width: 350px;
-  height: 350px;
-  background: hsl(200 70% 35%);
-  bottom: 10%;
-  right: -15%;
-  animation-delay: -7s;
-}
-
-.blob-3 {
-  width: 280px;
-  height: 280px;
-  background: hsl(310 60% 35%);
-  bottom: -5%;
-  left: 20%;
-  animation-delay: -14s;
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(30px, -40px) scale(1.05); }
-  50% { transform: translate(-20px, 20px) scale(0.95); }
-  75% { transform: translate(15px, 35px) scale(1.03); }
-}
-
 /* --- Header --- */
 .header {
   text-align: center;
@@ -193,8 +145,7 @@ a:hover {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: var(--space-xs) var(--space-sm);
-  cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
   white-space: nowrap;
 }
 
@@ -220,23 +171,15 @@ a:hover {
 }
 
 .logo-icon {
-  font-size: 2rem;
-  animation: pulse-glow 3s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { filter: drop-shadow(0 0 8px hsl(var(--accent-hue) 85% 65% / 0.4)); }
-  50% { filter: drop-shadow(0 0 20px hsl(var(--accent-hue) 85% 65% / 0.7)); }
+  display: inline-flex;
+  color: var(--accent);
 }
 
 .logo-text {
   font-size: 2rem;
   font-weight: 800;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-primary);
 }
 
 .subtitle {
@@ -274,8 +217,7 @@ a:hover {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-md);
-  transition: all var(--transition-md);
-  position: relative;
+  transition: background var(--transition-md), border-color var(--transition-md), box-shadow var(--transition-md);
 }
 
 .input-wrapper:focus-within {
@@ -295,11 +237,13 @@ a:hover {
   font-weight: 500;
   padding: var(--space-sm) 0;
   min-width: 0;
+  caret-color: var(--accent);
 }
 
 .guess-input::placeholder {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-weight: 400;
+  opacity: 1;
 }
 
 .guess-submit {
@@ -314,7 +258,7 @@ a:hover {
   color: white;
   cursor: pointer;
   flex-shrink: 0;
-  transition: all var(--transition-fast);
+  transition: filter var(--transition-fast), transform var(--transition-fast);
 }
 
 .guess-submit:hover {
@@ -359,15 +303,51 @@ a:hover {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: all var(--transition-md);
+  transition: max-height var(--transition-md), opacity var(--transition-md), padding var(--transition-md);
 }
-
 .input-error.visible {
   min-height: 1.2em;
   max-height: 3em;
   opacity: 1;
   padding-top: var(--space-xs);
 }
+/* --- Stats Bar --- */
+.stats-bar {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.stat:hover {
+  background: var(--bg-card-hover);
+}
+
+.stat-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
 
 
 /* --- Results Section --- */
@@ -377,10 +357,9 @@ a:hover {
   flex-direction: column;
 }
 
-/* --- Win Banner --- */
 .win-banner {
   padding: var(--space-lg);
-  background: linear-gradient(135deg, var(--success-soft), rgba(34, 197, 94, 0.04));
+  background: var(--success-soft);
   border: 1px solid rgba(34, 197, 94, 0.2);
   border-radius: var(--radius-lg);
   text-align: center;
@@ -394,18 +373,10 @@ a:hover {
     transform: translateY(-12px) scale(0.97);
   }
 }
-
-.win-emoji {
-  font-size: 2.5rem;
-  display: block;
+.win-icon {
+  display: inline-flex;
+  color: var(--success);
   margin-bottom: var(--space-xs);
-  animation: bounce 0.8s var(--ease-out-expo);
-}
-
-@keyframes bounce {
-  0% { transform: scale(0); }
-  50% { transform: scale(1.3); }
-  100% { transform: scale(1); }
 }
 
 .win-title {
@@ -434,30 +405,25 @@ a:hover {
   align-items: center;
   text-align: center;
   padding: var(--space-2xl) var(--space-md);
-  gap: var(--space-sm);
+  gap: var(--space-xs);
 }
 
 .empty-icon {
-  font-size: 2.5rem;
-  opacity: 0.6;
-  animation: float-gentle 4s ease-in-out infinite;
-}
-
-@keyframes float-gentle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  display: inline-flex;
+  color: var(--text-muted);
+  margin-bottom: var(--space-xs);
 }
 
 .empty-text {
   font-size: 0.9375rem;
-  color: var(--text-secondary);
-  font-weight: 500;
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .empty-hint {
   font-size: 0.8125rem;
-  color: var(--text-muted);
-  max-width: 300px;
+  color: var(--text-secondary);
+  max-width: 32ch;
 }
 
 /* --- Guess Row --- */
@@ -470,22 +436,20 @@ a:hover {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  transition: all var(--transition-fast);
-  animation: row-in 0.4s var(--ease-out-expo);
-}
-
-.guess-row.exact-match {
-  border-color: rgba(34, 197, 94, 0.3);
-  background: var(--success-soft);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
 }
 
 .guess-row.latest-guess {
   border-color: var(--border-accent);
-  box-shadow: 0 0 0 1px var(--border-accent), var(--shadow-glow);
+  background: var(--accent-soft);
+}
+.guess-row.exact-match {
+  border-color: rgba(34, 197, 94, 0.35);
+  background: var(--success-soft);
 }
 
-.guess-row.hint-row .guess-word::after {
-  content: " 💡";
+.guess-row.hint-row .guess-word {
+  color: var(--accent);
 }
 
 .guess-position {
@@ -532,21 +496,19 @@ a:hover {
   border-radius: var(--radius-full);
   overflow: hidden;
 }
-
 .bar-fill {
   height: 100%;
   border-radius: var(--radius-full);
   transition: width 0.6s var(--ease-out-expo);
   background: var(--bar-color, var(--accent));
-  box-shadow: 0 0 8px var(--bar-glow, transparent);
 }
 
 /* Score color classes */
-.score-cold { --score-color: hsl(240 60% 70%); --bar-color: var(--bar-cold); --bar-glow: hsl(240 60% 55% / 0.3); }
-.score-cool { --score-color: hsl(200 70% 60%); --bar-color: hsl(200 70% 50%); --bar-glow: hsl(200 70% 50% / 0.3); }
-.score-warm { --score-color: hsl(35 90% 60%); --bar-color: var(--bar-warm); --bar-glow: hsl(35 90% 55% / 0.3); }
-.score-hot  { --score-color: hsl(140 70% 55%); --bar-color: var(--bar-hot); --bar-glow: hsl(140 70% 45% / 0.3); }
-.score-exact { --score-color: var(--success); --bar-color: var(--success); --bar-glow: rgba(34, 197, 94, 0.4); }
+.score-cold { --score-color: hsl(240 60% 72%); --bar-color: var(--bar-cold); }
+.score-cool { --score-color: hsl(200 75% 65%); --bar-color: var(--bar-cool); }
+.score-warm { --score-color: hsl(35 95% 65%); --bar-color: var(--bar-warm); }
+.score-hot  { --score-color: hsl(140 65% 60%); --bar-color: var(--bar-hot); }
+.score-exact { --score-color: var(--success); --bar-color: var(--success); }
 
 /* Duplicate word shake */
 .guess-row.shake {
@@ -578,24 +540,22 @@ a:hover {
     font-size: 1.5rem;
   }
 
-  .logo-icon {
-    font-size: 1.5rem;
+  .logo-icon svg {
+    width: 22px;
+    height: 22px;
   }
 
-  .guess-bar-col {
-    min-width: 90px;
-  }
 
   .header-top {
     flex-wrap: wrap;
   }
 
   .guess-row {
-    grid-template-columns: 58px 1fr auto;
+    grid-template-columns: 58px 1fr;
     gap: var(--space-sm);
     padding: var(--space-sm);
   }
-
+    grid-template-columns: 58px 1fr;
   .guess-position-num {
     font-size: 0.75rem;
   }
