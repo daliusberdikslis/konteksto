@@ -112,8 +112,9 @@ class EmbeddingStore:
 
         Picks the word at sorted position ceil(best_rank / 2) in
         descending-similarity order, with its true similarity and rank.
-        The result is strictly better than best_rank (for best_rank >= 2),
-        so it can never duplicate an existing guess.
+        Ties are stepped over toward the target so the result is always
+        strictly better than best_rank (for best_rank >= 2), and therefore
+        can never duplicate an existing guess.
         """
         if best_rank < 2:
             raise ValueError("best_rank must be at least 2.")
@@ -123,6 +124,16 @@ class EmbeddingStore:
         idx = (best_rank - 1) // 2
         if idx >= len(self.words):
             idx = len(self.words) - 1
+        # Walk toward the target past similarity ties: with ties, the word
+        # at `idx` can share best_rank's similarity tier, which would show
+        # the same rank number and could repeat a guessed word. Rank 1 is
+        # always strictly better (best_rank >= 2), so this terminates.
+        while idx > 0:
+            word_idx = int(order[idx])
+            rank = int(np.count_nonzero(sims > sims[word_idx])) + 1
+            if rank < best_rank:
+                break
+            idx -= 1
         word_idx = int(order[idx])
         similarity = float(sims[word_idx])
         rank = int(np.count_nonzero(sims > sims[word_idx])) + 1

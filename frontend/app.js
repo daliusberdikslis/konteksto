@@ -22,7 +22,6 @@ const state = {
   isLoading: false,
   hasWon: false,
   totalWords: null,
-  hintRank: null,
 };
 
 
@@ -61,10 +60,6 @@ function saveProgress() {
       totalWords: state.totalWords,
       guesses: state.guesses,
       hasWon: state.hasWon,
-      hintRank:
-        typeof state.hintRank === "number" && state.hintRank > 0
-          ? state.hintRank
-          : null,
       savedAt: new Date().toISOString(),
     };
     localStorage.setItem(storageKey(), JSON.stringify(payload));
@@ -107,10 +102,6 @@ function loadProgress() {
         typeof g.position === "number"
     );
     state.hasWon = Boolean(data.hasWon);
-    state.hintRank =
-      typeof data.hintRank === "number" && data.hintRank > 0
-        ? data.hintRank
-        : null;
     if (typeof data.totalWords === "number" && data.totalWords > 0) {
       state.totalWords = data.totalWords;
     }
@@ -235,24 +226,42 @@ async function fetchHint(bestRank) {
     best_rank: String(bestRank),
   });
   const url = `${CONFIG.API_BASE}${CONFIG.HINT_ENDPOINT}?${params.toString()}`;
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), CONFIG.REQUEST_TIMEOUT_MS);
-  try {
-    const response = await fetch(url, { signal: controller.signal });
-    if (!response.ok) {
-      const body = await response.json().catch(() => ({}));
-      throw new Error(body.detail || `Serverio klaida (${response.status})`);
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= CONFIG.MAX_ATTEMPTS; attempt += 1) {
+    if (attempt > 1) {
+      showError(`Paleidžiamas serveris… (${attempt}/${CONFIG.MAX_ATTEMPTS})`);
     }
-    clearError();
-    return response.json();
-  } catch (err) {
-    if (err?.name === "AbortError") {
-      throw new Error("Serveris neužsibudino laiku. Bandyk dar kartą po minutės.");
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), CONFIG.REQUEST_TIMEOUT_MS);
+      const response = await fetch(url, { signal: controller.signal });
+      clearTimeout(timeoutId);
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.detail || `Serverio klaida (${response.status})`);
+      }
+      clearError();
+      return response.json();
+    } catch (err) {
+      lastError = err;
+      const retryable =
+        err.name === "AbortError" ||
+        err.message.includes("Failed to fetch") ||
+        err.message.includes("502") ||
+        err.message.includes("503");
+      if (retryable && attempt < CONFIG.MAX_ATTEMPTS) {
+        await sleep(CONFIG.RETRY_DELAY_MS);
+        continue;
+      }
+      break;
     }
-    throw err;
-  } finally {
-    clearTimeout(timeoutId);
   }
+
+  if (lastError?.name === "AbortError") {
+    throw new Error("Serveris neužsibudino laiku. Bandyk dar kartą po minutės.");
+  }
+  throw lastError || new Error("Nepavyko gauti užuominos.");
 }
 
 // --- Scoring Helpers ---
@@ -366,26 +375,24 @@ function updateHintButton() {
     state.guesses.length > 0
       ? Math.min(...state.guesses.map((g) => g.position))
       : null;
-  const canHint =
-    !state.isLoading &&
-    !state.hasWon &&
-    bestPos !== null &&
-    bestPos > 1 &&
-    (state.hintRank === null || bestPos < state.hintRank);
-  dom.hintBtn.disabled = !canHint;
+  dom.hintBtn.disabled =
+    state.isLoading || state.hasWon || bestPos === null || bestPos <= 1;
 }
 
 async function handleHint() {
   if (state.isLoading || state.hasWon || state.guesses.length === 0) return;
   const bestPos = Math.min(...state.guesses.map((g) => g.position));
   if (bestPos <= 1) return;
-  if (state.hintRank !== null && bestPos >= state.hintRank) return;
 
   clearError();
   setLoading(true);
   try {
     const data = await fetchHint(bestPos);
-    state.hintRank = data.rank;
+    if (isDuplicate(data.lemma)) {
+      highlightDuplicate(data.lemma);
+      showError(`„${data.lemma}" jau atskleista! Spėk pats.`);
+      return;
+    }
     state.guesses.push({
       input: data.lemma,
       lemma: data.lemma,
@@ -441,7 +448,6 @@ async function startNewGame() {
     state.gameId = data.game_id;
     state.guesses = [];
     state.hasWon = false;
-    state.hintRank = null;
     if (typeof data.total_words === "number") {
       state.totalWords = data.total_words;
     }
@@ -586,7 +592,6 @@ async function init() {
     state.gameId = null;
     state.guesses = [];
     state.hasWon = false;
-    state.hintRank = null;
     restored = false;
   }
   if (restored) {
