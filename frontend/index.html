@@ -20,32 +20,29 @@
           <span class="logo-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8" cy="8" r="3.2"/><circle cx="20" cy="10" r="3.2"/><circle cx="13" cy="20" r="3.2"/><path d="M10.8 9.2l6.2.6M9.3 10.9l2.4 6M18.4 12.6l-3.6 4.6"/></svg></span>
           <h1 class="logo-text">Konteksto</h1>
         </div>
-        <button type="button" id="reset-game" class="reset-btn" aria-label="Naujas žaidimas">
-          Naujas žaidimas
-        </button>
-        <button type="button" id="hint-btn" class="reset-btn hint-btn" aria-label="Gauti užuominą">
-          Užuomina
-        </button>
       </div>
       <p class="subtitle">Atspėk slaptą žodį pagal semantinį artimumą</p>
+      <p id="game-meta" class="game-meta" aria-live="polite"></p>
     </header>
 
     <main class="main">
       <!-- Input Section -->
       <section class="input-section" aria-label="Žodžio įvedimas">
         <form id="guess-form" class="guess-form" autocomplete="off">
-          <div class="input-wrapper">
-            <input
-              type="text"
-              id="guess-input"
-              class="guess-input"
-              placeholder="Įvesk žodį..."
-              aria-label="Įvesk savo spėjimą"
-              autocomplete="off"
-              autocapitalize="off"
-              spellcheck="false"
-              required
-            >
+          <div class="input-row">
+            <div class="input-wrapper">
+              <input
+                type="text"
+                id="guess-input"
+                class="guess-input"
+                placeholder="Įvesk žodį..."
+                aria-label="Įvesk savo spėjimą"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+                required
+              >
+            </div>
             <button type="submit" id="guess-submit" class="guess-submit" aria-label="Spėti">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -74,6 +71,16 @@
           </div>
         </div>
       </section>
+      <nav class="action-bar" aria-label="Žaidimo veiksmai">
+        <button type="button" id="hint-btn" class="action-btn" aria-label="Gauti užuominą">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          <span>Užuomina</span>
+        </button>
+        <button type="button" id="reset-game" class="action-btn" aria-label="Naujas žaidimas">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          <span>Naujas žaidimas</span>
+        </button>
+      </nav>
     </main>
 
     <footer class="footer">

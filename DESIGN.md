@@ -55,32 +55,31 @@ components:
   button-submit:
     backgroundColor: "{colors.signal-violet}"
     textColor: "{colors.pale-word}"
-    rounded: "{rounded.md}"
+    rounded: "{rounded.lg}"
     padding: "0"
-    size: "44px"
-    height: "44px"
-    width: "44px"
+    size: "52px"
+    height: "52px"
+    width: "52px"
   button-ghost:
     backgroundColor: "rgba(255, 255, 255, 0.03)"
     textColor: "{colors.muted-pencil}"
-    rounded: "{rounded.md}"
-    padding: "0.25rem 0.5rem"
+    rounded: "{rounded.lg}"
+    padding: "0.5rem 1rem"
   input-guess:
     backgroundColor: "rgba(255, 255, 255, 0.06)"
     textColor: "{colors.pale-word}"
     rounded: "{rounded.lg}"
     padding: "0.25rem 0.25rem 0.25rem 1rem"
   guess-row:
-    backgroundColor: "rgba(255, 255, 255, 0.03)"
+    backgroundColor: "rgba(255, 255, 255, 0.03) + full-height temperature fill"
     textColor: "{colors.pale-word}"
-    rounded: "{rounded.md}"
+    rounded: "{rounded.lg}"
     padding: "0.5rem 1rem"
   stat-card:
     backgroundColor: "rgba(255, 255, 255, 0.03)"
     textColor: "{colors.pale-word}"
-    rounded: "{rounded.md}"
+    rounded: "{rounded.lg}"
     padding: "0.5rem 1rem"
----
 
 # Design System: Konteksto
 
@@ -139,19 +138,18 @@ A midnight palette: deep ink grounds, pencil-grey text, one violet voice, and a 
 
 ## Layout
 
-Single centered column, max-width 560px, full-viewport flex column. Sections stack: header (logo + actions + subtitle) → input + stats → guess list → footer. Rhythm follows the spacing scale (0.25–3rem); cards breathe with 0.5–1rem internal padding. Below 480px the shell tightens (padding shrinks, logo drops to 1.5rem, guess rows compress to 58px rank columns). One breakpoint, one column — density never changes, only air.
+Single centered column, max-width 560px, full-viewport flex column. Sections stack: header (logo + subtitle + guess-count meta) → detached input + submit → guess list → bottom action bar (hint / new game) → footer. Rhythm follows the spacing scale (0.25–3rem); cards breathe with 0.5–1rem internal padding. Below 480px the shell tightens and the action bar sticks to the viewport bottom. One breakpoint, one column — density never changes, only air.
 
 ## Elevation & Depth
 
 Flat-by-default with ring-as-feedback. Resting surfaces carry no shadow — depth comes from tonal layering (glass cards on ink, 6% borders). A focus ring appears only as a response to state.
 
-### Shadow Vocabulary
 - **Accent focus ring** (`0 0 0 2px hsl(250 88% 72% / 0.35)`): Input focus companion.
+- **Latest outline** (1px pale + 1px ring): Latest guess only — borrowed prominence without a second accent hue.
 - **Card rest** (`0 2px 12px rgba(0, 0, 0, 0.25)`): Barely-there grounding for cards.
-- **Bar color** (flat fills, no glow): Similarity bars are solid temperature color.
+- **Bar color** (full-height translucent temperature fill): Similarity is the row background; text stays legible via shadow + ellipsis.
 
-### Named Rules
-**The Flat-By-Default Rule.** Surfaces are flat at rest. A focus ring appears only as a response to state (focus, latest guess, win). Bars never glow.
+**The Flat-By-Default Rule.** Surfaces are flat at rest. A focus ring appears only as a response to state (focus, win). The latest guess gets a neutral pale outline + dashed separator — not the violet ring, so violet still means progress. Bars never glow.
 
 ## Shapes
 
@@ -160,28 +158,27 @@ Soft glass geometry: 0.5rem small controls, 0.75rem buttons/cards/rows, 1rem inp
 ## Components
 
 ### Buttons
-- **Shape:** 0.75rem radius.
-- **Primary:** 44×44px Signal Violet square with white arrow icon; hover brightens 1.15× and scales 1.04; active scales 0.96; loading swaps icon for spinner.
-- **Hover / Focus:** Ghost buttons (new game, hint) lift from muted to primary text, glass hover background, violet-tinted border.
-- **Secondary / Ghost:** Glass background, hairline border, 0.75rem text; hint button gains accent border when usable.
+- **Shape:** 1rem radius input, 1rem detached submit, 1rem action-bar buttons.
+- **Primary:** 52px-min detached Signal Violet submit with white arrow icon and `var(--space-sm)` gap from the input; hover brightens 1.15× and scales 1.04; active scales 0.96; loading swaps icon for spinner.
+- **Action Bar:** Two large thumb-reach buttons (hint with accent border when usable, new game) in a 2-column grid; sticky bottom on mobile.
 
 ### Cards / Containers
-- **Corner Style:** 0.75rem radius.
-- **Background:** Glass card (3% white), hover 6%.
-- **Shadow Strategy:** Flat at rest; latest guess gains an accent tint + border; exact match gains green tint + border.
-- **Border:** 1px subtle; accent-tinted on latest, green-tinted on exact.
-- **Internal Padding:** 0.5rem 1rem; guess rows grid 72px rank + fluid word column.
+- **Corner Style:** 1rem radius rows, banner, inputs.
+- **Background:** Glass card (3% white); guess rows carry a full-height translucent temperature fill whose width encodes rank progress.
+- **Shadow Strategy:** Flat at rest; latest guess gains a neutral pale outline + dashed separator below; exact match gains green tint + border.
+- **Border:** 1px subtle; pale on latest, green-tinted on exact.
+- **Internal Padding:** 0.5rem 1rem; guess rows flex word-left / rank-right, min-height 52px.
 
 ### Inputs / Fields
-- **Style:** Translucent 6% fill, hairline border, 1rem radius, 1rem/500 input text, muted placeholder.
+- **Style:** Translucent 6% fill, hairline border, 1rem radius, 1rem/500 input text, muted placeholder; submit lives outside the field as its own target.
 - **Focus:** Fill deepens to 9%, border turns accent-tinted, accent glow appears.
 - **Error / Disabled:** Error text small red below, expanding via max-height; submit dims to 50% when disabled.
 
 ### Navigation
-Single screen; no nav component. Header acts as identity (solid wordmark, drawn network-mark in violet) plus two ghost actions (new game, hint). Footer is a single muted credit line.
+Single screen; no nav component. Header is identity + live guess count (`N spėjimai`, tabular numerals). Actions live in the bottom bar (hint, new game with icons). Footer is a single muted credit line.
 
 ### Guess Row (Signature Component)
-Rank numeral + denominator stacked in a 72px column; word (600 weight, ellipsis-truncated, violet when hinted) over a flat 6px temperature bar that animates to width. New rows land without entrance choreography; duplicates shake.
+Word (700 weight, ellipsis-truncated, violet when hinted) left, large tabular rank numeral right; full-height temperature fill behind (width = log-scaled rank progress, 55% mix so text stays legible). Latest row is outlined pale with a dashed separator beneath it; the list below stays rank-sorted. New rows land without entrance choreography; duplicates shake.
 
 ## Do's and Don'ts
 

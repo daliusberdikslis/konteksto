@@ -37,6 +37,7 @@ const dom = {
   winCount: document.getElementById("win-count"),
   resetBtn: document.getElementById("reset-game"),
   hintBtn: document.getElementById("hint-btn"),
+  meta: document.getElementById("game-meta"),
 };
 
 function sleep(ms) {
@@ -270,10 +271,7 @@ function getScoreClass(similarity) {
 }
 
 function formatPositionLabel(position) {
-  if (state.totalWords) {
-    return `#${position} <span class="position-of">iš ${state.totalWords.toLocaleString("lt-LT")}</span>`;
-  }
-  return `#${position}`;
+  return `${position.toLocaleString("lt-LT")}`;
 }
 
 // --- Rendering ---
@@ -285,15 +283,14 @@ function createGuessRow(guess, isLatest) {
   row.className = `guess-row ${scoreClass}${isExact ? " exact-match" : ""}${isLatest ? " latest-guess" : ""}${guess.isHint ? " hint-row" : ""}`;
   row.dataset.lemma = guess.lemma;
 
+  row.setAttribute("role", "listitem");
   row.innerHTML = `
+    <div class="bar-track" role="progressbar" aria-valuenow="${progress}" aria-valuemin="0" aria-valuemax="100" aria-label="Progresas iki slapto žodžio">
+      <div class="bar-fill" style="width: 0%"></div>
+    </div>
+    <span class="guess-word">${escapeHTML(guess.lemma)}</span>
     <div class="guess-position" aria-label="Pozicija žodyne">
       <span class="guess-position-num">${formatPositionLabel(guess.position)}</span>
-    </div>
-    <div class="guess-word-col">
-      <span class="guess-word">${escapeHTML(guess.lemma)}</span>
-      <div class="bar-track" role="progressbar" aria-valuenow="${progress}" aria-valuemin="0" aria-valuemax="100" aria-label="Progresas iki slapto žodžio">
-        <div class="bar-fill" style="width: 0%"></div>
-      </div>
     </div>
   `;
 
@@ -309,19 +306,41 @@ function createGuessRow(guess, isLatest) {
 
 
 function renderGuessList() {
-  const ordered = [...state.guesses].reverse();
-
   dom.guessList.innerHTML = "";
 
-  if (ordered.length === 0) {
+  if (state.guesses.length === 0) {
     dom.guessList.appendChild(createEmptyState());
+    updateMeta();
     return;
   }
 
   const latest = state.guesses[state.guesses.length - 1];
-  ordered.forEach((guess) => {
-    dom.guessList.appendChild(createGuessRow(guess, guess === latest));
-  });
+  dom.guessList.appendChild(createGuessRow(latest, true));
+
+  const rest = state.guesses.slice(0, -1).sort((a, b) => a.position - b.position);
+  if (rest.length > 0) {
+    const separator = document.createElement("hr");
+    separator.className = "latest-separator";
+    separator.setAttribute("aria-hidden", "true");
+    dom.guessList.appendChild(separator);
+    rest.forEach((guess) => {
+      dom.guessList.appendChild(createGuessRow(guess, false));
+    });
+  }
+  updateMeta();
+}
+
+function updateMeta() {
+  if (!dom.meta) return;
+  if (state.guesses.length === 0) {
+    dom.meta.textContent = "";
+    return;
+  }
+  const count = state.guesses.length;
+  const mod10 = count % 10;
+  const mod100 = count % 100;
+  const word = mod10 === 1 && mod100 !== 11 ? "spėjimas" : mod10 >= 2 && mod10 <= 9 && (mod100 < 11 || mod100 > 19) ? "spėjimai" : "spėjimų";
+  dom.meta.textContent = `${count} ${word}`;
 }
 
 function createEmptyState() {
@@ -338,6 +357,7 @@ function createEmptyState() {
 
 function updateStats() {
   updateHintButton();
+  updateMeta();
 }
 
 function updateHintButton() {
