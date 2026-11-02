@@ -396,12 +396,13 @@ def extract_zip_member(zip_path: Path, member: str | None, member_suffix: str | 
         return out
 
 
-def merge_freq_lists(lists: list[list[tuple[str, int]]]) -> list[str]:
+def merge_freq_lists(lists: list[list[tuple[str, int]]]) -> list[tuple[str, int]]:
     merged: dict[str, int] = {}
     for entries in lists:
         for lemma, freq in entries:
             merged[lemma] = max(merged.get(lemma, 0), freq)
-    return [lemma for lemma, _ in sorted(merged.items(), key=lambda x: (-x[1], x[0]))]
+    ranked = sorted(merged.items(), key=lambda x: (-x[1], x[0]))
+    return ranked
 
 
 def load_from_clarin(
@@ -470,7 +471,7 @@ def load_from_clarin(
         )
 
     merged = merge_freq_lists(freq_lists)
-    return [(lemma, 0) for lemma in merged]
+    return merged
 
 
 def filter_hunspell(lemmas: list[str]) -> list[str]:
@@ -594,6 +595,12 @@ def main() -> None:
         help="Skip the cleanup filters entirely",
     )
     parser.add_argument("--max-len", type=int, default=DEFAULT_MAX_LEN)
+    parser.add_argument(
+        "--min-freq",
+        type=int,
+        default=0,
+        help="Drop lemmas with merged corpus frequency below this (0 = off)",
+    )
     args = parser.parse_args()
 
     global _MAX_LEN
@@ -655,6 +662,10 @@ def main() -> None:
             jcl_pos,
             utka_pos,
         )
+        if args.min_freq > 0:
+            before = len(entries)
+            entries = [(lemma, f) for lemma, f in entries if f >= args.min_freq]
+            print(f"Min-freq filter (>={args.min_freq}): kept {len(entries)}, dropped {before - len(entries)}")
         lemmas = [lemma for lemma, _ in entries]
         print(f"CLARIN merged: {len(lemmas)} unique lemmas")
 
