@@ -89,6 +89,13 @@ PROTECTED_NOUNS = frozenset({
     "upėtakis", "priešpietis", "savitarpis", "laikotarpis",
     # -dėlė / -užė everyday words
     "dėlė", "skruzdėlė", "valandėlė", "gegužė", "meilužė",
+    # agent/profession nouns that stay playable despite the suffix
+    # (core vocabulary + -orius words that are objects, not persons)
+    "vairuotojas", "gyventojas", "skaitytojas", "rašytojas",
+    "dainininkas", "menininkas", "darbininkas",
+    "direktorius", "aktorius", "autorius", "sektorius",
+    "televizorius", "traktorius", "koridorius", "reaktorius",
+    "kompiuteris",
 })
 # Rare medical terms: INN-style drug suffixes and disease suffixes.
 # Applied only below PROTECTED_RANK (frequent vaistas, liga stay).
@@ -135,6 +142,14 @@ DEVICE_SUFFIX_RE = re.compile(r"(?:iklis)$", re.IGNORECASE)
 # Rare agent nouns for character traits (pašaipūnas, šaunuolis):
 # -ūnas/-uolis persons below the protected rank.
 PERSON_SUFFIX_RE = re.compile(r"(?:ūnas|uolis|uolė)$", re.IGNORECASE)
+# Agent/profession nouns (-tojas/-ėjas, -ininkas, -istas, -orius):
+# vairuotojas, programuotojas, skaitytojas — derived from verbs, "and
+# not quite" a real noun. Exact-match PROTECTED_NOUNS (gyventojas,
+# skaitytojas, rašytojas…) and PROTECTED_RANK stay playable.
+AGENT_SUFFIX_RE = re.compile(
+    r"(?:tojas|toja|ėjas|ėja|ininkas|ininkė|istas|istė|orius|orė)$",
+    re.IGNORECASE,
+)
 # Rare micro-demonyms (-ietis): žirmūnietis, merkinietis, friburgietis.
 # Frequent ones (kaunietis, vilnietis, europietis…) rank < PROTECTED_RANK.
 DEMONYM_SUFFIX_RE = re.compile(r"(?:ietis|ietė)$", re.IGNORECASE)
@@ -299,6 +314,8 @@ def is_cleanup_drop(
         return "device"
     if PERSON_SUFFIX_RE.search(w):
         return "person-suffix"
+    if AGENT_SUFFIX_RE.search(w):
+        return "profession"
     if DEMONYM_SUFFIX_RE.search(w):
         return "demonym"
     if TAKIS_SUFFIX_RE.search(w):
