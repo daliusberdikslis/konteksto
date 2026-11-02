@@ -150,6 +150,15 @@ AGENT_SUFFIX_RE = re.compile(
     r"(?:tojas|toja|ėjas|ėja|ininkas|ininkė|istas|istė|orius|orė)$",
     re.IGNORECASE,
 )
+# Definite adjectives used as nouns (įvardžiuotiniai būdvardžiai):
+# raudonasis, baltasis, greitoji, vyresnysis — not real nouns.
+# -(i)masis forms (mokymasis, kaltinamasis, mylimasis) are kept:
+# reflexive nouns and substantivized participles are real game words.
+MASIS_KEEP_RE = re.compile(r"masis$", re.IGNORECASE)
+DEFINITE_ADJ_RE = re.compile(
+    r"(?:[a-ząčęėįšųūž]{4,}asis|[a-ząčęėįšųūž]{5,}(?:ysis|usis)|[a-ząčęėįšųūž]+(?:oji|ioji|ieji|osios|iosios))$",
+    re.IGNORECASE,
+)
 # Rare micro-demonyms (-ietis): žirmūnietis, merkinietis, friburgietis.
 # Frequent ones (kaunietis, vilnietis, europietis…) rank < PROTECTED_RANK.
 DEMONYM_SUFFIX_RE = re.compile(r"(?:ietis|ietė)$", re.IGNORECASE)
@@ -320,6 +329,8 @@ def is_cleanup_drop(
         return "demonym"
     if TAKIS_SUFFIX_RE.search(w):
         return "takis"
+    if DEFINITE_ADJ_RE.search(w) and not MASIS_KEEP_RE.search(w):
+        return "definite-adj"
     if w in JUNK_WORDS:
         return "junk-word"
     if JUNK_SUFFIX_RE.search(w):
