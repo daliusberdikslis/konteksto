@@ -84,8 +84,13 @@ class EmbeddingStore:
             return None
         return idx
 
+    # Slaptas žodis — tik iš TOP-2000 dažniausių. Žaidėjas niekada
+    # negauna reto termino kaip atsakymo; spėti galima visus žodžius.
+    SECRET_POOL_SIZE = 2000
+
     def random_game(self) -> Game:
-        idx = secrets.randbelow(len(self.words))
+        pool = min(self.SECRET_POOL_SIZE, len(self.words))
+        idx = secrets.randbelow(pool)
         return Game(
             id=self.game_id_for_index(idx),
             target=self.words[idx],

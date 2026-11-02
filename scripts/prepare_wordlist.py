@@ -164,6 +164,10 @@ DEFINITE_ADJ_RE = re.compile(
 DEMONYM_SUFFIX_RE = re.compile(r"(?:ietis|ietė)$", re.IGNORECASE)
 # Rare -takis conduits (vištakis, šuntakis) — keep antakis/upėtakis via rank.
 TAKIS_SUFFIX_RE = re.compile(r"(?:takis)$", re.IGNORECASE)
+# Rare derivatives (-inys/-ulys/-ėnas results, actions, diminutive-like
+# animals): durtinys, kurtinys, dusulys, žiurkėnas. Productive but rare —
+RARE_DERIV_FREQ = 3000
+RARE_DERIV_SUFFIX_RE = re.compile(r"(?:inys|ulys|ėnas)$", re.IGNORECASE)
 # Junk: fragments, typos, one-off compounds. Exact stems + rare tails.
 JUNK_WORDS = frozenset({
     "prozopopėja", "šventvakaris", "pusvakaris", "savitarpis",
@@ -302,11 +306,16 @@ def is_cleanup_drop(
     lemma: str,
     rank: int,
     verb_lemmas: frozenset[str] | None = None,
+    freq_map: dict[str, int] | None = None,
 ) -> str | None:
     """Return drop reason, or None to keep. Frequent ranks are protected."""
     w = lemma.strip().lower()
     if rank < PROTECTED_RANK or w in PROTECTED_NOUNS:
         return None
+    if RARE_DERIV_SUFFIX_RE.search(w):
+        freq = freq_map.get(w, 0) if freq_map is not None else 0
+        if freq < RARE_DERIV_FREQ:
+            return "rare-derivative"
     if VERBAL_NOUN_SUFFIX_RE.search(w):
         suffix = next(s for s in VERBAL_NOUN_SUFFIXES if w.endswith(s))
         if verb_lemmas is None or has_verb_stem(w, verb_lemmas, suffix):
@@ -339,6 +348,7 @@ def is_cleanup_drop(
 def filter_cleanup(
     lemmas: list[str],
     verb_lemmas: frozenset[str] | None = None,
+    freq_map: dict[str, int] | None = None,
 ) -> list[str]:
     """Drop rare action nouns, diminutives, drugs and diseases.
 
@@ -349,7 +359,7 @@ def filter_cleanup(
     kept: list[str] = []
     dropped: dict[str, int] = {}
     for rank, lemma in enumerate(lemmas):
-        reason = is_cleanup_drop(lemma, rank, verb_lemmas)
+        reason = is_cleanup_drop(lemma, rank, verb_lemmas, freq_map)
         if reason is None:
             kept.append(lemma)
         else:

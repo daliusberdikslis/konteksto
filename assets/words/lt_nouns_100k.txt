@@ -6487,7 +6487,6 @@ apsukos
 didumas
 saviškis
 spiečius
-karpinys
 karšis
 sėjomaina
 šūsnis
@@ -6632,7 +6631,6 @@ agentė
 šakės
 kiaušialąstė
 griežtumas
-veltinys
 karklas
 sumanumas
 menstruacijos
@@ -6693,7 +6691,6 @@ dvylikametis
 bendraautoris
 pabaigtuvės
 ridikėlis
-eigulys
 iškamša
 silikonas
 bušido
@@ -6755,7 +6752,6 @@ sėmenys
 spūdis
 komuna
 olandė
-slėpinys
 menkysta
 onkologas
 neutralumas
@@ -6821,7 +6817,6 @@ feminizmas
 geradaris
 mauzoliejus
 gyvastis
-pilėnas
 sklandytuvas
 svaja
 apytaka
@@ -6912,7 +6907,6 @@ aštrumas
 logopedas
 apokalipsė
 burleska
-pūlinys
 snapas
 scenografas
 ložė
@@ -6955,7 +6949,6 @@ idealizmas
 munduras
 džihadas
 neurochirurgija
-puvinys
 sterilizacija
 viceprezidentė
 lygintuvas
@@ -7019,7 +7012,6 @@ vanilė
 kivis
 arkangelas
 mimika
-dusulys
 siuvykla
 botagas
 atsakingumas
@@ -7032,7 +7024,6 @@ eglynas
 gobtuvas
 skaitovas
 bedarbė
-mezginys
 grūstis
 levanda
 peronas
@@ -7058,7 +7049,6 @@ konkretumas
 olimpas
 skersgatvis
 milijardierė
-ryšulys
 kepalas
 operatyvumas
 išvarža
@@ -7161,10 +7151,8 @@ apkepas
 pleistras
 nokautas
 paukštininkystė
-kyšulys
 blyksnis
 realumas
-traukulys
 peštynės
 dekalitras
 klostė
@@ -7207,7 +7195,6 @@ vikšras
 įšalas
 priklausomumas
 lego
-skritulys
 pusiaujas
 depas
 kluonas
@@ -7238,7 +7225,6 @@ numirėlis
 rūdys
 sinodas
 iškalba
-trumpinys
 išrūgos
 konsistencija
 savanoriškumas
@@ -7355,9 +7341,7 @@ etiudas
 jaunatis
 degutas
 almanachas
-virdulys
 apsišaukėlis
-kreipinys
 paspirtis
 sotis
 grobikas
@@ -7505,7 +7489,6 @@ kietumas
 laris
 dagys
 dializė
-varnėnas
 sėklavaisis
 džiugesys
 tinktūra
@@ -7542,7 +7525,6 @@ signatarė
 karbonatas
 maišytuvas
 pašiūrė
-kliuvinys
 monospektaklis
 nuotrupa
 apnašos
@@ -7561,7 +7543,6 @@ kurpius
 motorlaivis
 kola
 šakotis
-raižinys
 triukšmadarys
 išeiga
 pietvakaris
@@ -7701,11 +7682,9 @@ disbalansas
 korida
 bitumas
 septynmetis
-skaitinys
 raupai
 rinktuvas
 samba
-šaukinys
 iltis
 ribotumas
 vertingumas
@@ -7721,7 +7700,6 @@ skruzdėlynas
 falsifikatas
 džinas
 praktikantas
-drožinys
 nektaras
 sandauga
 provėža
@@ -7743,7 +7721,6 @@ sankasa
 patiklumas
 vienišumas
 pasiuntinybė
-žėlinys
 kabaretas
 perdraudikas
 saris
@@ -7833,7 +7810,6 @@ aminorūgštis
 kapiliaras
 kranklys
 undinė
-šipulys
 marina
 ajatola
 kėdainiškis
@@ -8119,7 +8095,6 @@ trosas
 širdgėla
 nuovira
 riešutėlis
-siuvinys
 skraidyklė
 imunoprofilaktika
 audiencija
@@ -8202,7 +8177,6 @@ ekslibrisas
 leistinumas
 modernas
 vainikėlis
-kratinys
 aksomas
 supervalstybė
 talija
@@ -8229,7 +8203,6 @@ verslovė
 voltas
 poligrafija
 amputacija
-kinkinys
 fanatizmas
 gandralizdis
 smauglys
@@ -8242,7 +8215,6 @@ aimana
 arfa
 asmeniškumas
 kepurėlė
-svaigulys
 pirmtakė
 skanduotė
 posūnis
@@ -8289,7 +8261,6 @@ aiškiaregis
 diversifikacija
 libido
 panteonas
-gavėnas
 tyčiojimasis
 bilietėlis
 stakta
@@ -8324,7 +8295,6 @@ nematodas
 pakulnė
 praktiškumas
 veltėdis
-žiurkėnas
 atspirtis
 džiūvėsėlis
 kontrabosas
@@ -8409,7 +8379,6 @@ pirmagimė
 porūšis
 atvelykis
 popkultūra
-krešulys
 vedos
 narsa
 tomografas
@@ -8420,7 +8389,6 @@ kalnakasyba
 metropolis
 nykštukė
 anklavas
-drebulys
 materializmas
 daigumas
 psichoanalitikas
@@ -8441,12 +8409,10 @@ klika
 griausmas
 pantera
 dryžis
-nešulys
 šmeižikas
 įgriuva
 atlošas
 cigarilė
-kalnėnas
 pelekas
 karutis
 idilė
@@ -8615,7 +8581,6 @@ biznierius
 dezinsekcija
 linčas
 kontraindikacija
-kurėnas
 sfinksas
 spidometras
 magnolija
@@ -8679,7 +8644,6 @@ priedainis
 taisykla
 floristika
 polifonija
-valdinys
 garnys
 kliringas
 nelaimėlė
@@ -8853,11 +8817,9 @@ husaras
 mėšlungis
 spjūvis
 diplomantas
-niežulys
 račius
 vaiduoklė
 volas
-durtinys
 kamanė
 lenas
 įklotas
@@ -8896,7 +8858,6 @@ vinjetė
 kūrinija
 vaikėzas
 štamas
-meškėnas
 skėrys
 dešrainis
 lingvistika
@@ -9034,7 +8995,6 @@ puskilometris
 birbynė
 jonažolė
 kelrodis
-kurtinys
 solidumas
 atsekamumas
 bekonas
@@ -9059,7 +9019,6 @@ priežastingumas
 restoranėlis
 kaskada
 raseiniškis
-šleikštulys
 klitoris
 patogenas
 radioastronomija
@@ -9135,7 +9094,6 @@ papulkininkis
 demaršas
 ponaitis
 pusprotis
-veidmainys
 ventilis
 rizikingumas
 daugiskaita
@@ -9237,7 +9195,6 @@ brolybė
 apartheidas
 beždžionėlė
 dvimetis
-siautulys
 varnalėša
 karteris
 kavalerija
@@ -9338,7 +9295,6 @@ hidrantas
 nesvarumas
 sanskritas
 čeburekas
-žmogėnas
 didvyriškumas
 karalaitė
 katafalkas
@@ -9379,7 +9335,6 @@ kitatikis
 servizas
 skaitalas
 tamplierius
-geidulys
 genezė
 alksnynė
 beraštė
@@ -9490,7 +9445,6 @@ asimiliacija
 chameleonas
 dispečerė
 lateksas
-klojinys
 koncertmeisterė
 konspektas
 neatidumas
@@ -9592,6 +9546,5 @@ kraujomaiša
 pozityvas
 beržynas
 juodžemis
-sukinys
 patriotė
 trylikametis
